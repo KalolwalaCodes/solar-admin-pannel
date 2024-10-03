@@ -40,7 +40,7 @@ const Sustainability = () => {
   useEffect(() => {
     const fetchSustainabilityData = async () => {
       try {
-        let res = await fetch("http://localhost:8080/Sustainability");
+        let res = await fetch("http://localhost:8000/Sustainability");
         let data = await res.json();
         setSustainabilityData(data);
         console.log("here is ", data[activeTab][0]);
@@ -66,7 +66,7 @@ const Sustainability = () => {
       const newFileName = needToEdit.value; // new file name from input
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('http://localhost:8080/Sustainability', {
+      const response = await fetch('http://localhost:8000/Sustainability', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ const Sustainability = () => {
       const category = activeTab; // active tab as the category
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('http://localhost:8080/Sustainability', {
+      const response = await fetch('http://localhost:8000/Sustainability', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -225,7 +225,7 @@ const Sustainability = () => {
       formData.append('folderName', folderName);
       formData.append('category', category);
   
-      const response = await fetch('http://localhost:8080/Sustainability/upload-files', {
+      const response = await fetch('http://localhost:8000/Sustainability/upload-files', {
         method: 'POST',
         body: formData, // Use FormData for file upload
       });

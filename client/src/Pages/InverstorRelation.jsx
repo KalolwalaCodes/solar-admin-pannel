@@ -37,7 +37,7 @@ const InvestorsRelation = () => {
   useEffect(() => {
     const fetchInvestorData = async () => {
       try {
-        let res = await fetch("http://localhost:8080/Investor-relation");
+        let res = await fetch("http://localhost:8000/Investor-relation");
         let data = await res.json();
         setInvestorData(data);
         console.log("here is ", data[activeTab][0]);
@@ -63,7 +63,7 @@ const InvestorsRelation = () => {
       const newFileName = needToEdit.value; // new file name from input
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('http://localhost:8080/Investor-relation', {
+      const response = await fetch('http://localhost:8000/Investor-relation', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const InvestorsRelation = () => {
       const category = activeTab; // active tab as the category
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('http://localhost:8080/Investor-relation', {
+      const response = await fetch('http://localhost:8000/Investor-relation', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -222,7 +222,7 @@ const InvestorsRelation = () => {
       formData.append('folderName', folderName);
       formData.append('category', category);
   
-      const response = await fetch('http://localhost:8080/Investor-relation/upload-files', {
+      const response = await fetch('http://localhost:8000/Investor-relation/upload-files', {
         method: 'POST',
         body: formData, // Use FormData for file upload
       });
