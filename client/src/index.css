@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.css-gfsdl8-MuiPaper-root-MuiAppBar-root{
+    background: rgb(235, 45, 45) !important;
+}
