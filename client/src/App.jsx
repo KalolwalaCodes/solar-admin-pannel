@@ -9,7 +9,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   return (
-    <Router >
+    <Router basename={process.env.VITE_BASE_PATH?process.env.VITE_BASE_PATH:""}>
       <Routes>
         {/* <Route path="/" element={<Login setAuthenticated={setIsAuthenticated} />} /> */}
         <Route
