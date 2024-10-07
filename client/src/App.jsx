@@ -7,8 +7,9 @@ import ProtectedRoute from './Pages/ProtectedRoutes/ProtectedRoutes';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+
   return (
-<Router basename='/admin-pannel'>
+    <Router basename="/admin-pannel">
       <Routes>
         {/* <Route path="/" element={<Login setAuthenticated={setIsAuthenticated} />} /> */}
         <Route
