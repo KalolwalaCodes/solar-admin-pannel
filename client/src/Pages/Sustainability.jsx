@@ -361,7 +361,7 @@ const Sustainability = () => {
                         indicator={<AddIcon />}
                         children={<CloudUploadIcon/>}
                       >
-                        {element.heading}
+                        {key.title}
                         <Button style={{zIndex:3}} className=" absolute right-[-35%]" onClick={(e)=> uploadHandler(e,element)}><CloudUploadIcon/></Button>
                     
                       </AccordionSummary>

@@ -123,7 +123,7 @@ const [selectedItem,setSelectedItem]=React.useState(1);
         <IconButton variant="soft"  size="sm">
           <BrightnessAutoRoundedIcon />
         </IconButton>
-        <Typography level="title-lg"><img src="/icons/solarlogo.png" alt="" /></Typography>
+        <Typography level="title-lg"><img src="./admin-pannel/icons/solarlogo.png" alt="" /></Typography>
         <ColorSchemeToggle  sx={{ ml: "auto" ,color:"red"}} />
       </Box>
       {/* <Input
@@ -170,15 +170,7 @@ const [selectedItem,setSelectedItem]=React.useState(1);
             </ListItemButton>
           </ListItem>
 
-          <ListItem>
-            <ListItemButton selected={selectedItem===3} onClick={()=>changePageRoutingView("Product",3)} >
-            <ShoppingCartRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Product</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
-
+        
           <ListItem>
             <ListItemButton selected={selectedItem===4} onClick={()=>changePageRoutingView("Contact-us",4)}>
               <ConnectWithoutContactIcon />
