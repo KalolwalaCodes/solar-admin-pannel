@@ -8,7 +8,7 @@ import ProtectedRoute from './Pages/ProtectedRoutes/ProtectedRoutes';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   return (
-<Router basename={import.meta.env.VITE_BASE_PATH}>
+<Router basename='/admin-pannel'>
       <Routes>
         {/* <Route path="/" element={<Login setAuthenticated={setIsAuthenticated} />} /> */}
         <Route
