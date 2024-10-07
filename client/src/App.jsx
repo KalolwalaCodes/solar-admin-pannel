@@ -7,7 +7,6 @@ import ProtectedRoute from './Pages/ProtectedRoutes/ProtectedRoutes';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-
   return (
 <Router basename={import.meta.env.VITE_BASE_PATH}>
       <Routes>
