@@ -7,11 +7,6 @@
           "heading": "Update on Concall and Analyst Meet",
           "details": [
             {
-              "title": "Transcription of Concall 31.01.2022",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 31.01.2022.pdf"
-            },
-            {
               "title": "Transcription of Concall 26.06.2022",
               "type": "pdf",
               "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 26.06.2022.pdf"
@@ -105,6 +100,16 @@
               "title": "Intimation of cancellation of conference call",
               "type": "pdf",
               "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Intimation of cancellation of conference call.pdf"
+            },
+            {
+              "title": "economic_explosives_limited_2014_159_401542191874161.pdf",
+              "path": "Investors-Relation/announcements/Conference+call+with+Investors/Update+on+Concall+and+Analyst+Meet/economic_explosives_limited_2014_159_401542191874161.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Intimation of issuance of Commercial Paper amounting to Rs. 50 Crores.pdf",
+              "path": "Investors-Relation/announcements/Conference call with Investors/Update on Concall and Analyst Meet/Intimation of issuance of Commercial Paper amounting to Rs. 50 Crores.pdf",
+              "fileType": "application/pdf"
             }
           ]
         },
@@ -1539,13 +1544,7 @@
       "items": [
         {
           "heading": "Dividend History",
-          "details": [
-            {
-              "title": "DIVIDEND-HISTORY-OF-SOLAR-INDUSTRIES-INDIA-LIMITED",
-              "url": "Investors-Relation/Stock Information/Dividend History/DIVIDEND-HISTORY-OF-SOLAR-INDUSTRIES-INDIA-LIMITED.pdf",
-              "type": "pdf"
-            }
-          ]
+          "details": []
         }
       ]
     },
