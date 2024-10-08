@@ -8,7 +8,7 @@ const contactRouter=require('./routes/Contact.js');
 const sustainabilityRouter = require('./routes/Sustainability.js');
 app.use(express.json());
 app.use(cors({origin:"*"}))
-app.use("/Investor-relation",investorRouter);
+app.use("/admin-panel/Investor-relation",investorRouter);
 app.use("/Sustainability",sustainabilityRouter);
 app.use("/contactRouter",contactRouter)
 
