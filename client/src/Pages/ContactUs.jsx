@@ -105,7 +105,7 @@ export default function ContactUs() {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch('http://localhost:8000/contactRouter/contact-us');
+      const response = await fetch('/admin-panel/contact-us');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -121,7 +121,7 @@ export default function ContactUs() {
   const handleDelete = async (id) => {
     console.log(id, "delete triggered");
     try {
-      const response = await fetch(`http://localhost:8000/contactRouter/contact-us/${id}`, {
+      const response = await fetch(`/admin-panel/contact-us/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
