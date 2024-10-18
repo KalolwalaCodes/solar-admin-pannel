@@ -5,7 +5,7 @@ const fetch = require('node-fetch'); // Works with node-fetch@2
 // Get contacts
 router.get('/', async (req, res) => {
   try {
-    const response = await fetch('http://localhost:3000/contact-us');
+    const response = await fetch('https://solargroup.com/api/contact-us');
     const data = await response.json();
     res.json(data);
   } catch (error) {
@@ -20,7 +20,7 @@ router.delete('/:id', async (req, res) => {
 
   try {
     // Send DELETE request to Backend B
-    const response = await fetch(`http://localhost:3000/contact-us/${id}`, {
+    const response = await fetch(`https://solargroup.com/contact-us/${id}`, {
       method: 'DELETE',
     });
   console.log(response,"here is response")

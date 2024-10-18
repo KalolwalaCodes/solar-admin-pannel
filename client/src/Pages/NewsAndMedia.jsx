@@ -48,6 +48,7 @@ const NewsAndMedia = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('authToken');
 
     const formData = new FormData();
     formData.append('thumbnail', thumbnail); // Append the image file
@@ -63,6 +64,7 @@ const NewsAndMedia = () => {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`, // Include token
+         
         },
         body: formData, // Send form data with the file
       });

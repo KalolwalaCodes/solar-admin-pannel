@@ -72,7 +72,7 @@
     },
     {
       "id": 8,
-      "thumbnail": "http://localhost:3000/api/download-file?file=news-thumbnails/1729238063475_app_store.png",
+      "thumbnail": "/api/download-file?file=news-thumbnails/1729238063475_app_store.png",
       "headline": "tdmnowxnwowesting ",
       "shortNews": "jhbcjbbicbn ols bcbaiBCI Q WC C.   C. C ",
       "date": "2024-10-07",
