@@ -32,9 +32,9 @@ router.get('/', async (req, res) => {
 .patch('/', async (req, res) => {
   const { previousFileName, newFileName, folderName, category } = req.body;
   console.log(newFileName, previousFileName, folderName, category, "here is data");
-  console.log(data[category],"here is the datat");
+  console.log(data[category],"here is the data");
   const catEgoryS = data[category];
-  console.log(catEgoryS,"here is the datat");
+  console.log(catEgoryS,"here is the data");
   if (!Array.isArray(catEgoryS)) {
       return res.status(400).send('Invalid data structure: category should be an array');
   }
@@ -105,89 +105,285 @@ router.get('/', async (req, res) => {
     });
 })
 .post('/upload-files', upload.single('file'), async (req, res) => {
-    const {  folderName, itemsHeading, category } = req.body;
-    console.log("the body",req.body);
-    const file = req.file;
+  const { folderName, itemsHeading, category } = req.body;
+  console.log("the body", req.body);
+  const file = req.file;
 
-    if (!file) {
-        return res.status(400).send('File is required');
-    }
+  if (!file) {
+      return res.status(400).send('File is required');
+  }
 
-    try {
-        // Upload file to S3
-        let uploadParams;
-        const fileName=file.originalname;
-        if(itemsHeading!=folderName){
-            uploadParams = {
-                Bucket: 'solarwebsite-documents', // Your S3 bucket name
-                Key: `Investors-Relation/${category}/${folderName}/${itemsHeading}/${fileName}`, // Generate unique filename
-                Body: file.buffer,
-                ContentType: file.mimetype,
-            };
-    
-        }
-        else{
-            uploadParams = {
-                Bucket: 'solarwebsite-documents', // Your S3 bucket name
-                Key: `Investors-Relation/${category}/${itemsHeading}/${fileName}`, // Generate unique filename
-                Body: file.buffer,
-                ContentType: file.mimetype,
-            };
-        }
-       
-        const parallelUpload = new Upload({
-            client: s3,
-            params: uploadParams,
-        });
+  try {
+      const fileName = file.originalname;
+      let uploadParams;
 
-        const s3UploadResult = await parallelUpload.done();
-        const fileUrl = s3UploadResult.Location;
-        const s3FilePath = decodeURIComponent(fileUrl.split('amazonaws.com/')[1]);
-        console.log(s3FilePath,"here is the path")
-        // Update the JSON structure with new file info
-        const categoryData = data[category];
+      if (itemsHeading.toLowerCase() !== folderName.toLowerCase()) {
+          uploadParams = {
+              Bucket: 'solarwebsite-documents',
+              Key: `Investors-Relation/${category}/${folderName}/${itemsHeading}/${fileName}`, // Keep spaces in key
+              Body: file.buffer,
+              ContentType: file.mimetype,
+          };
+      } else {
+          uploadParams = {
+              Bucket: 'solarwebsite-documents',
+              Key: `Investors-Relation/${category}/${itemsHeading}/${fileName}`, // Keep spaces in key
+              Body: file.buffer,
+              ContentType: file.mimetype,
+          };
+      }
 
-        if (!Array.isArray(categoryData)) {
-            return res.status(400).send('Invalid data structure: category should be an array');
-        }
+      const parallelUpload = new Upload({
+          client: s3,
+          params: uploadParams,
+      });
 
-        let folderFound = false;
-        for (const categoryItem of categoryData) {
-            if (categoryItem.title === folderName) {
-                categoryItem.items.forEach((item)=>{
-                   if( item.heading==itemsHeading){
-                      item.details.push({
-                      
-                                title: fileName,
-                                path: `${s3FilePath}`, // File download link
-                                fileType: file.mimetype,
+      const s3UploadResult = await parallelUpload.done();
+      let fileUrl = s3UploadResult.Location;
+      let s3FilePath = decodeURIComponent(fileUrl.split('amazonaws.com/')[1]);  // Decode URL to remove %20
+
+      // Replace '+' with spaces after decoding, which S3 sometimes uses for spaces
+      s3FilePath = s3FilePath.replace(/\+/g, ' ');
+      fileUrl = fileUrl.replace(/\+/g, ' ');
+
+      console.log(s3FilePath, "here is the path");
+      console.log(fileUrl, "here is the path original");
+
+      // Update JSON structure
+      const categoryData = data[category];
+
+      if (!Array.isArray(categoryData)) {
+          return res.status(400).send('Invalid data structure: category should be an array');
+      }
+
+      let folderFound = false;
+      for (const categoryItem of categoryData) {
+          if (categoryItem.title.toLowerCase() === folderName.toLowerCase()) {
+              categoryItem.items.forEach((item) => {
+                  if (item.heading.toLowerCase() === itemsHeading.toLowerCase()) {
+                      item.details. unshift({
+                          title: file.originalname,
+                          url: s3FilePath,  // Use decoded file path with spaces
+                          fileType: file.mimetype,
                       });
-                   }
-                })
-                folderFound = true;
-                break;
-            }
-        }
+                  }
+              });
+              folderFound = true;
+              break;
+          }
+      }
 
-        if (!folderFound) {
-            return res.status(400).send('Folder not found in category');
-        }
+      if (!folderFound) {
+          return res.status(400).send('Folder not found in category');
+      }
 
-        // Write the updated data back to the JSON file
-        fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
-            if (err) {
-                console.error('Error writing to file:', err);
-                return res.status(500).send('Error updating data');
-            }
-            console.log("File uploaded and JSON updated successfully.");
-            res.status(200).send('File uploaded and JSON updated successfully');
-        });
+      // Write the updated data back to the JSON file
+      fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
+          if (err) {
+              console.error('Error writing to file:', err);
+              return res.status(500).send('Error updating data');
+          }
+          console.log("File uploaded and JSON updated successfully.");
+          res.status(200).send('File uploaded and JSON updated successfully');
+      });
 
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('An error occurred while uploading the file.');
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('An error occurred while uploading the file.');
+  }
+})
+.post('/create-folder-nesting', async (req, res) => {
+  const { folderName, category, activeFD } = req.body;
+
+  console.log(folderName, category, activeFD);
+  if (!folderName || !category || activeFD === undefined) {
+      return res.status(400).send('Folder name, category, and activeFD are required');
+  }
+
+  try {
+      // Read the current data structure from the JSON file
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      const categoryData = data[category];
+
+      // Validate if category exists and is an array
+      if (!Array.isArray(categoryData)) {
+          return res.status(400).send('Invalid data structure: category should be an array');
+      }
+
+      // Find the item in categoryData that matches the activeFD title
+      const matchingCategoryItem = categoryData.find(item => item.title.toLowerCase() === activeFD.toLowerCase());
+
+      if (!matchingCategoryItem) {
+          return res.status(400).send('No matching category item found for the provided activeFD');
+      }
+
+      // Check if the folder (with the same name) already exists in the matching item's details
+      const folderExists = matchingCategoryItem.items.some(item => item.heading.toLowerCase() === folderName.toLowerCase());
+
+      if (folderExists) {
+          return res.status(400).send('Folder already exists');
+      }
+
+      // Add new folder with an empty 'details' array to the matching item's items array
+      matchingCategoryItem.items. unshift({
+          heading: folderName,
+          details: []
+      });
+
+      // Write the updated structure back to the JSON file
+      fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
+          if (err) {
+              console.error('Error writing to file:', err);
+              return res.status(500).send('Error updating data');
+          }
+          console.log("Folder created successfully.");
+          res.status(200).send('Folder created successfully');
+      });
+
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('An error occurred while creating the folder.');
+  }
+})
+.post('/create-folder', async (req, res) => {
+  const { folderName, category } = req.body;
+
+  if (!folderName || !category) {
+      return res.status(400).send('Folder name, items heading, and category are required');
+  }
+
+  try {
+      // Read the current data structure from the JSON file
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      const categoryData = data[category];
+
+      // Validate if category exists and is an array
+      if (!Array.isArray(categoryData)) {
+          return res.status(400).send('Invalid data structure: category should be an array');
+      }
+
+      // Check if the folder (with the same name) already exists
+      let folderExists = categoryData.some(categoryItem => categoryItem.title.toLowerCase() === folderName.toLowerCase());
+
+      if (folderExists) {
+          return res.status(400).send('Folder already exists');
+      }
+
+      // Add new folder with an empty items array
+      categoryData. unshift({
+          title: folderName,
+          items: [
+              
+          ]
+      });
+
+      // Write the updated structure back to the JSON file
+      fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
+          if (err) {
+              console.error('Error writing to file:', err);
+              return res.status(500).send('Error updating data');
+          }
+          console.log("Folder created successfully.");
+          res.status(200).send('Folder created successfully');
+      });
+
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('An error occurred while creating the folder.');
+  }
+}).post('/delete-folder-nesting', async (req, res) => {
+    const { folderName, category, parentFolder } = req.body;
+  
+    // Input validation
+    if (!folderName || !category || parentFolder === undefined) {
+      return res.status(400).send('Folder name, category, and parentFolder are required');
     }
-});
+  
+    try {
+      // Read current data
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      const categoryData = data[category];
+  
+      // Validate category
+      if (!Array.isArray(categoryData)) {
+        return res.status(400).send('Invalid data structure: category should be an array');
+      }
+  
+      // Find the activeFD category item
+      const matchingCategoryItem = categoryData.find(item => item.title.toLowerCase() === parentFolder.toLowerCase());
+  
+      if (!matchingCategoryItem) {
+        return res.status(404).send('No matching category item found for the provided parentFolder');
+      }
+  
+      // Find the folder to be deleted
+      const folderIndex = matchingCategoryItem.items.findIndex(item => item.heading.toLowerCase() === folderName.heading.toLowerCase());
+  
+      if (folderIndex === -1) {
+        return res.status(404).send('Folder not found');
+      }
+  
+      // Delete the folder from the items array
+      matchingCategoryItem.items.splice(folderIndex, 1);
+  
+      // Write updated data
+      await fs.promises.writeFile(dataPath, JSON.stringify(data, null, 2)); // Use promises for better error handling
+      console.log('Folder deleted successfully.');
+      res.status(200).send('Folder deleted successfully');
+  
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('An error occurred while deleting the folder.');
+    }
+  })  
+  .post('/delete-folder', async (req, res) => {
+    const { folderName, category } = req.body;
+  
+    // Input validation
+    if (!folderName || !category) {
+      return res.status(400).send('Folder name and category are required');
+    }
+  
+    try {
+      // Read current data
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      const categoryData = data[category];
+  
+      // Validate category
+      if (!Array.isArray(categoryData)) {
+        return res.status(400).send('Invalid data structure: category should be an array');
+      }
+  
+      // Find the folder to be deleted
+      const folderIndex = categoryData.findIndex(item => item.title.toLowerCase() === folderName.toLowerCase());
+  
+      if (folderIndex === -1) {
+        return res.status(404).send('Folder not found');
+      }
+  
+      // Delete the folder from the category
+      categoryData.splice(folderIndex, 1);
+  
+      // Write updated data
+      fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
+        if (err) {
+          console.error('Error writing to file:', err);
+          return res.status(500).send('Error updating data');
+        }
+        console.log('Folder deleted successfully.');
+        res.status(200).send('Folder deleted successfully');
+      });
+  
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('An error occurred while deleting the folder.');
+    }
+  })
+  
+  
+
+
+
   
 
 module.exports = router;

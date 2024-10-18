@@ -10,23 +10,35 @@ import AccordionSummary, {
 } from "@mui/joy/AccordionSummary";
 import Button from "@mui/joy/Button";
 import AddIcon from "@mui/icons-material/Add";
-
+import Input from '@mui/joy/Input';
+import { Alert } from "@mui/material";
+import AlertInvertedColors from '../components/ui/Alerts';
 const Sustainability = () => {
   const { mode } = useColorScheme();
 
-  const [SustainabilityData, setSustainabilityData] = useState({});
+  const [investorData, setInvestorData] = useState({});
   const [activeTab, setActiveTab] = useState("BRM");
   const [activeEditor, setActiveEditor] = useState(false);
   const [activeUploader, setActiveUploader] = useState(false);
+  const [activeUploaderFolder, setActiveUploaderFolder] = useState(false);
   const [dataToSetInEditor, setDataToSetInEditor] = useState();
   const [activeFD, setActiveFD] = useState();
   const [activeFDMain, setActiveFDMain] = useState();
   const[activeFolderNAme,setActiveFolderName]=useState();
   const [filesIs,setFiles]=useState();
+  const[folderIs,SetFolderIs]=useState();
+  const [alertMessage,setAlertMessage]=useState('hii');
+  // New state variables for folder editing
+  const [folderToEdit, setFolderToEdit] = useState(null);
+  const [editedFolderName, setEditedFolderName] = useState('');
+  const [showDeleteToggler,setShowDeleteToggler]=useState(false);
+    
   const [needToEdit, setNeedToEdit] = useState({
     need: false,
     value: ""
   });
+
+
   const tempArr = [
     "BRM",
     "CSR",
@@ -37,20 +49,24 @@ const Sustainability = () => {
     "Sustainability Reports",
   ];
 
+//this is fetching all the required data every time component render
+
   useEffect(() => {
-    const fetchSustainabilityData = async () => {
+    const fetchInvestorData = async () => {
       try {
-        let res = await fetch("http://localhost:8000/Sustainability");
+        let res = await fetch("/admin-panel/Sustainability");
         let data = await res.json();
-        setSustainabilityData(data);
+        setInvestorData(data);
         console.log("here is ", data[activeTab][0]);
       } catch (error) {
         console.error("Error fetching investor data:", error);
       }
     };
-    fetchSustainabilityData();
+    fetchInvestorData();
   }, [activeTab]);
 
+  //function to edit the the file name and store all info to sending data for editing 
+  
   const callMeToEditFile = (data, folderName) => {
     setActiveEditor(!activeEditor);
     console.log(data);
@@ -59,6 +75,8 @@ const Sustainability = () => {
     setActiveFolderName(folderName); // Call the function with folderName
   };
 
+  //function execute when user confirm to edit the file
+
   const handleEditFileRequest = async (dataToSetInEditor) => {
     try {
       const previousFileName = dataToSetInEditor.title; // previous file name
@@ -66,7 +84,7 @@ const Sustainability = () => {
       const newFileName = needToEdit.value; // new file name from input
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('http://localhost:8000/Sustainability', {
+      const response = await fetch('/admin-panel/Sustainability', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -82,8 +100,8 @@ const Sustainability = () => {
       if (response.ok) {
         console.log('File name updated successfully');
   
-        // Update SustainabilityData state
-        setSustainabilityData((prevData) => {
+        // Update investorData state
+        setInvestorData((prevData) => {
           // Make a deep copy of the previous state
           const updatedData = { ...prevData };
   
@@ -126,19 +144,25 @@ const Sustainability = () => {
         });
         setNeedToEdit({...needToEdit,need:false});
       } else {
+        setAlertMessage('Failed to update file name')
         console.log('Failed to update file name');
       }
     } catch (error) {
       console.error('Error:', error);
+      setAlertMessage(error.message);
     }
   };
+
+
+ //function execute when user confirm to delete the file
+
   const handleDeleteFileRequest = async (dataToSetInEditor) => {
     try {
       const fileName = dataToSetInEditor.title; // file name to delete
       const category = activeTab; // active tab as the category
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('http://localhost:8000/Sustainability', {
+      const response = await fetch('/admin-panel/Sustainability', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -152,9 +176,9 @@ const Sustainability = () => {
   
       if (response.ok) {
         console.log('File deleted successfully');
-  
-        // Update SustainabilityData state
-        setSustainabilityData((prevData) => {
+        setAlertMessage('File deleted successfully')
+        // Update investorData state
+        setInvestorData((prevData) => {
           // Make a deep copy of the previous state
           const updatedData = { ...prevData };
   
@@ -194,18 +218,107 @@ const Sustainability = () => {
   
         setNeedToEdit({ ...needToEdit, need: false });
       } else {
+        setAlertMessage('Failed to delete file');
         console.log('Failed to delete file');
       }
     } catch (error) {
+      setAlertMessage(error.message);
       console.error('Error:', error);
     }
   };
+
+  //function to open the upload file dialogue box
+
   const uploadHandler=(e,element)=>{
     e.stopPropagation(); 
-    setActiveFD(element.heading);
-    // console.log(element.heading);
+    console.log("the element is",element);
+    setActiveFD(element);
+    console.log(activeFD,"things change here",element.heading);
     setActiveUploader(true);
   }
+
+  //function to open the upload folder dialogue box
+
+  const uploadHandlerFolder=(e,element)=>{
+    e.stopPropagation(); 
+    setActiveFD(element);
+    // console.log(element.heading);
+    setActiveUploaderFolder(true);
+  }
+
+  const deleteHandlerFolder = (e, element) => {
+    e.stopPropagation();
+    setActiveFD(element);
+    console.log(element)
+    const userConfirmed = window.confirm("Are you sure you want to delete this folder?");
+    
+    if (userConfirmed) {
+      // User pressed OK, make the POST request
+      deleteFolder(element);
+    } else {
+      // User pressed Cancel, do nothing
+      console.log("Folder deletion canceled");
+    }
+  };
+  
+  const deleteFolder = async (itemHeading) => {
+    try {
+      const response = await fetch('/admin-panel/Sustainability/delete-folder-nesting', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          folderName: itemHeading, // This can be the item's heading to delete
+          parentFolder: activeFDMain,
+          category: activeTab
+        }),
+      });
+  
+      const result = await response.text();
+  
+      if (response.ok) {
+        console.log('Item deleted successfully');
+        setAlertMessage('Item deleted successfully');
+  
+        // Update the investorData state
+        setInvestorData((prevData) => {
+          const updatedData = { ...prevData };
+  
+          const categoryData = updatedData[activeTab] || [];
+  
+          const updatedCategoryData = categoryData.map((folder) => {
+            // Check if the folder title matches the parentFolder
+            if (folder.title === activeFDMain) {
+              // Remove the item that matches itemHeading
+              const updatedItems = folder.items.filter(item => item.heading.toLowerCase() !== itemHeading.heading.toLowerCase());
+  
+              return {
+                ...folder,
+                items: updatedItems,
+              };
+            }
+            return folder;
+          });
+  
+          updatedData[activeTab] = updatedCategoryData;
+  
+          return updatedData;
+        });
+      } else {
+        console.error('Error deleting item:', result);
+      }
+    } catch (error) {
+      console.error('Request failed:', error);
+    }
+  };
+  
+  
+  
+  
+  
+
+
   const handleUploadFileRequest = async () => {
     if (!filesIs || filesIs.length === 0) {
       console.log('No files selected');
@@ -215,7 +328,7 @@ const Sustainability = () => {
     const file = filesIs[0]; // Assuming only one file is uploaded at a time
   
     try {
-      const itemsHeading = activeFD; // Use the uploaded file's name
+      const itemsHeading = activeFD.heading; // Use the uploaded file's name
       const category = activeTab;  // active tab as the category
       const folderName = activeFDMain; // folder name from active folder
       const fileName=file.name;
@@ -225,16 +338,16 @@ const Sustainability = () => {
       formData.append('folderName', folderName);
       formData.append('category', category);
   
-      const response = await fetch('http://localhost:8000/Sustainability/upload-files', {
+      const response = await fetch('/admin-panel/Sustainability/upload-files', {
         method: 'POST',
         body: formData, // Use FormData for file upload
       });
      console.log(response,"here is respoense ");
       if (response.ok) {
         console.log('File uploaded successfully');
-        
-        // Update the SustainabilityData state
-        setSustainabilityData((prevData) => {
+        setAlertMessage('File uploaded successfully')
+        // Update the investorData state
+        setInvestorData((prevData) => {
           const updatedData = { ...prevData };
           
           const categoryData = updatedData[category] || [];
@@ -266,12 +379,117 @@ const Sustainability = () => {
         setNeedToEdit({ ...needToEdit, need: false });
       } else {
         console.log('Failed to upload file');
+        setAlertMessage('Failed to upload file')
       }
     } catch (error) {
       console.error('Error:', error);
+      setAlertMessage(error.message)
     }
     setActiveUploader(!activeUploader);
   };
+
+
+  const handleUploadFolderRequest = async (folderName) => {
+    try {
+        // Ensure the required fields are present
+        if (!folderName || !activeTab) {
+            console.error('All fields are required.');
+            return;
+        }
+
+        let response;
+
+        // Send a POST request based on the folder type
+        if (activeFD === 'newFolder') {
+            response = await fetch('/admin-panel/Sustainability/create-folder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    folderName,
+                    category: activeTab
+                }),
+            });
+        } else {
+            response = await fetch('/admin-panel/Sustainability/create-folder-nesting', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    folderName,
+                    activeFD,
+                    category: activeTab
+                }),
+            });
+        }
+
+        // Check if the response is successful
+        if (!response.ok) {
+            const errorMessage = await response.text();  // Get error message as text
+            console.error('Error creating folder:', errorMessage);
+            setAlertMessage('Error creating folder: ' + errorMessage);  // Optional: display error to user
+            return;
+        }
+
+        // Parse the response data
+        const contentType = response.headers.get('content-type');
+        let data;
+        if (contentType && contentType.includes('application/json')) {
+            data = await response.json();  // Parse JSON if content-type is JSON
+        } else {
+            data = await response.text();  // Otherwise, get plain text
+        }
+
+        console.log('Folder created successfully:', data);
+        setAlertMessage('Folder created successfully!');
+
+        // Automatically update `InvestorData`
+        setInvestorData((prevData) => {
+            const updatedData = { ...prevData };
+            const categoryData = updatedData[activeTab] || [];
+           
+            
+     console.log("activeFD",activeFD);
+            if (activeFD === 'newFolder') {
+              const newFolder = {
+                title: folderName,
+                items: [],
+            };
+                // Add the new folder to the category
+                updatedData[activeTab] = [...categoryData, newFolder];
+            } else {
+              const newFolder = {
+                heading: folderName,
+                details: [],
+            };
+                // Find the existing folder and add the nested folder
+                const updatedCategoryData = categoryData.map((folder) => {
+                    if (folder.title === activeFD) {
+                      console.log("heelo jiii",folder.title , activeFD,newFolder);
+                        const updatedItems = [newFolder,...(folder.items || [])];
+                        return {
+                            ...folder,
+                            items: updatedItems,
+                        };
+                    }
+                    return folder;
+                });
+                updatedData[activeTab] = updatedCategoryData;
+            }
+
+            return updatedData;
+        });
+
+    } catch (error) {
+        console.error('Error while creating folder:', error);
+        setAlertMessage('An error occurred while creating the folder.');
+    }
+};
+
+
+
   
   
 
@@ -279,6 +497,7 @@ const Sustainability = () => {
 
   return (
     <div>
+
       {activeEditor && (
         <div className="absolute z-20 bg-transparent w-[80%] h-[80vh] flex flex-col justify-center align-middle">
           <div className="m-auto w-[500px] h-[400px] bg-slate-200 rounded-md">
@@ -310,8 +529,47 @@ const Sustainability = () => {
           </div>
         </div>
       )}
+     {activeUploaderFolder && (
+  <div className="absolute z-20 bg-transparent w-[80%] h-[80vh] flex flex-col justify-center align-middle">
+    <div className="m-auto w-[500px] h-[400px] bg-slate-200 rounded-md p-4">
+      <button
+        onClick={() => setActiveUploaderFolder(!activeUploaderFolder)}
+        className="font-bold text-2xl px-3 py-2 rounded-lg w-[40px] bg-red-500 text-white"
+      >
+        X
+      </button>
+      
+      <div style={{justifyContent:"center",alignItems:"center" }} className="flex flex-col justify-center align-middle mt-4 ">
+        {/* MUI Input for folder name */}
+        <Input
+          label="Folder Name"
+          variant="soft"
+          sx={{width:"80%"}}
+           placeholder="Enter your folder name..."
+          onChange={(e) => SetFolderIs(e.target.value)}
+          className="mb-4"
+        />
+
+       
+
+        {/* MUI Button to submit */}
+        <Button
+          variant="soft"
+          color="success"
+          className="w-[300px] "
+          onClick={()=>handleUploadFolderRequest(folderIs)}
+        >
+          Create Folder and Upload
+        </Button>
+      </div>
+    </div>
+  </div>
+)}
+
       <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-        {Object.keys(SustainabilityData).map((key, index) => (
+      {/* <Alert severity="success">{alertMessage || "Success"}</Alert> */}
+  <AlertInvertedColors msg={alertMessage}/>
+        {Object.keys(investorData).map((key, index) => (
           <Button
             key={index}
             variant="solid"
@@ -328,6 +586,9 @@ const Sustainability = () => {
         ))}
       </Box>
       <div>
+        <Button color="success" variant="soft" sx={{mt:"30px",mb:"-10px"}} onClick={(e)=>uploadHandlerFolder(e,"newFolder")}>
+          <span className="font-bold text-[20px] mr-1">+ </span> add new Sections
+        </Button>
         <AccordionGroup
           sx={{
             minWidth: 400,
@@ -341,8 +602,8 @@ const Sustainability = () => {
             },
           }}
         >
-          {SustainabilityData[activeTab] && SustainabilityData[activeTab].length > 0 ? (
-            SustainabilityData[activeTab].map((key, id) => (
+          {investorData[activeTab] && investorData[activeTab].length > 0 ? (
+            investorData[activeTab].map((key, id) => (
               <Accordion key={id}>
                 <AccordionSummary
                   sx={{ border: "1px solid #C7DFF7", marginBottom: "10px" }}
@@ -350,6 +611,15 @@ const Sustainability = () => {
                   onClick={()=>{setActiveFDMain(key.title);console.log("here is fd",key.title)}}
                 >
                   {key.title} 
+                  <div className="absolute z-[30] w-[286px] right-[20px]  flex justify-evenly">
+                  {/* 
+                  <Button style={{zIndex:3}} variant="soft"  onClick={(e) => {
+          e.stopPropagation(); 
+          uploadHandlerFolder(e, key.title);
+        }}
+        > add sections</Button> */}
+
+                  </div>
                 </AccordionSummary>
                 <AccordionDetails>
                 
@@ -361,15 +631,21 @@ const Sustainability = () => {
                         indicator={<AddIcon />}
                         children={<CloudUploadIcon/>}
                       >
-                        {key.title}
-                        <Button style={{zIndex:3}} className=" absolute right-[-35%]" onClick={(e)=> uploadHandler(e,element)}><CloudUploadIcon/></Button>
-                    
+                        {key.title} 
+                        <div className="absolute w-[400px] right-[40px]  flex justify-evenly ">
+
+                       
+                        <Button color="success" variant="soft" style={{zIndex:3}}  onClick={(e)=> uploadHandler(e,element)}> Uploads files</Button>
+                        <Button color="danger" variant="soft" style={{zIndex:3}}  onClick={(e)=> deleteHandlerFolder(e,element)}> Delete section</Button>
+                        <Button color="primary" variant="soft" style={{zIndex:3}}  onClick={(e)=> uploadHandlerEditing(e,element)}> Edit section</Button>
+                       
+                        </div>
                       </AccordionSummary>
                       {
-                      element.details.map((data, id) => (
+                      element?.details?.map((data, id) => (
                         <AccordionDetails
                           onClick={() => callMeToEditFile(data, key.title)} // Pass key.title as folder name
-                          className={`cursor-pointer ${mode == 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50'}`}
+                          className={`cursor-pointer ${mode !== 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50'}`}
                           key={id}
                         >
                           {data.title}
@@ -391,3 +667,5 @@ const Sustainability = () => {
 };
 
 export default Sustainability;
+
+

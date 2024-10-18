@@ -3,7 +3,7 @@ const router = express.Router();
 const fetch = require('node-fetch'); // Works with node-fetch@2
 
 // Get contacts
-router.get('/contact-us', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const response = await fetch('http://localhost:3000/contact-us');
     const data = await response.json();
@@ -15,7 +15,7 @@ router.get('/contact-us', async (req, res) => {
 });
 
 // Delete contact
-router.delete('/contact-us/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {

@@ -4,19 +4,24 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import JoyOrderDashboardTemplate from './Mainaap';
 import Login from './Pages/Login';
 import ProtectedRoute from './Pages/ProtectedRoutes/ProtectedRoutes';
-
+import './App.css'
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+ // Logout function
+ const handleLogout = () => {
+  localStorage.removeItem('authToken'); // Remove the token
+  setIsAuthenticated(false); // Set authentication to false
+  navigate('/'); // Redirect to login
+};
   return (
     <Router basename="/admin-pannel">
       <Routes>
-        {/* <Route path="/" element={<Login setAuthenticated={setIsAuthenticated} />} /> */}
+        <Route path="/" element={<Login setAuthenticated={setIsAuthenticated} />} />
         <Route
-          path="/"
+          path="/dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <JoyOrderDashboardTemplate />
+              <JoyOrderDashboardTemplate handleLogout={handleLogout} />
             </ProtectedRoute>
           }
         />

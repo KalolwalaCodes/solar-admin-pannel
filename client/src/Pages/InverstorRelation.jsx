@@ -10,7 +10,9 @@ import AccordionSummary, {
 } from "@mui/joy/AccordionSummary";
 import Button from "@mui/joy/Button";
 import AddIcon from "@mui/icons-material/Add";
-
+import Input from '@mui/joy/Input';
+import { Alert } from "@mui/material";
+import AlertInvertedColors from '../components/ui/Alerts';
 const InvestorsRelation = () => {
   const { mode } = useColorScheme();
 
@@ -18,15 +20,25 @@ const InvestorsRelation = () => {
   const [activeTab, setActiveTab] = useState("announcements");
   const [activeEditor, setActiveEditor] = useState(false);
   const [activeUploader, setActiveUploader] = useState(false);
+  const [activeUploaderFolder, setActiveUploaderFolder] = useState(false);
   const [dataToSetInEditor, setDataToSetInEditor] = useState();
   const [activeFD, setActiveFD] = useState();
   const [activeFDMain, setActiveFDMain] = useState();
   const[activeFolderNAme,setActiveFolderName]=useState();
   const [filesIs,setFiles]=useState();
+  const[folderIs,SetFolderIs]=useState();
+const [alertMessage,setAlertMessage]=useState('hii');
+    // New state variables for folder editing
+    const [folderToEdit, setFolderToEdit] = useState(null);
+    const [editedFolderName, setEditedFolderName] = useState('');
+    const [showDeleteToggler,setShowDeleteToggler]=useState(false);
+    
   const [needToEdit, setNeedToEdit] = useState({
     need: false,
     value: ""
   });
+
+
   const tempArr = [
     "Announcements",
     "Stock Information",
@@ -34,10 +46,19 @@ const InvestorsRelation = () => {
     "Financial Reporting",
   ];
 
+//this is fetching all the required data every time component render
+
   useEffect(() => {
     const fetchInvestorData = async () => {
+      const token = localStorage.getItem('authToken');
       try {
-        let res = await fetch("/admin-panel/Investor-relation");
+        let res = await fetch("/admin-panel/Investor-relation",{
+          method:'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`, // Include token
+            'Content-Type': 'application/json',
+          },
+        });
         let data = await res.json();
         setInvestorData(data);
         console.log("here is ", data[activeTab][0]);
@@ -48,6 +69,8 @@ const InvestorsRelation = () => {
     fetchInvestorData();
   }, [activeTab]);
 
+  //function to edit the the file name and store all info to sending data for editing 
+  
   const callMeToEditFile = (data, folderName) => {
     setActiveEditor(!activeEditor);
     console.log(data);
@@ -56,16 +79,21 @@ const InvestorsRelation = () => {
     setActiveFolderName(folderName); // Call the function with folderName
   };
 
+  //function execute when user confirm to edit the file
+
   const handleEditFileRequest = async (dataToSetInEditor) => {
     try {
       const previousFileName = dataToSetInEditor.title; // previous file name
       const category = activeTab; // active tab as the category
       const newFileName = needToEdit.value; // new file name from input
       const folderName = activeFolderNAme; // folder name from active folder
-  
+      const token = localStorage.getItem('authToken');
+
       const response = await fetch('/admin-panel/Investor-relation', {
         method: 'PATCH',
+       
         headers: {
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -123,21 +151,29 @@ const InvestorsRelation = () => {
         });
         setNeedToEdit({...needToEdit,need:false});
       } else {
+        setAlertMessage('Failed to update file name')
         console.log('Failed to update file name');
       }
     } catch (error) {
       console.error('Error:', error);
+      setAlertMessage(error.message);
     }
   };
+
+
+ //function execute when user confirm to delete the file
+
   const handleDeleteFileRequest = async (dataToSetInEditor) => {
     try {
       const fileName = dataToSetInEditor.title; // file name to delete
       const category = activeTab; // active tab as the category
       const folderName = activeFolderNAme; // folder name from active folder
-  
+      const token = localStorage.getItem('authToken');
+
       const response = await fetch('/admin-panel/Investor-relation', {
         method: 'DELETE',
         headers: {
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -149,7 +185,7 @@ const InvestorsRelation = () => {
   
       if (response.ok) {
         console.log('File deleted successfully');
-  
+        setAlertMessage('File deleted successfully')
         // Update investorData state
         setInvestorData((prevData) => {
           // Make a deep copy of the previous state
@@ -191,62 +227,84 @@ const InvestorsRelation = () => {
   
         setNeedToEdit({ ...needToEdit, need: false });
       } else {
+        setAlertMessage('Failed to delete file');
         console.log('Failed to delete file');
       }
     } catch (error) {
+      setAlertMessage(error.message);
       console.error('Error:', error);
     }
   };
+
+  //function to open the upload file dialogue box
+
   const uploadHandler=(e,element)=>{
     e.stopPropagation(); 
-    setActiveFD(element.heading);
-    // console.log(element.heading);
+    console.log("the element is",element);
+    setActiveFD(element);
+    console.log(activeFD,"things change here",element.heading);
     setActiveUploader(true);
   }
-  const handleUploadFileRequest = async () => {
-    if (!filesIs || filesIs.length === 0) {
-      console.log('No files selected');
-      return;
+
+  //function to open the upload folder dialogue box
+
+  const uploadHandlerFolder=(e,element)=>{
+    e.stopPropagation(); 
+    setActiveFD(element);
+    // console.log(element.heading);
+    setActiveUploaderFolder(true);
+  }
+
+  const deleteHandlerFolder = (e, element) => {
+    e.stopPropagation();
+    setActiveFD(element);
+    console.log(element)
+    const userConfirmed = window.confirm("Are you sure you want to delete this folder?");
+    
+    if (userConfirmed) {
+      // User pressed OK, make the POST request
+      deleteFolder(element);
+    } else {
+      // User pressed Cancel, do nothing
+      console.log("Folder deletion canceled");
     }
+  };
   
-    const file = filesIs[0]; // Assuming only one file is uploaded at a time
-  
+  const deleteFolder = async (itemHeading) => {
+    const token = localStorage.getItem('authToken');
+
     try {
-      const itemsHeading = activeFD; // Use the uploaded file's name
-      const category = activeTab;  // active tab as the category
-      const folderName = activeFDMain; // folder name from active folder
-      const fileName=file.name;
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('itemsHeading', itemsHeading);
-      formData.append('folderName', folderName);
-      formData.append('category', category);
-  
-      const response = await fetch('/admin-panel/Investor-relation/upload-files', {
+      const response = await fetch('/admin-panel/Investor-relation/delete-folder-nesting', {
         method: 'POST',
-        body: formData, // Use FormData for file upload
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          folderName: itemHeading, // This can be the item's heading to delete
+          parentFolder: activeFDMain,
+          category: activeTab
+        }),
       });
-     console.log(response,"here is respoense ");
+  
+      const result = await response.text();
+  
       if (response.ok) {
-        console.log('File uploaded successfully');
-        
+        console.log('Item deleted successfully');
+        setAlertMessage('Item deleted successfully');
+  
         // Update the investorData state
         setInvestorData((prevData) => {
           const updatedData = { ...prevData };
-          
-          const categoryData = updatedData[category] || [];
-          
+  
+          const categoryData = updatedData[activeTab] || [];
+  
           const updatedCategoryData = categoryData.map((folder) => {
-            if (folder.title === folderName) {
-              const updatedItems = (folder.items || []).map((item) => {
-                const updatedDetails = [...(item.details || []), { title: fileName }];
-                
-                return {
-                  ...item,
-                  details: updatedDetails,
-                };
-              });
-              
+            // Check if the folder title matches the parentFolder
+            if (folder.title === activeFDMain) {
+              // Remove the item that matches itemHeading
+              const updatedItems = folder.items.filter(item => item.heading.toLowerCase() !== itemHeading.heading.toLowerCase());
+  
               return {
                 ...folder,
                 items: updatedItems,
@@ -254,21 +312,213 @@ const InvestorsRelation = () => {
             }
             return folder;
           });
-          
-          updatedData[category] = updatedCategoryData;
-          
+  
+          updatedData[activeTab] = updatedCategoryData;
+  
           return updatedData;
         });
-  
-        setNeedToEdit({ ...needToEdit, need: false });
       } else {
-        console.log('Failed to upload file');
+        console.error('Error deleting item:', result);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Request failed:', error);
     }
-    setActiveUploader(!activeUploader);
   };
+  
+  
+  
+  
+  
+
+
+const handleUploadFileRequest = async () => {
+  if (!filesIs || filesIs.length === 0) {
+    console.log('No files selected');
+    return;
+  }
+
+  const file = filesIs[0]; // Assuming only one file is uploaded at a time
+
+  try {
+    const itemsHeading = activeFD.heading; // Use the uploaded file's name
+    const category = activeTab;  // active tab as the category
+    const folderName = activeFDMain; // folder name from active folder
+    const fileName = file.name;
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('itemsHeading', itemsHeading);
+    formData.append('folderName', folderName);
+    formData.append('category', category);
+    const token = localStorage.getItem('authToken');
+
+    const response = await fetch('/admin-panel/Investor-relation/upload-files', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+      body: formData, // Use FormData for file upload
+    });
+
+    if (response.ok) {
+      console.log('File uploaded successfully');
+      setAlertMessage('File uploaded successfully');
+      
+      // Update the investorData state
+      setInvestorData((prevData) => {
+        const updatedData = { ...prevData };
+
+        // Find the category
+        const categoryData = updatedData[category] || [];
+
+        // Find the specific folder to update
+        const updatedCategoryData = categoryData.map((folder) => {
+          if (folder.title === folderName) {
+            // Update only the specific folder's items
+            const updatedItems = (folder.items || []).map((item) => {
+              if (item.heading === itemsHeading) {
+                const updatedDetails = [...(item.details || []), { title: fileName }];
+                return {
+                  ...item,
+                  details: updatedDetails,
+                };
+              }
+              return item;
+            });
+
+            return {
+              ...folder,
+              items: updatedItems,
+            };
+          }
+          return folder;
+        });
+
+        updatedData[category] = updatedCategoryData;
+
+        return updatedData;
+      });
+
+      setNeedToEdit({ ...needToEdit, need: false });
+    } else {
+      console.log('Failed to upload file');
+      setAlertMessage('Failed to upload file');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    setAlertMessage(error.message);
+  }
+  setActiveUploader(!activeUploader);
+};
+
+
+
+  const handleUploadFolderRequest = async (folderName) => {
+    try {
+        // Ensure the required fields are present
+        if (!folderName || !activeTab) {
+            console.error('All fields are required.');
+            return;
+        }
+
+        let response;
+
+        // Send a POST request based on the folder type
+        if (activeFD === 'newFolder') {
+          const token = localStorage.getItem('authToken');
+
+            response = await fetch('/admin-panel/Investor-relation/create-folder', {
+                method: 'POST',
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    folderName,
+                    category: activeTab
+                }),
+            });
+        } else {
+          const token = localStorage.getItem('authToken');
+
+            response = await fetch('/admin-panel/Investor-relation/create-folder-nesting', {
+                method: 'POST',
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    folderName,
+                    activeFD,
+                    category: activeTab
+                }),
+            });
+        }
+
+        // Check if the response is successful
+        if (!response.ok) {
+            const errorMessage = await response.text();  // Get error message as text
+            console.error('Error creating folder:', errorMessage);
+            setAlertMessage('Error creating folder: ' + errorMessage);  // Optional: display error to user
+            return;
+        }
+
+        // Parse the response data
+        const contentType = response.headers.get('content-type');
+        let data;
+        if (contentType && contentType.includes('application/json')) {
+            data = await response.json();  // Parse JSON if content-type is JSON
+        } else {
+            data = await response.text();  // Otherwise, get plain text
+        }
+
+        console.log('Folder created successfully:', data);
+        setAlertMessage('Folder created successfully!');
+
+        // Automatically update `InvestorData`
+        setInvestorData((prevData) => {
+            const updatedData = { ...prevData };
+            const categoryData = updatedData[activeTab] || [];
+           
+            
+     console.log("activeFD",activeFD);
+            if (activeFD === 'newFolder') {
+              const newFolder = {
+                title: folderName,
+                items: [],
+            };
+                // Add the new folder to the category
+                updatedData[activeTab] = [...categoryData, newFolder];
+            } else {
+              const newFolder = {
+                heading: folderName,
+                details: [],
+            };
+                // Find the existing folder and add the nested folder
+                const updatedCategoryData = categoryData.map((folder) => {
+                    if (folder.title === activeFD) {
+                      console.log("heelo jiii",folder.title , activeFD,newFolder);
+                        const updatedItems = [newFolder,...(folder.items || [])];
+                        return {
+                            ...folder,
+                            items: updatedItems,
+                        };
+                    }
+                    return folder;
+                });
+                updatedData[activeTab] = updatedCategoryData;
+            }
+
+            return updatedData;
+        });
+
+    } catch (error) {
+        console.error('Error while creating folder:', error);
+        setAlertMessage('An error occurred while creating the folder.');
+    }
+};
+
+
+
   
   
 
@@ -276,6 +526,7 @@ const InvestorsRelation = () => {
 
   return (
     <div>
+
       {activeEditor && (
         <div className="absolute z-20 bg-transparent w-[80%] h-[80vh] flex flex-col justify-center align-middle">
           <div className="m-auto w-[500px] h-[400px] bg-slate-200 rounded-md">
@@ -307,7 +558,46 @@ const InvestorsRelation = () => {
           </div>
         </div>
       )}
+     {activeUploaderFolder && (
+  <div className="absolute z-20 bg-transparent w-[80%] h-[80vh] flex flex-col justify-center align-middle">
+    <div className="m-auto w-[500px] h-[400px] bg-slate-200 rounded-md p-4">
+      <button
+        onClick={() => setActiveUploaderFolder(!activeUploaderFolder)}
+        className="font-bold text-2xl px-3 py-2 rounded-lg w-[40px] bg-red-500 text-white"
+      >
+        X
+      </button>
+      
+      <div style={{justifyContent:"center",alignItems:"center" }} className="flex flex-col justify-center align-middle mt-4 ">
+        {/* MUI Input for folder name */}
+        <Input
+          label="Folder Name"
+          variant="soft"
+          sx={{width:"80%"}}
+           placeholder="Enter your folder name..."
+          onChange={(e) => SetFolderIs(e.target.value)}
+          className="mb-4"
+        />
+
+       
+
+        {/* MUI Button to submit */}
+        <Button
+          variant="soft"
+          color="success"
+          className="w-[300px] "
+          onClick={()=>handleUploadFolderRequest(folderIs)}
+        >
+          Create Folder and Upload
+        </Button>
+      </div>
+    </div>
+  </div>
+)}
+
       <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+      {/* <Alert severity="success">{alertMessage || "Success"}</Alert> */}
+  <AlertInvertedColors msg={alertMessage}/>
         {Object.keys(investorData).map((key, index) => (
           <Button
             key={index}
@@ -325,6 +615,9 @@ const InvestorsRelation = () => {
         ))}
       </Box>
       <div>
+        <Button color="success" variant="soft" sx={{mt:"30px",mb:"-10px"}} onClick={(e)=>uploadHandlerFolder(e,"newFolder")}>
+          <span className="font-bold text-[20px] mr-1">+ </span> add new Sections
+        </Button>
         <AccordionGroup
           sx={{
             minWidth: 400,
@@ -347,6 +640,14 @@ const InvestorsRelation = () => {
                   onClick={()=>{setActiveFDMain(key.title);console.log("here is fd",key.title)}}
                 >
                   {key.title} 
+                  <div className="absolute z-[30] w-[286px] right-[20px]  flex justify-evenly">
+                  <Button style={{zIndex:3}} variant="soft"  onClick={(e) => {
+                   e.stopPropagation(); 
+                   uploadHandlerFolder(e, key.title);
+        }}
+        > add sections</Button>
+
+                  </div>
                 </AccordionSummary>
                 <AccordionDetails>
                 
@@ -359,14 +660,20 @@ const InvestorsRelation = () => {
                         children={<CloudUploadIcon/>}
                       >
                         {element.heading}
-                        <Button style={{zIndex:3}} className=" absolute right-[-35%]" onClick={(e)=> uploadHandler(e,element)}><CloudUploadIcon/></Button>
-                    
+                        <div className="absolute w-[400px] right-[40px]  flex justify-evenly ">
+
+                       
+                        <Button color="success" variant="soft" style={{zIndex:3}}  onClick={(e)=> uploadHandler(e,element)}> Uploads files</Button>
+                        <Button color="danger" variant="soft" style={{zIndex:3}}  onClick={(e)=> deleteHandlerFolder(e,element)}> Delete section</Button>
+                        <Button color="primary" variant="soft" style={{zIndex:3}}  onClick={(e)=> uploadHandlerEditing(e,element)}> Edit section</Button>
+                       
+                        </div>
                       </AccordionSummary>
                       {
-                      element.details.map((data, id) => (
+                      element?.details?.map((data, id) => (
                         <AccordionDetails
                           onClick={() => callMeToEditFile(data, key.title)} // Pass key.title as folder name
-                          className={`cursor-pointer ${mode == 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50'}`}
+                          className={`cursor-pointer ${mode === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50'}`}
                           key={id}
                         >
                           {data.title}
@@ -388,3 +695,4 @@ const InvestorsRelation = () => {
 };
 
 export default InvestorsRelation;
+

@@ -17,8 +17,9 @@ import InvestorsRelation from './Pages/InverstorRelation';
 import Sustainability from './Pages/Sustainability';
 import Products from './Pages/Products';
 import ContactUs from './Pages/ContactUs';
+import NewsAndMedia from './Pages/NewsAndMedia';
 
-export default function JoyOrderDashboardTemplate() {
+export default function JoyOrderDashboardTemplate({handleLogout}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
   return (
     <CssVarsProvider disableTransitionOnChange>
@@ -26,7 +27,7 @@ export default function JoyOrderDashboardTemplate() {
       <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
         <Header />
         <div  className='top-0 bg-red-500'>
-    <Sidebar  setActivePage={setActivePage} />
+    <Sidebar handleLogout={handleLogout} setActivePage={setActivePage} />
 </div>
 
         
@@ -92,13 +93,13 @@ export default function JoyOrderDashboardTemplate() {
             <Typography level="h2" component="h1">
               {activePage}
             </Typography>
-            <Button
+            {/* <Button
               color="primary"
               startDecorator={<DownloadRoundedIcon />}
               size="sm"
             >
               Download PDF
-            </Button>
+            </Button> */}
           </Box>
           {
             activePage==="Investor-relation"&&<InvestorsRelation/>
@@ -111,6 +112,9 @@ export default function JoyOrderDashboardTemplate() {
           }
           {
             activePage==="Contact-us"&&<ContactUs/>
+          }
+          {
+            activePage==="News-and-media"&&<NewsAndMedia/>
           }
           {/* <OrderTable />*/}
           {/* <OrderList />  */}

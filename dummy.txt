@@ -1,0 +1,23 @@
+news": [
+      {
+        "id": 1,
+        "thumbnail": "./img/news/1.jpg",
+        "headline": "Know everything about India's one of the most powerful and lethal explosives",
+        "shortNews": "This achievement has been significantly propelled by the Ministry of Defence's push towards Atmanirbharta, or self-reliance, in the defence sector. Additionally, the Directorate General of Naval Armament Inspection of the Indian Navy has provided crucial guidance and support throughout the process.",
+        "date": "02 July 2024",
+        "link": "https://www.indiatvnews.com/amp/news/india/solar-industries-develops-indigenous-game-changing-explosives-for-indian-armed-forces-sebex-2-2024-07-02-939819",
+        "showOnHomepage": true
+      },
+indiatvnews.comindiatvnews.com
+Solar Industries develops indigenous game-changing explosives for Indian Armed Forces: Details here | India News – India TV
+In a significant move towards achieving self-reliance in munitions, the Indian Navy has successfully conducted certification tests for indigenously developed explosives.
+2 Jul
+
+
+
+
+
+
+
+
+

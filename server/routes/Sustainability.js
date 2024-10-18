@@ -188,7 +188,79 @@ sustainabilityRouter.get('/', async (req, res) => {
         console.error('Error:', error);
         res.status(500).send('An error occurred while uploading the file.');
     }
+})
+.post('/delete-file', async (req, res) => {
+  const { folderName, itemsHeading, category, fileName } = req.body;
+
+  if (!folderName || !itemsHeading || !category || !fileName) {
+      return res.status(400).send('All parameters (folderName, itemsHeading, category, fileName) are required');
+  }
+
+  try {
+      // Generate S3 file path
+      let fileKey;
+      if (itemsHeading !== folderName) {
+          fileKey = `Investors-Relation/${category}/${folderName}/${itemsHeading}/${fileName}`;
+      } else {
+          fileKey = `Investors-Relation/${category}/${itemsHeading}/${fileName}`;
+      }
+
+      // Delete file from S3
+      const deleteParams = {
+          Bucket: 'solarwebsite-documents',
+          Key: fileKey
+      };
+
+      await s3.deleteObject(deleteParams).promise();
+      console.log(`${fileName} deleted from S3`);
+
+      // Update the JSON structure by removing the file info
+      const categoryData = data[category];
+
+      if (!Array.isArray(categoryData)) {
+          return res.status(400).send('Invalid data structure: category should be an array');
+      }
+
+      let folderFound = false;
+      for (const categoryItem of categoryData) {
+          if (categoryItem.title === folderName) {
+              categoryItem.items.forEach((item) => {
+                  if (item.heading === itemsHeading) {
+                      const fileIndex = item.details.findIndex(detail => detail.title === fileName);
+
+                      if (fileIndex > -1) {
+                          item.details.splice(fileIndex, 1); // Remove the file entry from details
+                          console.log(`File entry ${fileName} removed from JSON`);
+                      } else {
+                          return res.status(404).send('File not found in JSON structure');
+                      }
+                  }
+              });
+              folderFound = true;
+              break;
+          }
+      }
+
+      if (!folderFound) {
+          return res.status(400).send('Folder not found in category');
+      }
+
+      // Write the updated data back to the JSON file
+      fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
+          if (err) {
+              console.error('Error writing to file:', err);
+              return res.status(500).send('Error updating data');
+          }
+          console.log("File deleted and JSON updated successfully.");
+          res.status(200).send('File deleted and JSON updated successfully');
+      });
+
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('An error occurred while deleting the file.');
+  }
 });
+
   
 
 module.exports = sustainabilityRouter;
