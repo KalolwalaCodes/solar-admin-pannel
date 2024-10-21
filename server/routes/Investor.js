@@ -379,6 +379,89 @@ router.get('/', async (req, res) => {
       res.status(500).send('An error occurred while deleting the folder.');
     }
   })
+  .post('/edit-folder-nesting', async (req, res) => {
+    const { oldFolderName, newFolderName, category, parentFolder } = req.body;
+   console.log(oldFolderName, newFolderName, category, parentFolder,"hgeugdwvi")
+    if (!oldFolderName || !newFolderName || !category || !parentFolder) {
+        return res.status(400).send('Folder name, new folder name, category, and parentFolder are required');
+    }
+
+    try {
+        const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        const categoryData = data[category];
+
+        if (!Array.isArray(categoryData)) {
+            return res.status(400).send('Invalid data structure: category should be an array');
+        }
+
+        const matchingCategoryItem = categoryData.find(item => item.title.toLowerCase() === parentFolder.toLowerCase());
+
+        if (!matchingCategoryItem) {
+            return res.status(404).send('No matching parent folder found');
+        }
+
+        const folderIndex = matchingCategoryItem.items.findIndex(item => item.heading.toLowerCase() === oldFolderName.toLowerCase());
+
+        if (folderIndex === -1) {
+            return res.status(404).send('Folder not found');
+        }
+
+        // Check if the new folder name already exists
+        const newFolderExists = matchingCategoryItem.items.some(item => item.heading.toLowerCase() === newFolderName.toLowerCase());
+        if (newFolderExists) {
+            return res.status(400).send('A folder with the new name already exists');
+        }
+
+        // Update the folder name
+        matchingCategoryItem.items[folderIndex].heading = newFolderName;
+
+        await fs.promises.writeFile(dataPath, JSON.stringify(data, null, 2));
+        console.log('Folder name updated successfully.');
+        res.status(200).send('Folder name updated successfully');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('An error occurred while editing the folder.');
+    }
+})
+.post('/edit-folder', async (req, res) => {
+  const { folderName, newFolderName, category } = req.body;
+
+  if (!folderName || !newFolderName || !category) {
+      return res.status(400).send('Folder name, new folder name, and category are required');
+  }
+
+  try {
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      const categoryData = data[category];
+
+      if (!Array.isArray(categoryData)) {
+          return res.status(400).send('Invalid data structure: category should be an array');
+      }
+
+      const folderIndex = categoryData.findIndex(item => item.title.toLowerCase() === folderName.toLowerCase());
+
+      if (folderIndex === -1) {
+          return res.status(404).send('Folder not found');
+      }
+
+      // Check if the new folder name already exists
+      const newFolderExists = categoryData.some(item => item.title.toLowerCase() === newFolderName.toLowerCase());
+      if (newFolderExists) {
+          return res.status(400).send('A folder with the new name already exists');
+      }
+
+      // Update the folder name
+      categoryData[folderIndex].title = newFolderName;
+
+      await fs.promises.writeFile(dataPath, JSON.stringify(data, null, 2));
+      console.log('Folder name updated successfully.');
+      res.status(200).send('Folder name updated successfully');
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('An error occurred while editing the folder.');
+  }
+})
+
   
   
 

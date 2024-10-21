@@ -28,10 +28,10 @@ const InvestorsRelation = () => {
   const [filesIs,setFiles]=useState();
   const[folderIs,SetFolderIs]=useState();
 const [alertMessage,setAlertMessage]=useState('hii');
-    // New state variables for folder editing
-    const [folderToEdit, setFolderToEdit] = useState(null);
+
     const [editedFolderName, setEditedFolderName] = useState('');
-    const [showDeleteToggler,setShowDeleteToggler]=useState(false);
+    const [showEditToggler,setShowEditToggler]=useState(false);
+    const [elementToSend,setElementToSend]=useState();
     
   const [needToEdit, setNeedToEdit] = useState({
     need: false,
@@ -52,7 +52,7 @@ const [alertMessage,setAlertMessage]=useState('hii');
     const fetchInvestorData = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        let res = await fetch("/admin-panel/Investor-relation",{
+        let res = await fetch("http://localhost:8000/admin-panel/Investor-relation",{
           method:'GET',
           headers: {
             'Authorization': `Bearer ${token}`, // Include token
@@ -89,7 +89,7 @@ const [alertMessage,setAlertMessage]=useState('hii');
       const folderName = activeFolderNAme; // folder name from active folder
       const token = localStorage.getItem('authToken');
 
-      const response = await fetch('/admin-panel/Investor-relation', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation', {
         method: 'PATCH',
        
         headers: {
@@ -170,7 +170,7 @@ const [alertMessage,setAlertMessage]=useState('hii');
       const folderName = activeFolderNAme; // folder name from active folder
       const token = localStorage.getItem('authToken');
 
-      const response = await fetch('/admin-panel/Investor-relation', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation', {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -274,7 +274,7 @@ const [alertMessage,setAlertMessage]=useState('hii');
     const token = localStorage.getItem('authToken');
 
     try {
-      const response = await fetch('/admin-panel/Investor-relation/delete-folder-nesting', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/delete-folder-nesting', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -324,7 +324,91 @@ const [alertMessage,setAlertMessage]=useState('hii');
       console.error('Request failed:', error);
     }
   };
+
+
+
+  const renameFolderHandler=(e,element)=>{
+    e.stopPropagation()
+    setElementToSend(element);
+    setShowEditToggler(true);
+  }
   
+//   const renameHandlerFolder = (e, element, newFolderName) => {
+//     e.stopPropagation();
+//     setActiveFD(element);
+//     console.log(element);
+
+//     const userConfirmed = window.confirm("Are you sure you want to rename this folder?");
+    
+//     if (userConfirmed) {
+//       // User pressed OK, make the POST request to rename the folder
+//       renameFolder(element, newFolderName);
+//     } else {
+//       // User pressed Cancel, do nothing
+//       console.log("Folder renaming canceled");
+//     }
+// };
+
+const renameFolder = async (itemHeading, newFolderName) => {
+    const token = localStorage.getItem('authToken');
+
+    try {
+        const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/edit-folder-nesting', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                oldFolderName: itemHeading,  // Current folder name
+                newFolderName,               // New folder name
+                parentFolder: activeFDMain,  // Parent folder name
+                category: activeTab          // Current active category
+            }),
+        });
+
+        const result = await response.text();
+
+        if (response.ok) {
+            console.log('Folder renamed successfully');
+            setAlertMessage('Folder renamed successfully');
+
+            // Update the investorData state to reflect the folder name change
+            setInvestorData((prevData) => {
+                const updatedData = { ...prevData };
+                const categoryData = updatedData[activeTab] || [];
+
+                const updatedCategoryData = categoryData.map((folder) => {
+                    // Check if the folder title matches the parentFolder
+                    if (folder.title === activeFDMain) {
+                        // Rename the item that matches itemHeading
+                        const updatedItems = folder.items.map(item => {
+                            if (item.heading.toLowerCase() === itemHeading.toLowerCase()) {
+                                return { ...item, heading: newFolderName };
+                            }
+                            return item;
+                        });
+
+                        return {
+                            ...folder,
+                            items: updatedItems,
+                        };
+                    }
+                    return folder;
+                });
+
+                updatedData[activeTab] = updatedCategoryData;
+
+                return updatedData;
+            });
+        } else {
+            console.error('Error renaming folder:', result);
+        }
+    } catch (error) {
+        console.error('Request failed:', error);
+    }
+};
+
   
   
   
@@ -351,7 +435,7 @@ const handleUploadFileRequest = async () => {
     formData.append('category', category);
     const token = localStorage.getItem('authToken');
 
-    const response = await fetch('/admin-panel/Investor-relation/upload-files', {
+    const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/upload-files', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -426,7 +510,7 @@ const handleUploadFileRequest = async () => {
         if (activeFD === 'newFolder') {
           const token = localStorage.getItem('authToken');
 
-            response = await fetch('/admin-panel/Investor-relation/create-folder', {
+            response = await fetch('http://localhost:8000/admin-panel/Investor-relation/create-folder', {
                 method: 'POST',
                 headers: {
                   'Authorization': `Bearer ${token}`,
@@ -440,7 +524,7 @@ const handleUploadFileRequest = async () => {
         } else {
           const token = localStorage.getItem('authToken');
 
-            response = await fetch('/admin-panel/Investor-relation/create-folder-nesting', {
+            response = await fetch('http://localhost:8000/admin-panel/Investor-relation/create-folder-nesting', {
                 method: 'POST',
                 headers: {
                   'Authorization': `Bearer ${token}`,
@@ -594,6 +678,44 @@ const handleUploadFileRequest = async () => {
     </div>
   </div>
 )}
+{
+  showEditToggler&& (
+    <div className="absolute z-20 bg-transparent w-[80%] h-[80vh] flex flex-col justify-center align-middle">
+    <div className="m-auto w-[500px] h-[400px] bg-slate-200 rounded-md p-4">
+      <button
+        onClick={() => setShowEditToggler(!showEditToggler)}
+        className="font-bold text-2xl px-3 py-2 rounded-lg w-[40px] bg-red-500 text-white"
+      >
+        X
+      </button>
+      
+      <div style={{justifyContent:"center",alignItems:"center" }} className="flex flex-col justify-center align-middle mt-4 ">
+        {/* MUI Input for folder name */}
+        <Input
+          label={elementToSend}
+          variant="soft"
+          sx={{width:"80%"}}
+           placeholder={elementToSend.heading}
+          onChange={(e) => setEditedFolderName(e.target.value)}
+          className="mb-4"
+        />
+
+       
+
+        {/* MUI Button to submit */}
+        <Button
+          variant="soft"
+          color="success"
+          className="w-[300px] "
+          onClick={()=>renameFolder(elementToSend.heading,editedFolderName)}
+        >
+          Rename Folder
+        </Button>
+      </div>
+    </div>
+  </div>
+  )
+}
 
       <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
       {/* <Alert severity="success">{alertMessage || "Success"}</Alert> */}
@@ -665,7 +787,7 @@ const handleUploadFileRequest = async () => {
                        
                         <Button color="success" variant="soft" style={{zIndex:3}}  onClick={(e)=> uploadHandler(e,element)}> Uploads files</Button>
                         <Button color="danger" variant="soft" style={{zIndex:3}}  onClick={(e)=> deleteHandlerFolder(e,element)}> Delete section</Button>
-                        <Button color="primary" variant="soft" style={{zIndex:3}}  onClick={(e)=> uploadHandlerEditing(e,element)}> Edit section</Button>
+                        <Button color="primary" variant="soft" style={{zIndex:3}}  onClick={(e)=> renameFolderHandler(e,element)}> Edit section</Button>
                        
                         </div>
                       </AccordionSummary>

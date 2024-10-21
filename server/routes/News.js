@@ -97,6 +97,129 @@ get('/', (req, res) => {
       console.error("Error fetching news data:", error);
       res.status(500).json({ error: 'An error occurred while fetching the news data.' });
     }
+  }).delete('/:id', async (req, res) => {
+    const newsId = parseInt(req.params.id, 10); // Get news ID from request parameters
+    
+    try {
+      // Read the existing news data
+      fs.readFile(dataPath, 'utf8', async (err, fileData) => {
+        if (err) {
+          return res.status(500).json({ error: 'Failed to read data' });
+        }
+  
+        let newsData = JSON.parse(fileData);
+        const newsItemIndex = newsData.news.findIndex(news => news.id === newsId);
+  
+        // If the news item doesn't exist, return an error
+        if (newsItemIndex === -1) {
+          return res.status(404).json({ error: 'News item not found' });
+        }
+  
+        const newsItem = newsData.news[newsItemIndex];
+        
+        // Check if the news item has a thumbnail URL and delete the file from S3
+        if (newsItem.thumbnail && newsItem.thumbnail.includes('news-thumbnails')) {
+          const fileName = newsItem.thumbnail.split('file=news-thumbnails/')[1]; // Extract the file name from the URL
+  
+          const deleteParams = {
+            Bucket: 'solarwebsite-documents', // Replace with your S3 bucket name
+            Key: `news-thumbnails/${fileName}`, // Path to the file in S3
+          };
+  
+          try {
+            // Delete the file from S3
+            await s3.deleteObject(deleteParams).promise();
+            console.log('S3 file deleted successfully');
+          } catch (s3Error) {
+            console.error('Error deleting file from S3:', s3Error);
+            return res.status(500).json({ error: 'Failed to delete thumbnail from S3' });
+          }
+        }
+  
+        // Remove the news item from the array
+        newsData.news.splice(newsItemIndex, 1);
+  
+        // Write the updated data back to the JSON file
+        fs.writeFile(dataPath, JSON.stringify(newsData, null, 2), (err) => {
+          if (err) {
+            return res.status(500).json({ error: 'Failed to write updated data' });
+          }
+  
+          res.status(200).json({ message: 'News item deleted successfully!' });
+        });
+      });
+    } catch (error) {
+      console.error("Error processing delete request:", error);
+      res.status(500).json({ error: 'An error occurred while processing the request.' });
+    }
+  })
+  .put('/update', upload.single('thumbnail'), async (req, res) => {
+    const { id, headline, shortNews, date, link, showOnHomepage, showOnNewspage } = req.body;
+    console.log(id, headline, shortNews, date, link, showOnHomepage, showOnNewspage)
+    const file = req.file;
+  
+    try {
+      // Read the existing news data
+      fs.readFile(dataPath, 'utf8', async (err, fileData) => {
+        if (err) {
+          return res.status(500).json({ error: 'Failed to read data' });
+        }
+  
+        let newsData = JSON.parse(fileData);
+        const newsItem = newsData.news.find(item => item.id === parseInt(id));
+  
+        if (!newsItem) {
+          return res.status(404).json({ error: 'News item not found' });
+        }
+  
+        let fileUrl = newsItem.thumbnail; // Retain the old thumbnail if no new file is uploaded
+  
+        // Upload new thumbnail to S3 if it exists
+        if (file) {
+          const uploadParams = {
+            Bucket: 'solarwebsite-documents', // Your S3 bucket name
+            Key: `news-thumbnails/${Date.now()}_${file.originalname}`, // Save in 'news-thumbnails' folder with timestamp
+            Body: file.buffer,
+            ContentType: file.mimetype,
+          };
+  
+          const parallelUpload = new Upload({
+            client: s3,
+            params: uploadParams,
+          });
+  
+          // Wait for the upload to finish
+          const s3UploadResult = await parallelUpload.done();
+          
+          // Extract the filename for use in the URL
+          const fileName = uploadParams.Key.split('/').pop(); // Get just the filename
+          fileUrl = `https://solargroup.com/api/download-file?file=news-thumbnails/${fileName}`; // Create the URL
+        }
+  
+        // Update the news item with new data
+        newsItem.headline = headline || newsItem.headline;
+        newsItem.shortNews = shortNews || newsItem.shortNews;
+        newsItem.date = date || newsItem.date;
+        newsItem.link = link || newsItem.link;
+        newsItem.thumbnail = fileUrl; // Use the new thumbnail URL if uploaded
+        newsItem.showOnHomepage = showOnHomepage === 'true';
+        newsItem.showOnNewspage = showOnNewspage === 'true';
+  
+        // Write updated data back to the JSON file
+        fs.writeFile(dataPath, JSON.stringify(newsData, null, 2), (err) => {
+          if (err) {
+            return res.status(500).json({ error: 'Failed to update data' });
+          }
+  
+          res.status(200).json({ message: 'News updated successfully!', data: newsItem });
+        });
+      });
+    } catch (error) {
+      console.error("Error uploading to S3 or updating JSON:", error);
+      res.status(500).json({ error: 'An error occurred while processing the request.' });
+    }
   });
+  
+  
 
 module.exports = router;

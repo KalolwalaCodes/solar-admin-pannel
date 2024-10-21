@@ -165,9 +165,18 @@ const [selectedItem,setSelectedItem]=React.useState(1);
               </ListItemContent>
             </ListItemButton>
           </ListItem>
+          <ListItem>
+            <ListItemButton selected={selectedItem===4} onClick={()=>changePageRoutingView("Committees",4)}>
+              {/* <MenuIcon /> */}
+              <img className="w-[17px]" src="./newsIcons.svg" alt="" />
+              <ListItemContent>
+                <Typography level="title-sm">Committees</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
 
           <ListItem>
-            <ListItemButton selected={selectedItem===4} onClick={()=>changePageRoutingView("Contact-us",4)}>
+            <ListItemButton selected={selectedItem===5} onClick={()=>changePageRoutingView("Contact-us",5)}>
               <ConnectWithoutContactIcon />
               <ListItemContent>
                 <Typography level="title-sm">Contact us</Typography>

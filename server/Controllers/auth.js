@@ -33,7 +33,7 @@ const authenticateJWT = (req, res, next) => {
     }
   };
   
-//   app.get('/admin-panel/protected', authenticateJWT, (req, res) => {
+//   app.get('http://localhost:8000/admin-panel/protected', authenticateJWT, (req, res) => {
 //     res.json({ message: 'This is a protected route', user: req.user });
 //   });
   

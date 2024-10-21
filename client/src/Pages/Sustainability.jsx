@@ -54,7 +54,7 @@ const Sustainability = () => {
   useEffect(() => {
     const fetchInvestorData = async () => {
       try {
-        let res = await fetch("/admin-panel/Sustainability");
+        let res = await fetch("http://localhost:8000/admin-panel/Sustainability");
         let data = await res.json();
         setInvestorData(data);
         console.log("here is ", data[activeTab][0]);
@@ -84,7 +84,7 @@ const Sustainability = () => {
       const newFileName = needToEdit.value; // new file name from input
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('/admin-panel/Sustainability', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ const Sustainability = () => {
       const category = activeTab; // active tab as the category
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('/admin-panel/Sustainability', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -263,7 +263,7 @@ const Sustainability = () => {
   
   const deleteFolder = async (itemHeading) => {
     try {
-      const response = await fetch('/admin-panel/Sustainability/delete-folder-nesting', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability/delete-folder-nesting', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -338,7 +338,7 @@ const Sustainability = () => {
       formData.append('folderName', folderName);
       formData.append('category', category);
   
-      const response = await fetch('/admin-panel/Sustainability/upload-files', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability/upload-files', {
         method: 'POST',
         body: formData, // Use FormData for file upload
       });
@@ -401,7 +401,7 @@ const Sustainability = () => {
 
         // Send a POST request based on the folder type
         if (activeFD === 'newFolder') {
-            response = await fetch('/admin-panel/Sustainability/create-folder', {
+            response = await fetch('http://localhost:8000/admin-panel/Sustainability/create-folder', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -412,7 +412,7 @@ const Sustainability = () => {
                 }),
             });
         } else {
-            response = await fetch('/admin-panel/Sustainability/create-folder-nesting', {
+            response = await fetch('http://localhost:8000/admin-panel/Sustainability/create-folder-nesting', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

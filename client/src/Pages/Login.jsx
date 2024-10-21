@@ -20,7 +20,7 @@ const Login = ({ setAuthenticated }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('/admin-panel/login', {
+      const response = await fetch('http://localhost:8000/admin-panel/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

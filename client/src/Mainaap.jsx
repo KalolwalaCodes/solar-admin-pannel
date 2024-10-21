@@ -18,6 +18,7 @@ import Sustainability from './Pages/Sustainability';
 import Products from './Pages/Products';
 import ContactUs from './Pages/ContactUs';
 import NewsAndMedia from './Pages/NewsAndMedia';
+import CommitteeTable from './Pages/Commities';
 
 export default function JoyOrderDashboardTemplate({handleLogout}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
@@ -115,6 +116,9 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
           }
           {
             activePage==="News-and-media"&&<NewsAndMedia/>
+          }
+          {
+            activePage==="Committees"&&<CommitteeTable/>
           }
           {/* <OrderTable />*/}
           {/* <OrderList />  */}
