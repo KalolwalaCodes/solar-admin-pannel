@@ -53,6 +53,7 @@ const Settings = () => {
 
     const handleEditUser = (user) => {
         setSelectedUser(user);
+        console.log("new user",user,user.username);
         setUsername(user.username);
         setPassword(''); // Do not pre-fill password for security
         setRole(user.role);
@@ -63,9 +64,16 @@ const Settings = () => {
             setErrorMessage('Please fill in all fields.');
             return;
         }
-
-        const userData = { username, role };
-
+    
+        const userData = {
+            newUsername: username, // This will be sent as 'newUsername'
+            newPassword: password, // Send the password if it exists
+            newRole: role,         // Send the new role
+        };
+    
+        console.log("the url",`/admin-panel/login/update/${selectedUser.username}`);
+        console.log("Sending data", userData);
+    
         try {
             await axios.put(`/admin-panel/login/update/${selectedUser.username}`, userData);
             alert('User updated successfully');
@@ -76,6 +84,7 @@ const Settings = () => {
             setErrorMessage('Error updating user');
         }
     };
+    
 
     const handleUserDeleteRequest = async (user) => {
         if (window.confirm(`Are you sure you want to delete user ${user.username}?`)) {

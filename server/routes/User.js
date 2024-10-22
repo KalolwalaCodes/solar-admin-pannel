@@ -129,33 +129,37 @@ router.post('/register', async (req, res) => {
 
 // PUT route for updating an existing user
 router.put('/update/:username', async (req, res) => {
-    const { username } = req.params; // Get the username from the URL
-    const { newUsername, newPassword, newRole } = req.body; // New user details
+  const { username } = req.params; // Get the username from the URL directly
+  console.log(username); // Log the username to verify it's being received correctly
 
-    try {
-        const users = await fetchUsersFromS3();
-        const userIndex = users.findIndex((user) => user.username === username);
+  const { newUsername, newPassword, newRole } = req.body; // New user details
+  console.log("updated data", username, newUsername, newPassword, newRole);
 
-        if (userIndex === -1) {
-            return res.status(404).json({ message: 'User not found' });
-        }
+  try {
+      const users = await fetchUsersFromS3();
+      const userIndex = users.findIndex((user) => user.username === username);
 
-        const updatedUser = {
-            ...users[userIndex],
-            username: newUsername || users[userIndex].username,
-            password: newPassword ? await bcrypt.hash(newPassword, 10) : users[userIndex].password,
-            role: newRole || users[userIndex].role,
-        };
+      if (userIndex === -1) {
+          return res.status(404).json({ message: 'User not found' });
+      }
 
-        users[userIndex] = updatedUser;
-        await saveUsersToS3(users);
+      const updatedUser = {
+          ...users[userIndex],
+          username: newUsername || users[userIndex].username,
+          password: newPassword ? await bcrypt.hash(newPassword, 10) : users[userIndex].password,
+          role: newRole || users[userIndex].role,
+      };
 
-        res.status(200).json({ message: 'User updated successfully' });
-    } catch (error) {
-        console.error('Error updating user:', error);
-        res.status(500).json({ message: 'Error updating user' });
-    }
+      users[userIndex] = updatedUser;
+      await saveUsersToS3(users);
+
+      res.status(200).json({ message: 'User updated successfully' });
+  } catch (error) {
+      console.error('Error updating user:', error);
+      res.status(500).json({ message: 'Error updating user' });
+  }
 });
+
 
 // DELETE route for deleting a user
 router.delete('/delete/:username', async (req, res) => {
