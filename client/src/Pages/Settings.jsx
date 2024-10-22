@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Settings = ({roleIS}) => {
+const Settings = () => {
     const [activeTab, setActiveTab] = useState(1);
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -9,7 +9,8 @@ const Settings = ({roleIS}) => {
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-
+  const roleIS=localStorage.getItem('role');
+  console.log("the roleIs",roleIS);
     const handleNewUser = () => {
         setActiveTab(1);
         resetForm();
@@ -98,7 +99,7 @@ const Settings = ({roleIS}) => {
     };
 
     return (
-        role==='superadmin'? 
+        roleIS==='superadmin'? 
            
         <div>
             <div className="flex justify-between mb-4">

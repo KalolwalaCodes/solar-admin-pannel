@@ -21,7 +21,7 @@ import NewsAndMedia from './Pages/NewsAndMedia';
 import CommitteeTable from './Pages/Commities';
 import UserManagement from './Pages/Settings';
 
-export default function JoyOrderDashboardTemplate({handleLogout,role}) {
+export default function JoyOrderDashboardTemplate({handleLogout}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
   return (
     <CssVarsProvider disableTransitionOnChange>
@@ -124,7 +124,7 @@ export default function JoyOrderDashboardTemplate({handleLogout,role}) {
             activePage==="Committees"&&<CommitteeTable/>
           }
           {
-  activePage === "Settings" &&<UserManagement roleIS={role} />
+  activePage === "Settings" &&<UserManagement  />
 }
 
           {/* <OrderTable />*/}
