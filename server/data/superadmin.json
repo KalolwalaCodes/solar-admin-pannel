@@ -1,0 +1,9 @@
+[
+    {
+      "id": "superadmin-id",
+      "username": "superadmin",
+      "password": "$2a$10$o2YFOcWAdxifL6l8qrxpT.ouArhqDP3IYSi9dZIMg5VrC.vJTVEYq", 
+      "role": "superadmin"
+    }
+  ]
+  

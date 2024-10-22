@@ -202,9 +202,11 @@ const [selectedItem,setSelectedItem]=React.useState(1);
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton>
-              <SettingsRoundedIcon />
-              Settings
+            <ListItemButton selected={selectedItem===6} onClick={()=>changePageRoutingView("Settings",6)}>
+              <ConnectWithoutContactIcon />
+              <ListItemContent>
+                <Typography level="title-sm">Settings</Typography>
+              </ListItemContent>
             </ListItemButton>
           </ListItem>
         </List>

@@ -19,23 +19,26 @@ import Products from './Pages/Products';
 import ContactUs from './Pages/ContactUs';
 import NewsAndMedia from './Pages/NewsAndMedia';
 import CommitteeTable from './Pages/Commities';
+import UserManagement from './Pages/Settings';
 
-export default function JoyOrderDashboardTemplate({handleLogout}) {
+export default function JoyOrderDashboardTemplate({handleLogout,role}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
       <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
         <Header />
-        <div  className='top-0 bg-red-500'>
-    <Sidebar handleLogout={handleLogout} setActivePage={setActivePage} />
-</div>
+        <div  className='top-0 bg-red-500 fixed'>
+       <Sidebar handleLogout={handleLogout} setActivePage={setActivePage} />
+      </div>
 
         
         <Box
           component="main"
           className="MainContent"
           sx={{
+            
+            marginLeft:"18%",
             px: { xs: 2, md: 6 },
             pt: {
               xs: 'calc(12px + var(--Header-height))',
@@ -120,6 +123,10 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
           {
             activePage==="Committees"&&<CommitteeTable/>
           }
+          {
+  activePage === "Settings" &&<UserManagement roleIS={role} />
+}
+
           {/* <OrderTable />*/}
           {/* <OrderList />  */}
         </Box>

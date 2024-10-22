@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Input, Typography } from '@mui/joy';
 
-const Login = ({ setAuthenticated }) => {
+const Login = ({ setAuthenticated,setRole }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -13,6 +13,7 @@ const Login = ({ setAuthenticated }) => {
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (token) {
+      setRole(localStorage.getItem('role'));
       setAuthenticated(true); // Mark as authenticated
       navigate('/dashboard'); // Redirect to dashboard
     }
@@ -20,7 +21,7 @@ const Login = ({ setAuthenticated }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:8000/admin-panel/login', {
+      const response = await fetch('/admin-panel/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,6 +32,8 @@ const Login = ({ setAuthenticated }) => {
 
       if (response.ok) {
         const data = await response.json();
+        setRole(data?.role);
+        localStorage.setItem('role', data?.role);
         localStorage.setItem('authToken', data.token); // Store token in local storage
         setAuthenticated(true); // Mark user as authenticated
         navigate('/dashboard'); // Redirect to dashboard

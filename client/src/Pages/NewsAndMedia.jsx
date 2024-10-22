@@ -10,7 +10,7 @@ const NewsAndMedia = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('authToken');
-    fetch('http://localhost:8000/admin-panel/news', {
+    fetch('/admin-panel/news', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`, // Include token
@@ -62,7 +62,7 @@ const NewsAndMedia = () => {
     formData.append('showOnNewspage', news.showOnNewspage);
 
     try {
-      const response = await fetch('http://localhost:8000/admin-panel/news', {
+      const response = await fetch('/admin-panel/news', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`, // Include token
@@ -120,7 +120,7 @@ const handleEditSubmit = async (e) => {
   formData.append('showOnNewspage', news.showOnNewspage);
 
   try {
-    const response = await fetch(`http://localhost:8000/admin-panel/news/update`, {
+    const response = await fetch(`/admin-panel/news/update`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -165,7 +165,7 @@ const handleEditSubmit = async (e) => {
     if (confirmDelete) {
       const token = localStorage.getItem('authToken');
       try {
-        const response = await fetch(`http://localhost:8000/admin-panel/news/${newsId}`, {
+        const response = await fetch(`/admin-panel/news/${newsId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`,

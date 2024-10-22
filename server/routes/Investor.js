@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require('fs');
 const multer = require('multer');
+const {authenticateJWT} =require('../Controllers/auth')
+
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
 
 
@@ -29,7 +31,7 @@ router.get('/', async (req, res) => {
   // console.log(data);
   res.json(data); 
 })
-.patch('/', async (req, res) => {
+.patch('/', authenticateJWT, async (req, res) => {
   const { previousFileName, newFileName, folderName, category } = req.body;
   console.log(newFileName, previousFileName, folderName, category, "here is data");
   console.log(data[category],"here is the data");
@@ -62,7 +64,7 @@ router.get('/', async (req, res) => {
       res.status(200).send('Data updated successfully');
   });
 })
-.delete('/', async (req, res) => {
+.delete('/',authenticateJWT, async (req, res) => {
     const { fileName, folderName, category } = req.body;
     console.log(fileName, folderName, category, "here is data");
     console.log(data[category], "here is the data");
@@ -104,7 +106,7 @@ router.get('/', async (req, res) => {
       res.status(200).send('File object deleted successfully');
     });
 })
-.post('/upload-files', upload.single('file'), async (req, res) => {
+.post('/upload-files',authenticateJWT, upload.single('file'), async (req, res) => {
   const { folderName, itemsHeading, category } = req.body;
   console.log("the body", req.body);
   const file = req.file;
@@ -192,7 +194,7 @@ router.get('/', async (req, res) => {
       res.status(500).send('An error occurred while uploading the file.');
   }
 })
-.post('/create-folder-nesting', async (req, res) => {
+.post('/create-folder-nesting',authenticateJWT, async (req, res) => {
   const { folderName, category, activeFD } = req.body;
 
   console.log(folderName, category, activeFD);
@@ -245,7 +247,7 @@ router.get('/', async (req, res) => {
       res.status(500).send('An error occurred while creating the folder.');
   }
 })
-.post('/create-folder', async (req, res) => {
+.post('/create-folder',authenticateJWT, async (req, res) => {
   const { folderName, category } = req.body;
 
   if (!folderName || !category) {
@@ -291,7 +293,7 @@ router.get('/', async (req, res) => {
       console.error('Error:', error);
       res.status(500).send('An error occurred while creating the folder.');
   }
-}).post('/delete-folder-nesting', async (req, res) => {
+}).post('/delete-folder-nesting',authenticateJWT, async (req, res) => {
     const { folderName, category, parentFolder } = req.body;
   
     // Input validation
@@ -336,7 +338,7 @@ router.get('/', async (req, res) => {
       res.status(500).send('An error occurred while deleting the folder.');
     }
   })  
-  .post('/delete-folder', async (req, res) => {
+  .post('/delete-folder',authenticateJWT, async (req, res) => {
     const { folderName, category } = req.body;
   
     // Input validation
@@ -379,7 +381,7 @@ router.get('/', async (req, res) => {
       res.status(500).send('An error occurred while deleting the folder.');
     }
   })
-  .post('/edit-folder-nesting', async (req, res) => {
+  .post('/edit-folder-nesting',authenticateJWT, async (req, res) => {
     const { oldFolderName, newFolderName, category, parentFolder } = req.body;
    console.log(oldFolderName, newFolderName, category, parentFolder,"hgeugdwvi")
     if (!oldFolderName || !newFolderName || !category || !parentFolder) {
@@ -423,7 +425,7 @@ router.get('/', async (req, res) => {
         res.status(500).send('An error occurred while editing the folder.');
     }
 })
-.post('/edit-folder', async (req, res) => {
+.post('/edit-folder', authenticateJWT,async (req, res) => {
   const { folderName, newFolderName, category } = req.body;
 
   if (!folderName || !newFolderName || !category) {

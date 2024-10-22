@@ -16,7 +16,7 @@ app.use(express.json());
 // Middleware to parse URL-encoded bodies (form data)
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({origin:['http://localhost:5173'],credentials: true,}))
-app.use("/admin-panel/Investor-relation",authenticateJWT,investorRouter);
+app.use("/admin-panel/Investor-relation",investorRouter);
 app.use("/admin-panel/Sustainability",sustainabilityRouter);
 app.use("/admin-panel/contact-us",contactRouter)
 app.use("/admin-panel/login",loginRouter);

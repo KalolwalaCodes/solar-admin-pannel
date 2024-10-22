@@ -7,6 +7,7 @@ import ProtectedRoute from './Pages/ProtectedRoutes/ProtectedRoutes';
 import './App.css'
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [role,setRole]=useState('')
  // Logout function
  const handleLogout = () => {
   localStorage.removeItem('authToken'); // Remove the token
@@ -16,12 +17,12 @@ const App = () => {
   return (
     <Router basename="/admin-pannel">
       <Routes>
-        <Route path="/" element={<Login setAuthenticated={setIsAuthenticated} />} />
+        <Route path="/" element={<Login setRole={setRole} setAuthenticated={setIsAuthenticated} />} />
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <JoyOrderDashboardTemplate handleLogout={handleLogout} />
+              <JoyOrderDashboardTemplate role={role} handleLogout={handleLogout} />
             </ProtectedRoute>
           }
         />
