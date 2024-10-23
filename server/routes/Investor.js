@@ -24,6 +24,7 @@ try {
 }
 
 router.get('/', async (req, res) => {
+  console.log("i'm being called data of investor is--------",data)
   if (!data) {
     return res.status(500).json({ msg: "Error loading data" });
   }

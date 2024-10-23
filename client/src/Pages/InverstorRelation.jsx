@@ -51,6 +51,7 @@ const [alertMessage,setAlertMessage]=useState('');
   useEffect(() => {
     const fetchInvestorData = async () => {
       const token = localStorage.getItem('authToken');
+      console.log("fetching result---------");
       try {
         let res = await fetch("/admin-panel/Investor-relation",{
           method:'GET',
@@ -60,6 +61,7 @@ const [alertMessage,setAlertMessage]=useState('');
           },
         });
         let data = await res.json();
+        console.log(data, "fetched data is ----------")
         setInvestorData(data);
         console.log("here is ", data[activeTab][0]);
       } catch (error) {
@@ -521,6 +523,7 @@ const handleUploadFileRequest = async () => {
                     category: activeTab
                 }),
             });
+            console.log(response,"after sending request");
         } else {
           const token = localStorage.getItem('authToken');
 
@@ -536,6 +539,7 @@ const handleUploadFileRequest = async () => {
                     category: activeTab
                 }),
             });
+            console.log(response,"after sending request nesting");
         }
 
         // Check if the response is successful
@@ -564,7 +568,7 @@ const handleUploadFileRequest = async () => {
             const categoryData = updatedData[activeTab] || [];
            
             
-     console.log("activeFD",activeFD);
+           console.log("activeFD",activeFD);
             if (activeFD === 'newFolder') {
               const newFolder = {
                 title: folderName,
