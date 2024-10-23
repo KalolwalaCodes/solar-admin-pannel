@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const Settings = () => {
@@ -18,20 +18,20 @@ const Settings = () => {
 
     const handleExistingUser = async () => {
         setActiveTab(2);
-        await fetchUsers();
+        if (users.length === 0) await fetchUsers();  // Fetch only if users are not already loaded
     };
 
     const fetchUsers = async () => {
-        console.log("Fetching users...");
         try {
             const response = await axios.get('/admin-panel/login');
-            setUsers(response.data);  // Make sure the state updates correctly
+            setUsers(response.data);
         } catch (error) {
             console.error('Error fetching users:', error);
             setErrorMessage('Error fetching users');
         }
     };
 
+    // Update users list when a new user is created
     const handleUserCreationRequest = async () => {
         if (!username || !password || !role) {
             setErrorMessage('Please fill in all fields.');
@@ -41,16 +41,20 @@ const Settings = () => {
         const userData = { username, password, role };
 
         try {
-            await axios.post('/admin-panel/login/register', userData);
+            const response = await axios.post('/admin-panel/login/register', userData);
+            const newUser = response.data;
             alert('User created successfully');
+
+            // Update the users list without fetching again
+            setUsers([...users, newUser]);
             resetForm();
-            await fetchUsers();  // Ensure user list is fetched after creation
         } catch (error) {
             console.error('Error creating user:', error);
             setErrorMessage('Error creating user');
         }
     };
 
+    // Edit user data in the form
     const handleEditUser = (user) => {
         setSelectedUser(user);
         setUsername(user.username);
@@ -58,6 +62,7 @@ const Settings = () => {
         setRole(user.role);
     };
 
+    // Update users list after a user is edited
     const handleUserUpdateRequest = async () => {
         if (!username || !role) {
             setErrorMessage('Please fill in all fields.');
@@ -72,21 +77,31 @@ const Settings = () => {
 
         try {
             await axios.put(`/admin-panel/login/update/${selectedUser.username}`, userData);
-            alert('User updated successfully');
+            alert('User updated successfully !');
+
+            // Update the users list without fetching again
+            const updatedUsers = users.map(user =>
+                user.username === selectedUser.username
+                    ? { ...user, username: username, role: role }
+                    : user
+            );
+            setUsers(updatedUsers);
             resetForm();
-            await fetchUsers();  // Ensure user list is fetched after updating
         } catch (error) {
             console.error('Error updating user:', error);
             setErrorMessage('Error updating user');
         }
     };
 
+    // Update users list after a user is deleted
     const handleUserDeleteRequest = async (user) => {
         if (window.confirm(`Are you sure you want to delete user ${user.username}?`)) {
             try {
                 await axios.delete(`/admin-panel/login/delete/${user.username}`);
                 alert('User deleted successfully');
-                await fetchUsers();  // Ensure user list is fetched after deletion
+
+                // Remove the deleted user from the list without fetching again
+                setUsers(users.filter(u => u.username !== user.username));
             } catch (error) {
                 console.error('Error deleting user:', error);
                 setErrorMessage('Error deleting user');
