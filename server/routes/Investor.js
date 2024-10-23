@@ -24,7 +24,9 @@ try {
 }
 
 router.get('/', async (req, res) => {
-  console.log("i'm being called data of investor is--------",data)
+ 
+   data=require(dataPath);
+   console.log("i'm being called main file--------",data);
   if (!data) {
     return res.status(500).json({ msg: "Error loading data" });
   }
@@ -268,7 +270,7 @@ router.get('/', async (req, res) => {
 
       // Check if the folder (with the same name) already exists
       let folderExists = categoryData.some(categoryItem => categoryItem.title.toLowerCase() === folderName.toLowerCase());
-       console.log("here is the data of category", data[category]);
+      //  console.log("here is the data of category", data[category]);
       if (folderExists) {
           return res.status(400).send('Folder already exists');
       }
