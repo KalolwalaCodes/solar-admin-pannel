@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const readInvestorData=require('./helper01');
 const fs = require('fs');
+
+
 const multer = require('multer');
 const {authenticateJWT} =require('../Controllers/auth')
 
@@ -24,16 +27,21 @@ try {
 }
 
 router.get('/', async (req, res) => {
- 
-   data=require(dataPath);
-   console.log("i'm being called main file--------",data['Conference call with Investors']);
-  if (!data) {
-    return res.status(500).json({ msg: "Error loading data" });
-  }
-  res.setHeader('Cache-Control', 'no-store');
+  try {
+      const jsonString = await readInvestorData(); // Read the file asynchronously
+       data = JSON.parse(jsonString); // Parse the JSON data
+      console.log("I'm being called main file--------", data['Conference call with Investors']);
 
-  // console.log(data);
-  res.json(data); 
+      if (!data) {
+          return res.status(500).json({ msg: "Error loading data" });
+      }
+
+      res.setHeader('Cache-Control', 'no-store'); // Set response header
+      res.json(data); // Send the data as JSON response
+  } catch (error) {
+      console.error("Error loading data: ", error.message);
+      return res.status(500).json({ msg: "Error loading data" });
+  }
 })
 .patch('/', authenticateJWT, async (req, res) => {
   const { previousFileName, newFileName, folderName, category } = req.body;
