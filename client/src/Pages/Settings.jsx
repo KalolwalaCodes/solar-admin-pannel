@@ -16,9 +16,9 @@ const Settings = () => {
         resetForm();
     };
 
-    const handleExistingUser = () => {
+    const handleExistingUser = async() => {
         setActiveTab(2);
-        fetchUsers();
+       await  fetchUsers();
     };
 
     const fetchUsers = async () => {
@@ -44,7 +44,7 @@ const Settings = () => {
             await axios.post('/admin-panel/login/register', userData);
             alert('User created successfully');
             resetForm();
-            fetchUsers(); // Refresh user list
+           await fetchUsers(); // Refresh user list
         } catch (error) {
             console.error('Error creating user:', error);
             setErrorMessage('Error creating user');
@@ -78,7 +78,7 @@ const Settings = () => {
             await axios.put(`/admin-panel/login/update/${selectedUser.username}`, userData);
             alert('User updated successfully');
             resetForm();
-            fetchUsers(); // Refresh user list
+            await fetchUsers(); // Refresh user list
         } catch (error) {
             console.error('Error updating user:', error);
             setErrorMessage('Error updating user');
@@ -91,7 +91,7 @@ const Settings = () => {
             try {
                 await axios.delete(`/admin-panel/login/delete/${user.username}`);
                 alert('User deleted successfully');
-                fetchUsers(); // Refresh user list
+               await  fetchUsers(); // Refresh user list
             } catch (error) {
                 console.error('Error deleting user:', error);
                 setErrorMessage('Error deleting user');
