@@ -24,16 +24,19 @@ try {
 }
 
 router.get('/', async (req, res) => {
- 
-   data=require(dataPath);
-   console.log("i'm being called main file--------",data);
-  if (!data) {
-    return res.status(500).json({ msg: "Error loading data" });
-  }
-  res.setHeader('Cache-Control', 'no-store');
+  let data;
 
-  // console.log(data);
-  res.json(data); 
+  try {
+      const jsonString = await fs.readFile(dataPath, 'utf-8'); // Correct usage of await
+      data = JSON.parse(jsonString);
+      console.log("I'm being called main file--------", data['Conference call with Investors']);
+  } catch (error) {
+      console.error("Error loading data: ", error.message);
+      return res.status(500).json({ msg: "Error loading data" });
+  }
+
+  res.setHeader('Cache-Control', 'no-store');
+  res.json(data);
 })
 .patch('/', authenticateJWT, async (req, res) => {
   const { previousFileName, newFileName, folderName, category } = req.body;
