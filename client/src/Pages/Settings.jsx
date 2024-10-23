@@ -9,23 +9,23 @@ const Settings = () => {
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-  const roleIS=localStorage.getItem('role');
-  console.log("the roleIs",roleIS);
+    const roleIS = localStorage.getItem('role');
+
     const handleNewUser = () => {
         setActiveTab(1);
         resetForm();
     };
 
-    const handleExistingUser = async() => {
+    const handleExistingUser = async () => {
         setActiveTab(2);
-       await  fetchUsers();
+        await fetchUsers();
     };
 
     const fetchUsers = async () => {
-        console.log("the role is------ ",roleIS)
+        console.log("Fetching users...");
         try {
             const response = await axios.get('/admin-panel/login');
-            setUsers(response.data);
+            setUsers(response.data);  // Make sure the state updates correctly
         } catch (error) {
             console.error('Error fetching users:', error);
             setErrorMessage('Error fetching users');
@@ -44,7 +44,7 @@ const Settings = () => {
             await axios.post('/admin-panel/login/register', userData);
             alert('User created successfully');
             resetForm();
-           await fetchUsers(); // Refresh user list
+            await fetchUsers();  // Ensure user list is fetched after creation
         } catch (error) {
             console.error('Error creating user:', error);
             setErrorMessage('Error creating user');
@@ -53,9 +53,8 @@ const Settings = () => {
 
     const handleEditUser = (user) => {
         setSelectedUser(user);
-        console.log("new user",user,user.username);
         setUsername(user.username);
-        setPassword(''); // Do not pre-fill password for security
+        setPassword('');  // Don't pre-fill password for security reasons
         setRole(user.role);
     };
 
@@ -64,34 +63,30 @@ const Settings = () => {
             setErrorMessage('Please fill in all fields.');
             return;
         }
-    
+
         const userData = {
-            newUsername: username, // This will be sent as 'newUsername'
-            newPassword: password, // Send the password if it exists
-            newRole: role,         // Send the new role
+            newUsername: username,
+            newPassword: password,  // Send the password if filled
+            newRole: role,
         };
-    
-        console.log("the url",`/admin-panel/login/update/${selectedUser.username}`);
-        console.log("Sending data", userData);
-    
+
         try {
             await axios.put(`/admin-panel/login/update/${selectedUser.username}`, userData);
             alert('User updated successfully');
             resetForm();
-            await fetchUsers(); // Refresh user list
+            await fetchUsers();  // Ensure user list is fetched after updating
         } catch (error) {
             console.error('Error updating user:', error);
             setErrorMessage('Error updating user');
         }
     };
-    
 
     const handleUserDeleteRequest = async (user) => {
         if (window.confirm(`Are you sure you want to delete user ${user.username}?`)) {
             try {
                 await axios.delete(`/admin-panel/login/delete/${user.username}`);
                 alert('User deleted successfully');
-               await  fetchUsers(); // Refresh user list
+                await fetchUsers();  // Ensure user list is fetched after deletion
             } catch (error) {
                 console.error('Error deleting user:', error);
                 setErrorMessage('Error deleting user');
@@ -108,8 +103,7 @@ const Settings = () => {
     };
 
     return (
-        roleIS==='superadmin'? 
-           
+        roleIS === 'superadmin' ?
         <div>
             <div className="flex justify-between mb-4">
                 <button
@@ -174,7 +168,7 @@ const Settings = () => {
                             <p>{user.username} ({user.role})</p>
                             <div>
                                 <button
-                                    className="bg-yellow-500 text-white px-4 py-1 rounded" 
+                                    className="bg-yellow-500 text-white px-4 py-1 rounded"
                                     onClick={() => handleEditUser(user)}
                                 >
                                     Edit
@@ -225,7 +219,7 @@ const Settings = () => {
                                 </button>
                                 <button
                                     className="w-[48%] mt-5 py-2 text-white bg-blue-300 hover:bg-blue-400 rounded"
-                                    onClick={() => setSelectedUser(false)}
+                                    onClick={resetForm}
                                 >
                                     Cancel
                                 </button>
@@ -234,9 +228,8 @@ const Settings = () => {
                     )}
                 </div>
             )}
-        </div>: 
-        <div className='text-xl mt-4'> You are restricted to view this</div>
-    
+        </div>
+        : <div className='text-xl mt-4'> You are restricted to view this</div>
     );
 };
 
