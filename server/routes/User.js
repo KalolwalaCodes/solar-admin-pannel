@@ -88,7 +88,8 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
       const users = await fetchUsersFromS3();
-      console.log(users,"here is everyuser")
+      console.log(users,"here is everyuser");
+      res.setHeader('Cache-Control', 'no-store');
       res.status(200).json(users);
   } catch (error) {
       console.error('Error fetching users:', error);

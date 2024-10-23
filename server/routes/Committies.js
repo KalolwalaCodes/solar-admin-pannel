@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
   if (!data) {
     return res.status(500).json({ msg: "Error loading data" });
   }
+  res.setHeader('Cache-Control', 'no-store');
   res.json(data);
 });
 

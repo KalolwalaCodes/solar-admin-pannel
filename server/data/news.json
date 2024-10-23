@@ -1,19 +1,9 @@
 {
   "news": [
     {
-      "id": 8,
-      "thumbnail": "/api/download-file?file=news-thumbnails/1729238063475_app_store.png",
-      "headline": "tdmnowxnwowesting ",
-      "shortNews": "jhbcjbbicbn ols bcbaiBCI Q WC C.   C. C ",
-      "date": "2024-10-07",
-      "link": "https://solargroup.com/",
-      "showOnHomepage": true,
-      "showOnNewspage": true
-    },
-    {
       "id": 9,
       "thumbnail": "https://solargroup.com/api/download-file?file=news-thumbnails/1729238202918_app_store.png",
-      "headline": "VGGGVKVLGB",
+      "headline": "testing001",
       "shortNews": "YXDCDXXC",
       "date": "2024-10-10",
       "link": "https://solargroup.com/",

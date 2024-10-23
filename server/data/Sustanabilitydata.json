@@ -1,46 +1,79 @@
 {
-  "BRM": [
+  "BRM":[
     {
       "title": "BRM",
       "items": [
         {
-          "details": []
+          "details": [
+            {
+              "title": "Business Responsibility Manual",
+              "type": "pdf",
+               "url":"Sustainability/BRM/Business Responsibility Manual.pdf"
+            },
+            {
+              "title": "Policy on Responsible Advocacy",
+              "type": "pdf",
+               "url":"Sustainability/BRM/Policy on Responsible Advocacy.pdf"
+            }
+            
+          ]
         }
       ]
     }
   ],
-  "CSR": [
+  "CSR":[
     {
       "title": "CSR",
       "items": [
         {
           "details": [
             {
+              "title": "CSR-Report_2022-23",
+              "type": "pdf",
+               "url":"Sustainability/CSR/CSR-Report_2022-23.pdf"
+            },
+            {
+              "title": "CSR-Report_2021-22",
+              "type": "pdf",
+               "url":"Sustainability/CSR/CSR-Report_2021-22.pdf"
+            },
+            {
+              "title": "CSR-Report_2020-21",
+              "type": "pdf",
+               "url":"Sustainability/CSR/CSR-Report_2020-21.pdf"
+            },
+            {
               "title": "CSR-Report_2019-20",
               "type": "pdf",
-              "url": "Sustainability/CSR/CSR-Report_2019-20.pdf"
+               "url":"Sustainability/CSR/CSR-Report_2019-20.pdf"
             },
             {
               "title": "CSR-Report_2018-19",
               "type": "pdf",
-              "url": "Sustainability/CSR/CSR-Report_2018-19.pdf"
+               "url":"Sustainability/CSR/CSR-Report_2018-19.pdf"
+            },
+            {
+              "title": "CSR-Report_2017_18",
+              "type": "pdf",
+               "url":"Sustainability/CSR/CSR-Report_2017_18.pdf"
             },
             {
               "title": "CSR-Report_2016-17",
               "type": "pdf",
-              "url": "Sustainability/CSR/CSR-Report_2016-17.pdf"
+               "url":"Sustainability/CSR/CSR-Report_2016-17.pdf"
             },
             {
               "title": "CSR-Report_2015-16",
               "type": "pdf",
-              "url": "Sustainability/CSR/CSR-Report_2015-16.pdf"
+               "url":"Sustainability/CSR/CSR-Report_2015-16.pdf"
             }
+            
           ]
         }
       ]
     }
   ],
-  "Environmental Compliance": [
+  "Environmental Compliance":[
     {
       "title": "Environmental Compliance",
       "items": [
@@ -49,29 +82,34 @@
             {
               "title": "EC Letter to Local Panchayat",
               "type": "pdf",
-              "url": "Sustainability/Environmental Compliance/EC Letter to Local Panchayat.pdf"
+               "url":"Sustainability/Environmental Compliance/EC Letter to Local Panchayat.pdf"
+            },
+            {
+              "title": "Envirnmental-Clearance-Solar-Industries-India-Ltd.",
+              "type": "pdf",
+               "url":"Sustainability/Environmental Compliance/Envirnmental-Clearance-Solar-Industries-India-Ltd..pdf"
             },
             {
               "title": "Environmental Monitoring Report",
               "type": "pdf",
-              "url": "Sustainability/Environmental Compliance/Environmental Monitoring Report.pdf"
+               "url":"Sustainability/Environmental Compliance/Environmental Monitoring Report.pdf"
             },
             {
               "title": "FORM-V-2022-23",
               "type": "pdf",
-              "url": "Sustainability/Environmental Compliance/FORM-V-2022-23.pdf"
+               "url":"Sustainability/Environmental Compliance/FORM-V-2022-23.pdf"
             },
             {
               "title": "Six-monthly-EC-Compliance-Report-April-Sep-2023",
               "type": "pdf",
-              "url": "Sustainability/Environmental Compliance/Six-monthly-EC-Compliance-Report-April-Sep-2023.pdf"
+               "url":"Sustainability/Environmental Compliance/Six-monthly-EC-Compliance-Report-April-Sep-2023.pdf"
             }
           ]
         }
       ]
     }
   ],
-  "Environmental Statement": [
+  "Environmental Statement":[
     {
       "title": "Environmental Statement",
       "items": [
@@ -80,34 +118,34 @@
             {
               "title": "EC Compliance April-Sept 19- Solar industries India Limited",
               "type": "pdf",
-              "url": "Sustainability/Environmental Statement/EC Compliance April-Sept 19- Solar industries India Limited.pdf"
+               "url":"Sustainability/Environmental Statement/EC Compliance April-Sept 19- Solar industries India Limited.pdf"
             },
             {
               "title": "EC Solar Letter",
               "type": "pdf",
-              "url": "Sustainability/Environmental Statement/EC Solar Letter.pdf"
+               "url":"Sustainability/Environmental Statement/EC Solar Letter.pdf"
             },
             {
               "title": "Environment Monitoring Report June 2019",
               "type": "pdf",
-              "url": "Sustainability/Environmental Statement/Environment Monitoring Report June 2019.pdf"
+               "url":"Sustainability/Environmental Statement/Environment Monitoring Report June 2019.pdf"
             },
             {
               "title": "Environment Monitoring Report March 2019",
               "type": "pdf",
-              "url": "Sustainability/Environmental Statement/Environment Monitoring Report March 2019.pdf"
+               "url":"Sustainability/Environmental Statement/Environment Monitoring Report March 2019.pdf"
             },
             {
               "title": "Environmental Statement FY 31st March 2018",
               "type": "pdf",
-              "url": "Sustainability/Environmental Statement/Environmental Statement FY 31st March 2018.pdf"
+               "url":"Sustainability/Environmental Statement/Environmental Statement FY 31st March 2018.pdf"
             }
           ]
         }
       ]
     }
   ],
-  "ESG Reports": [
+  "ESG Reports":[
     {
       "title": "ESG Reports",
       "items": [
@@ -116,24 +154,25 @@
             {
               "title": "ESG Focus 2020-21",
               "type": "pdf",
-              "url": "Sustainability/ESG Reports/ESG Focus 2020-21.pdf"
+               "url":"Sustainability/ESG Reports/ESG Focus 2020-21.pdf"
             },
             {
               "title": "ESG Focus 2021-22",
               "type": "pdf",
-              "url": "Sustainability/ESG Reports/ESG Focus 2021-22.pdf"
+               "url":"Sustainability/ESG Reports/ESG Focus 2021-22.pdf"
             },
             {
               "title": "ESG Focus 2022-23",
               "type": "pdf",
-              "url": "Sustainability/ESG Reports/ESG Focus 2022-23.pdf"
+               "url":"Sustainability/ESG Reports/ESG Focus 2022-23.pdf"
             }
           ]
         }
       ]
     }
   ],
-  "Sustainability Policies": [
+
+  "Sustainability Policies":[
     {
       "title": "Sustainability Policies",
       "items": [
@@ -142,63 +181,84 @@
             {
               "title": "Customer Satisfaction Survey and Monitoring Policy",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Customer Satisfaction Survey and Monitoring Policy.pdf"
+               "url":"Sustainability/Sustainability Policies/Customer Satisfaction Survey and Monitoring Policy.pdf"
             },
             {
               "title": "Policy on Anti Corruption and Bribery",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Policy on Anti Corruption and Bribery.pdf"
+               "url":"Sustainability/Sustainability Policies/Policy on Anti Corruption and Bribery.pdf"
             },
             {
               "title": "Policy on Employee Well-Being",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Policy on Employee Well-Being.pdf"
+               "url":"Sustainability/Sustainability Policies/Policy on Employee Well-Being.pdf"
             },
             {
               "title": "Policy on Environment, Health and Safety",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Policy on Environment, Health and Safety.pdf"
+               "url":"Sustainability/Sustainability Policies/Policy on Environment, Health and Safety.pdf"
             },
             {
               "title": "Policy on Human Rights",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Policy on Human Rights.pdf"
+               "url":"Sustainability/Sustainability Policies/Policy on Human Rights.pdf"
             },
             {
               "title": "Policy on Lifecycle Sustainability",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Policy on Lifecycle Sustainability.pdf"
+               "url":"Sustainability/Sustainability Policies/Policy on Lifecycle Sustainability.pdf"
             },
             {
               "title": "Policy on Product Responsibility",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Policy on Product Responsibility.pdf"
+               "url":"Sustainability/Sustainability Policies/Policy on Product Responsibility.pdf"
             },
             {
               "title": "Policy on Stakeholder's Engagement",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Policies/Policy on Stakeholder's Engagement.pdf"
+               "url":"Sustainability/Sustainability Policies/Policy on Stakeholder's Engagement.pdf"
             }
           ]
         }
       ]
     }
   ],
-  "Sustainability Reports": [
+
+  "Sustainability Reports":[
     {
       "title": "Sustainability Reports",
       "items": [
         {
           "details": [
             {
+              "title": "Business Responsibility and Sustainability Report FY 2022-23",
+              "type": "pdf",
+               "url":"Sustainability/Sustainability Reports/Business Responsibility and Sustainability Report FY 2022-23.pdf"
+            },
+            {
+              "title": "Business Responsibility Report FY 2021-22",
+              "type": "pdf",
+               "url":"Sustainability/Sustainability Reports/Business Responsibility Report FY 2021-22.pdf"
+            },
+            {
+              "title": "Business Responsibility Report FY 2020-21",
+              "type": "pdf",
+               "url":"Sustainability/Sustainability Reports/Business Responsibility Report FY 2020-21.pdf"
+            },
+            {
               "title": "Business Responsibility Report FY 2019-20",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Reports/Business Responsibility Report FY 2019-20.pdf"
+               "url":"Sustainability/Sustainability Reports/Business Responsibility Report FY 2019-20.pdf"
+            },
+            {
+              "title": "Business Responsibility Report FY 2018-19",
+              "type": "pdf",
+               "url":"Sustainability/Sustainability Reports/Business Responsibility Report FY 2018-19.pdf"
             },
             {
               "title": "Business Responsibility Report FY 2017-18",
               "type": "pdf",
-              "url": "Sustainability/Sustainability Reports/Business Responsibility Report FY 2017-18.pdf"
+               "url":"Sustainability/Sustainability Reports/Business Responsibility Report FY 2017-18.pdf"
             }
           ]
         }

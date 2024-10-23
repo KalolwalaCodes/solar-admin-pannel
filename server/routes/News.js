@@ -4,6 +4,8 @@ const fs = require('fs');
 const multer = require('multer');
 const { S3Client } = require('@aws-sdk/client-s3');
 const { Upload } = require('@aws-sdk/lib-storage');
+const { DeleteObjectCommand } = require('@aws-sdk/client-s3');
+
 const path = require('path');
 
 // S3 configuration
@@ -90,14 +92,15 @@ router.post('/', upload.single('thumbnail'), async (req, res) => {
 get('/', (req, res) => {
     try {
       // Read the news data from the JSON file
-  
+       res.setHeader('Cache-Control', 'no-store');
         res.status(200).json(data); // Send the news data in the response
 
     } catch (error) {
       console.error("Error fetching news data:", error);
       res.status(500).json({ error: 'An error occurred while fetching the news data.' });
     }
-  }).delete('/:id', async (req, res) => {
+  })
+.delete('/:id', async (req, res) => {
     const newsId = parseInt(req.params.id, 10); // Get news ID from request parameters
     
     try {
@@ -128,7 +131,8 @@ get('/', (req, res) => {
   
           try {
             // Delete the file from S3
-            await s3.deleteObject(deleteParams).promise();
+            const deleteCommand = new DeleteObjectCommand(deleteParams);
+            await s3.send(deleteCommand);
             console.log('S3 file deleted successfully');
           } catch (s3Error) {
             console.error('Error deleting file from S3:', s3Error);
@@ -153,6 +157,7 @@ get('/', (req, res) => {
       res.status(500).json({ error: 'An error occurred while processing the request.' });
     }
   })
+  
   .put('/update', upload.single('thumbnail'), async (req, res) => {
     const { id, headline, shortNews, date, link, showOnHomepage, showOnNewspage } = req.body;
     console.log(id, headline, shortNews, date, link, showOnHomepage, showOnNewspage)

@@ -26,7 +26,7 @@ sustainabilityRouter.get('/', async (req, res) => {
     console.log("no data present in sustaniability");
     return res.status(500).json({ msg: "Error loading data" });
   }
-
+  res.setHeader('Cache-Control', 'no-store');
   // console.log(data);
   res.json(data); 
 })

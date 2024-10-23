@@ -27,7 +27,7 @@ const InvestorsRelation = () => {
   const[activeFolderNAme,setActiveFolderName]=useState();
   const [filesIs,setFiles]=useState();
   const[folderIs,SetFolderIs]=useState();
-const [alertMessage,setAlertMessage]=useState('hii');
+const [alertMessage,setAlertMessage]=useState('');
 
     const [editedFolderName, setEditedFolderName] = useState('');
     const [showEditToggler,setShowEditToggler]=useState(false);
@@ -151,7 +151,7 @@ const [alertMessage,setAlertMessage]=useState('hii');
         });
         setNeedToEdit({...needToEdit,need:false});
       } else {
-        setAlertMessage('Failed to update file name')
+        setAlertMessage(`Failed to update file name. ${Math.floor(Date.now() / 1000)}`); // Unique error with timestamp
         console.log('Failed to update file name');
       }
     } catch (error) {
