@@ -53,7 +53,7 @@ const [alertMessage,setAlertMessage]=useState('');
       const token = localStorage.getItem('authToken');
       console.log("fetching result---------");
       try {
-        let res = await fetch("/admin-panel/Investor-relation",{
+        let res = await fetch(`/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,{
           method:'GET',
           headers: {
             'Authorization': `Bearer ${token}`, // Include token
