@@ -11,6 +11,8 @@ const App = () => {
  // Logout function
  const handleLogout = () => {
   localStorage.removeItem('authToken'); // Remove the token
+  localStorage.removeItem('role');
+  
   setIsAuthenticated(false); // Set authentication to false
   navigate('/'); // Redirect to login
 };
