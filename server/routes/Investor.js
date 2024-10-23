@@ -223,7 +223,7 @@ router.get('/', async (req, res) => {
 
       // Check if the folder (with the same name) already exists in the matching item's details
       const folderExists = matchingCategoryItem.items.some(item => item.heading.toLowerCase() === folderName.toLowerCase());
-
+      console.log("here is the data of category folder", matchingCategoryItem.items);
       if (folderExists) {
           return res.status(400).send('Folder already exists');
       }
@@ -268,7 +268,7 @@ router.get('/', async (req, res) => {
 
       // Check if the folder (with the same name) already exists
       let folderExists = categoryData.some(categoryItem => categoryItem.title.toLowerCase() === folderName.toLowerCase());
-
+       console.log("here is the data of category", data[category]);
       if (folderExists) {
           return res.status(400).send('Folder already exists');
       }
