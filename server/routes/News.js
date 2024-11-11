@@ -5,6 +5,7 @@ const multer = require('multer');
 const { S3Client } = require('@aws-sdk/client-s3');
 const { Upload } = require('@aws-sdk/lib-storage');
 const { DeleteObjectCommand } = require('@aws-sdk/client-s3');
+const {readNewsData}=require('./helper01');
 
 const path = require('path');
 
@@ -18,11 +19,7 @@ const dataPath = path.join(__dirname, '../data/news.json');
 
 // Load the existing JSON data
 let data;
-try {
-  data = require(dataPath); // Load the JSON data
-} catch (error) {
-  console.error("Error loading JSON file: ", error.message);
-}
+
 
 // POST route to handle news submission
 router.post('/', upload.single('thumbnail'), async (req, res) => {
@@ -89,10 +86,10 @@ router.post('/', upload.single('thumbnail'), async (req, res) => {
       res.status(500).json({ error: 'An error occurred while processing the request.' });
     }
   }).
-get('/', (req, res) => {
+get('/', async(req, res) => {
     try {
-      // Read the news data from the JSON file
-       res.setHeader('Cache-Control', 'no-store');
+      const jsonString = await readNewsData(); // Read the file asynchronously
+      data = JSON.parse(jsonString); // Parse the JSON data
         res.status(200).json(data); // Send the news data in the response
 
     } catch (error) {

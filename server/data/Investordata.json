@@ -7,12 +7,7 @@
           "heading": "Update on Concall and Analyst Meet",
           "details": [
             {
-              "title": "Audio Recording of Concall_Aug 7 2024",
-              "type": "mp3",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Audio Recording of Concall_Aug 7 2024.mp3"
-            },
-            {
-              "title": "Transcription of Concall_August 7, 2024",
+              "title": "Transcription of Concall_August 7 2024",
               "type": "pdf",
               "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall_August 7, 2024.pdf"
             },
@@ -137,6 +132,11 @@
           "heading": "Schedule of Conference call and Investor meet",
           "details": [
             {
+              "title": "Investor Meet Intimation_November2024.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Schedule of Conference call and Investor meet/Investor Meet Intimation_November2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
               "title": "Investor Meet Intimation-20.08.2024",
               "url": "Investors-Relation/Announcement/Schedule of Conference call and Investor meet/Investor Meet Intimation-20.08.2024.pdf",
               "type": "pdf"
@@ -172,7 +172,7 @@
           "heading": "Press release",
           "details": [
             {
-              "title": "Press Release 06.08.2024.pdf",
+              "title": "Press Release 06.08.2024",
               "url": "Investors-Relation/announcements/Press Release/Press release/Press Release 06.08.2024.pdf",
               "fileType": "application/pdf"
             },
@@ -356,6 +356,21 @@
         {
           "heading": "Other Announcements ",
           "details": [
+            {
+              "title": "Receipt of export order of INR 580 Crores.pdf",
+              "url": "Investors-Relation/announcements/Other Announcements /Receipt of export order of INR 580 Crores.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Receipt of Order of INR 887 Crores.pdf",
+              "url": "Investors-Relation/announcements/Other Announcements /Receipt of Order of INR 887 Crores.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Receipt of Export order of INR 399.4 Crores.pdf",
+              "url": "Investors-Relation/announcements/Other Announcements /Receipt of Export order of INR 399.4 Crores.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "Certificate under Regulation 74(5) of SEBI September 30, 2024.pdf",
               "url": "Investors-Relation/announcements/Other Announcements /Certificate under Regulation 74(5) of SEBI September 30, 2024.pdf",
@@ -971,6 +986,11 @@
         {
           "heading": "Board Meeting Notices 2024-25",
           "details": [
+            {
+              "title": "Solar Board Meeting Intimation_ 13.11.2024.pdf",
+              "url": "Investors-Relation/announcements/BM Intimation/Board Meeting Notices 2024-25/Solar Board Meeting Intimation_ 13.11.2024.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "Intimation BM_06.08.2024 (2024-25).pdf",
               "url": "Investors-Relation/announcements/BM Intimation/Board Meeting Notices 2024-25/Intimation BM_06.08.2024 (2024-25).pdf",
@@ -2212,11 +2232,6 @@
             {
               "title": "Code of Conduct",
               "url": "Investors-Relation/Corporate Governance/Policies & Others/Code of Conduct.pdf",
-              "type": "pdf"
-            },
-            {
-              "title": "Code of fair disclosure of Unpublished Price Sensitive Information",
-              "url": "Investors-Relation/Corporate Governance/Policies & Others/Code of fair disclosure of Unpublished Price Sensitive Information.pdf",
               "type": "pdf"
             },
             {

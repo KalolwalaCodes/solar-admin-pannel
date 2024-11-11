@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const readInvestorData=require('./helper01');
+const {readInvestorData}=require('./helper01');
 const fs = require('fs');
 
 
@@ -19,18 +19,15 @@ const storage = multer.memoryStorage();
 
 const upload = multer({ storage });
 const s3 = new S3Client({ region: 'ap-south-1' });
-
-try {
- data = require(dataPath); // Load the JSON data
-} catch (error) {
-  console.error("Error loading JSON file: ", error.message);
+const callMeToInitialize=async()=>{
+    const jsonString = await readInvestorData(); // Read the file asynchronously
+    data = JSON.parse(jsonString); // Parse the JSON data
 }
-
+callMeToInitialize();
 router.get('/', async (req, res) => {
   try {
       const jsonString = await readInvestorData(); // Read the file asynchronously
        data = JSON.parse(jsonString); // Parse the JSON data
-      console.log("I'm being called main file--------", data['Conference call with Investors']);
 
       if (!data) {
           return res.status(500).json({ msg: "Error loading data" });

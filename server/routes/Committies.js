@@ -16,6 +16,8 @@ try {
 
 // GET request to retrieve committees
 router.get('/', (req, res) => {
+  console.log("sending data", data);
+
   if (!data) {
     return res.status(500).json({ msg: "Error loading data" });
   }
@@ -88,6 +90,37 @@ router.delete('/delete-row', (req, res) => {
     }
 
     res.json({ msg: "Row deleted successfully", data: data.departments[committeeIndex] });
+  });
+});
+
+// POST request to add a new committee member
+router.post('/add-member', (req, res) => {
+  const { committeeName, newMemberData } = req.body;
+
+  // Find the committee in the departments by name
+  const committeeIndex = data.departments.findIndex(dept => dept.name === committeeName);
+
+  // Validate committee existence
+  if (committeeIndex === -1) {
+    return res.status(400).json({ msg: "Committee not found" });
+  }
+
+  // Check if newMemberData is structured correctly
+  if (!Array.isArray(newMemberData) || newMemberData.length !== data.departments[committeeIndex].columns.length) {
+    return res.status(400).json({ msg: "New member data does not match the structure" });
+  }
+
+  // Add the new member data to the committee
+  data.departments[committeeIndex].data.push(newMemberData);
+
+  // Write the updated data back to the JSON file
+  fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
+    if (err) {
+      console.error("Error writing JSON file: ", err.message);
+      return res.status(500).json({ msg: "Error adding new member" });
+    }
+
+    res.json({ msg: "New member added successfully", data: data.departments[committeeIndex] });
   });
 });
 

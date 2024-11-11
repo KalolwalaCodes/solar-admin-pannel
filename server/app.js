@@ -8,6 +8,7 @@ const contactRouter=require('./routes/Contact.js');
 const sustainabilityRouter = require('./routes/Sustainability.js');
 const loginRouter = require('./routes/User.js');
 const newsRouter = require('./routes/News.js');
+const bodRouter = require('./routes/boardsprofile.js');
 const committeesRouter = require('./routes/Committies.js');
 const {authenticateJWT} =require('./Controllers/auth.js')
 // Middleware to parse JSON bodies
@@ -22,6 +23,7 @@ app.use("/admin-panel/contact-us",contactRouter)
 app.use("/admin-panel/login",loginRouter);
 app.use("/admin-panel/news",authenticateJWT,newsRouter);
 app.use("/admin-panel/committees",authenticateJWT,committeesRouter);
+app.use("/admin-panel/directors",authenticateJWT,bodRouter);
 
 app.listen("8000",()=>{
     console.log("server running on port 8000");
