@@ -4,17 +4,19 @@ import BasicTable from '../components/ui/TableData';
 
 const CommitteeTable = () => {
   const [data, setData] = useState([]);
+  const roleIS = localStorage.getItem('role');
 
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem('authToken');
 
       try {
-        const response = await axios.get('/admin-panel/committees', {
+        const response = await axios.get('http://localhost:8000/admin-panel/committees', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(response.data);
         setData(response.data.departments || []); // Default to an empty array if undefined
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,6 +27,7 @@ const CommitteeTable = () => {
   }, []);
 
   return (
+    (roleIS === 'superadmin' || roleIS === 'admin') ?
     <div className="container mx-auto p-4">
       {data.length > 0 ? (
         data.map((committee, index) => (
@@ -36,7 +39,7 @@ const CommitteeTable = () => {
       ) : (
         <div className="text-center text-gray-500">No committees found</div> // Updated message for no data
       )}
-    </div>
+    </div>  : <div className='text-xl mt-4'> You are restricted to view this</div>
   );
 };
 

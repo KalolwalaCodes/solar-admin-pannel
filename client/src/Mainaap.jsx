@@ -20,6 +20,7 @@ import ContactUs from './Pages/ContactUs';
 import NewsAndMedia from './Pages/NewsAndMedia';
 import CommitteeTable from './Pages/Commities';
 import UserManagement from './Pages/Settings';
+import BoardOfDirector from './Pages/BoardOfDirector';
 
 export default function JoyOrderDashboardTemplate({handleLogout}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
@@ -124,8 +125,11 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
             activePage==="Committees"&&<CommitteeTable/>
           }
           {
-  activePage === "Settings" &&<UserManagement  />
-}
+          activePage === "Settings" &&<UserManagement  />
+          }
+          {
+     activePage === "Board's of Director" &&<BoardOfDirector  />
+          }
 
           {/* <OrderTable />*/}
           {/* <OrderList />  */}

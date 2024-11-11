@@ -3,77 +3,61 @@ import React, { useState } from 'react';
 export default function BasicTable({ columns, rows, committeeName, setData, data }) {
   const [editingRowIndex, setEditingRowIndex] = useState(null);
   const [editedRowData, setEditedRowData] = useState([]);
+  const [isAddingNewMember, setIsAddingNewMember] = useState(false);
+  const [newMemberData, setNewMemberData] = useState([]);
 
   const handleEditClick = (rowIndex) => {
     setEditingRowIndex(rowIndex);
     setEditedRowData(rows[rowIndex]); // Initialize edited data with current row data
   };
 
-  const handleInputChange = (e, index) => {
-    const updatedData = [...editedRowData];
+  const handleInputChange = (e, index, isNew = false) => {
+    const updatedData = isNew ? [...newMemberData] : [...editedRowData];
     updatedData[index] = e.target.value;
-    setEditedRowData(updatedData);
+    isNew ? setNewMemberData(updatedData) : setEditedRowData(updatedData);
   };
 
   const handleSubmit = async (rowIndex) => {
     const token = localStorage.getItem('authToken');
-  
-    // Create the updated data for just the specific row being edited
-    const updatedData = [editedRowData]; // Wrap editedRowData in an array
-  
+
     const requestBody = {
-      committeeName, // Pass the committee name
-      index: rowIndex, // The index of the row you are editing
-      data: updatedData, // Send only the updated row wrapped in an array
+      committeeName,
+      index: rowIndex,
+      data: [editedRowData], // Send only the updated row wrapped in an array
     };
-  
+
     try {
-      const response = await fetch('/admin-panel/committees/update-committee', {
+      const response = await fetch('http://localhost:8000/admin-panel/committees/update-committee', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(requestBody), // Send the request body
+        body: JSON.stringify(requestBody),
       });
-  
+
       if (response.ok) {
         const result = await response.json();
-        alert(result.msg); // Success message
-  
-        // Update local state to reflect the edited row
-        setData((prevData) => {
-          return prevData.map((committee) => {
-            if (committee.name === committeeName) {
-              // Update the specific row within the committee's data
-              const updatedRows = committee.data.map((row, index) => {
-                return index === rowIndex ? editedRowData : row; // Replace the edited row
-              });
-              return {
-                ...committee,
-                data: updatedRows, // Update committee data
-              };
-            }
-            return committee; // Keep other committees unchanged
-          });
-        });
+        alert(result.msg);
+
+        setData((prevData) => prevData.map((committee) => {
+          if (committee.name === committeeName) {
+            const updatedRows = committee.data.map((row, index) => (index === rowIndex ? editedRowData : row));
+            return { ...committee, data: updatedRows };
+          }
+          return committee;
+        }));
       } else {
         const errorData = await response.json();
-        alert(errorData.msg); // Handle error
+        alert(errorData.msg);
       }
     } catch (error) {
       console.error('Error updating data:', error);
     }
-  
-    // Reset editing row index after saving
+
     setEditingRowIndex(null);
   };
   
-
-  const handleCancel = () => {
-    setEditingRowIndex(null); // Reset editing row index without saving
-  };
-
   const handleDelete = async (rowIndex) => {
     const confirmed = window.confirm("Are you sure you want to delete this row?");
     if (!confirmed) return;
@@ -86,7 +70,7 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
     };
   
     try {
-      const response = await fetch('/admin-panel/committees/delete-row', {
+      const response = await fetch('http://localhost:8000/admin-panel/committees/delete-row', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -123,8 +107,46 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
       console.error('Error deleting row:', error);
     }
   };
-  
-  
+
+  const handleAddMember = async () => {
+    const token = localStorage.getItem('authToken');
+
+    const requestBody = {
+      committeeName,
+      newMemberData,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8000/admin-panel/committees/add-member', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert(result.msg);
+
+        setData((prevData) => prevData.map((committee) => {
+          if (committee.name === committeeName) {
+            return { ...committee, data: [...committee.data, newMemberData] };
+          }
+          return committee;
+        }));
+
+        setNewMemberData([]);
+        setIsAddingNewMember(false);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.msg);
+      }
+    } catch (error) {
+      console.error('Error adding new member:', error);
+    }
+  };
 
   return (
     <div className="overflow-x-auto shadow-md rounded-lg">
@@ -132,9 +154,19 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
         <thead className="bg-gray-100">
           <tr>
             {columns.map((column, colIndex) => (
-              <th key={colIndex} className="py-3 px-4 text-left text-gray-600 font-semibold border-b">{column}</th>
+              <th key={colIndex} className="py-3 px-4 text-left text-gray-600 font-semibold border-b">
+                {column}
+              </th>
             ))}
-            <th className="py-3 px-4 text-left text-gray-600 font-semibold border-b">Actions</th>
+            <th className="py-3 px-4 text-left text-gray-600 font-semibold border-b">
+              Actions
+              <button
+                className="bg-blue-500 text-white font-bold text-xl px-[6px] rounded-lg ml-2"
+                onClick={() => setIsAddingNewMember(true)}
+              >
+                +
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -158,31 +190,22 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
               <td className="py-3 px-4 border-b text-gray-700">
                 {editingRowIndex === rowIndex ? (
                   <div className="flex space-x-2">
-                    <button 
-                      className="bg-red-500 text-white px-4 py-1 rounded" 
-                      onClick={handleCancel}
-                    >
+                    <button className="bg-red-500 text-white px-4 py-1 rounded" onClick={() => setEditingRowIndex(null)}>
                       Cancel
                     </button>
-                    <button 
-                      className="bg-blue-500 text-white px-4 py-1 rounded" 
-                      onClick={() => handleSubmit(rowIndex)}
-                    >
+                    <button className="bg-blue-500 text-white px-4 py-1 rounded" onClick={() => handleSubmit(rowIndex)}>
                       Submit
                     </button>
                   </div>
                 ) : (
                   <div className="flex space-x-2">
-                    <button 
-                      className="bg-yellow-500 text-white px-4 py-1 rounded" 
+                    <button
+                      className="bg-yellow-500 text-white px-4 py-1 rounded"
                       onClick={() => handleEditClick(rowIndex)}
                     >
                       Edit
                     </button>
-                    <button 
-                      className="bg-red-500 text-white px-4 py-1 rounded" 
-                      onClick={() => handleDelete(rowIndex)}
-                    >
+                    <button className="bg-red-500 text-white px-4 py-1 rounded" onClick={() => handleDelete(rowIndex)}>
                       Delete
                     </button>
                   </div>
@@ -190,6 +213,31 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
               </td>
             </tr>
           ))}
+
+          {isAddingNewMember && (
+            <tr className="hover:bg-gray-50">
+              {columns.map((_, colIndex) => (
+                <td key={colIndex} className="py-3 px-4 border-b text-gray-700">
+                  <input
+                    type="text"
+                    value={newMemberData[colIndex] || ''}
+                    onChange={(e) => handleInputChange(e, colIndex, true)}
+                    className="border border-gray-300 rounded p-1"
+                  />
+                </td>
+              ))}
+              <td className="py-3 px-4 border-b text-gray-700">
+                <div className="flex space-x-2">
+                  <button className="bg-red-500 text-white px-4 py-1 rounded" onClick={() => setIsAddingNewMember(false)}>
+                    Cancel
+                  </button>
+                  <button className="bg-green-500 text-white px-4 py-1 rounded" onClick={handleAddMember}>
+                    Submit
+                  </button>
+                </div>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

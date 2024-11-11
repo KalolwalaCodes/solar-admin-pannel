@@ -53,7 +53,7 @@ const [alertMessage,setAlertMessage]=useState('');
       const token = localStorage.getItem('authToken');
       console.log("fetching result---------");
       try {
-        let res = await fetch(`/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,{
+        let res = await fetch(`http://localhost:8000/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,{
           method:'GET',
           headers: {
             'Authorization': `Bearer ${token}`, // Include token
@@ -91,7 +91,7 @@ const [alertMessage,setAlertMessage]=useState('');
       const folderName = activeFolderNAme; // folder name from active folder
       const token = localStorage.getItem('authToken');
 
-      const response = await fetch('/admin-panel/Investor-relation', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation', {
         method: 'PATCH',
        
         headers: {
@@ -153,12 +153,12 @@ const [alertMessage,setAlertMessage]=useState('');
         });
         setNeedToEdit({...needToEdit,need:false});
       } else {
-        setAlertMessage(`Failed to update file name. ${Math.floor(Date.now() / 1000)}`); // Unique error with timestamp
+        setAlertMessage(`Failed to update file name ,${Math.floor(Date.now() / 1000)}`); // Unique error with timestamp
         console.log('Failed to update file name');
       }
     } catch (error) {
       console.error('Error:', error);
-      setAlertMessage(error.message);
+      setAlertMessage(`${error.message},${Math.floor(Date.now() / 1000)}`);
     }
   };
 
@@ -172,7 +172,7 @@ const [alertMessage,setAlertMessage]=useState('');
       const folderName = activeFolderNAme; // folder name from active folder
       const token = localStorage.getItem('authToken');
 
-      const response = await fetch('/admin-panel/Investor-relation', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation', {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -187,7 +187,7 @@ const [alertMessage,setAlertMessage]=useState('');
   
       if (response.ok) {
         console.log('File deleted successfully');
-        setAlertMessage('File deleted successfully')
+        setAlertMessage(`File deleted successfully,${Math.floor(Date.now() / 1000)}`)
         // Update investorData state
         setInvestorData((prevData) => {
           // Make a deep copy of the previous state
@@ -229,11 +229,11 @@ const [alertMessage,setAlertMessage]=useState('');
   
         setNeedToEdit({ ...needToEdit, need: false });
       } else {
-        setAlertMessage('Failed to delete file');
+        setAlertMessage(`Failed to delete file , ${Math.floor(Date.now() / 1000)}`);
         console.log('Failed to delete file');
       }
     } catch (error) {
-      setAlertMessage(error.message);
+      setAlertMessage(`${error.message}, ${Math.floor(Date.now() / 1000)}`);
       console.error('Error:', error);
     }
   };
@@ -276,7 +276,7 @@ const [alertMessage,setAlertMessage]=useState('');
     const token = localStorage.getItem('authToken');
 
     try {
-      const response = await fetch('/admin-panel/Investor-relation/delete-folder-nesting', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/delete-folder-nesting', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -293,7 +293,7 @@ const [alertMessage,setAlertMessage]=useState('');
   
       if (response.ok) {
         console.log('Item deleted successfully');
-        setAlertMessage('Item deleted successfully');
+        setAlertMessage(`Item deleted successfully, ${Math.floor(Date.now() / 1000)}`);
   
         // Update the investorData state
         setInvestorData((prevData) => {
@@ -335,27 +335,11 @@ const [alertMessage,setAlertMessage]=useState('');
     setShowEditToggler(true);
   }
   
-//   const renameHandlerFolder = (e, element, newFolderName) => {
-//     e.stopPropagation();
-//     setActiveFD(element);
-//     console.log(element);
-
-//     const userConfirmed = window.confirm("Are you sure you want to rename this folder?");
-    
-//     if (userConfirmed) {
-//       // User pressed OK, make the POST request to rename the folder
-//       renameFolder(element, newFolderName);
-//     } else {
-//       // User pressed Cancel, do nothing
-//       console.log("Folder renaming canceled");
-//     }
-// };
-
 const renameFolder = async (itemHeading, newFolderName) => {
     const token = localStorage.getItem('authToken');
 
     try {
-        const response = await fetch('/admin-panel/Investor-relation/edit-folder-nesting', {
+        const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/edit-folder-nesting', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -373,7 +357,7 @@ const renameFolder = async (itemHeading, newFolderName) => {
 
         if (response.ok) {
             console.log('Folder renamed successfully');
-            setAlertMessage('Folder renamed successfully');
+            setAlertMessage(`Folder renamed successfully ,${Math.floor(Date.now() / 1000)}`);
 
             // Update the investorData state to reflect the folder name change
             setInvestorData((prevData) => {
@@ -437,7 +421,7 @@ const handleUploadFileRequest = async () => {
     formData.append('category', category);
     const token = localStorage.getItem('authToken');
 
-    const response = await fetch('/admin-panel/Investor-relation/upload-files', {
+    const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/upload-files', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -447,7 +431,7 @@ const handleUploadFileRequest = async () => {
 
     if (response.ok) {
       console.log('File uploaded successfully');
-      setAlertMessage('File uploaded successfully');
+      setAlertMessage(`File uploaded successfully ,${Math.floor(Date.now() / 1000)}`);
       
       // Update the investorData state
       setInvestorData((prevData) => {
@@ -487,11 +471,11 @@ const handleUploadFileRequest = async () => {
       setNeedToEdit({ ...needToEdit, need: false });
     } else {
       console.log('Failed to upload file');
-      setAlertMessage('Failed to upload file');
+      setAlertMessage(`Failed to upload file ,${Math.floor(Date.now() / 1000)}`);
     }
   } catch (error) {
     console.error('Error:', error);
-    setAlertMessage(error.message);
+    setAlertMessage(`${error.message},${Math.floor(Date.now() / 1000)}`);
   }
   setActiveUploader(!activeUploader);
 };
@@ -512,7 +496,7 @@ const handleUploadFileRequest = async () => {
         if (activeFD === 'newFolder') {
           const token = localStorage.getItem('authToken');
 
-            response = await fetch('/admin-panel/Investor-relation/create-folder', {
+            response = await fetch('http://localhost:8000/admin-panel/Investor-relation/create-folder', {
                 method: 'POST',
                 headers: {
                   'Authorization': `Bearer ${token}`,
@@ -527,7 +511,7 @@ const handleUploadFileRequest = async () => {
         } else {
           const token = localStorage.getItem('authToken');
 
-            response = await fetch('/admin-panel/Investor-relation/create-folder-nesting', {
+            response = await fetch('http://localhost:8000/admin-panel/Investor-relation/create-folder-nesting', {
                 method: 'POST',
                 headers: {
                   'Authorization': `Bearer ${token}`,
@@ -546,7 +530,7 @@ const handleUploadFileRequest = async () => {
         if (!response.ok) {
             const errorMessage = await response.text();  // Get error message as text
             console.error('Error creating folder:', errorMessage);
-            setAlertMessage('Error creating folder: ' + errorMessage);  // Optional: display error to user
+            setAlertMessage(`Error creating folder: ${errorMessage} ,${Math.floor(Date.now() / 1000)}`);  // Optional: display error to user
             return;
         }
 
@@ -560,7 +544,7 @@ const handleUploadFileRequest = async () => {
         }
 
         console.log('Folder created successfully:', data);
-        setAlertMessage('Folder created successfully!');
+        setAlertMessage(`Folder created successfully!,${Math.floor(Date.now() / 1000)}`);
 
         // Automatically update `InvestorData`
         setInvestorData((prevData) => {
@@ -601,22 +585,14 @@ const handleUploadFileRequest = async () => {
 
     } catch (error) {
         console.error('Error while creating folder:', error);
-        setAlertMessage('An error occurred while creating the folder.');
+        setAlertMessage(`An error occurred while creating the folder.,${Math.floor(Date.now() / 1000)}`);
     }
 };
-
-
-
-  
-  
-
-  
-
   return (
     <div>
 
       {activeEditor && (
-        <div className="absolute z-20 bg-transparent w-[80%] h-[80vh] flex flex-col justify-center align-middle">
+        <div className="fixed z-20 bg-transparent w-[80%] h-[80vh] flex flex-col justify-center align-middle top-[10%]">
           <div className="m-auto w-[500px] h-[400px] bg-slate-200 rounded-md">
             <button onClick={() => setActiveEditor(!activeEditor)} className="font-bold text-2xl px-3 py-2 rounded-lg w-[40px]">X</button>
             <div className="flex justify-center align-middle flex-col mt-10 relative">
@@ -766,7 +742,7 @@ const handleUploadFileRequest = async () => {
                   onClick={()=>{setActiveFDMain(key.title);console.log("here is fd",key.title)}}
                 >
                   {key.title} 
-                  <div className="absolute z-[30] w-[286px] right-[20px]  flex justify-evenly">
+                  <div className="absolute z-[10] w-[286px] right-[20px]  flex justify-evenly">
                   <Button style={{zIndex:3}} variant="soft"  onClick={(e) => {
                    e.stopPropagation(); 
                    uploadHandlerFolder(e, key.title);

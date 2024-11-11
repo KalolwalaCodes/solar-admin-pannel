@@ -7,10 +7,12 @@ const NewsAndMedia = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [selectedNewsId, SetSelectedNewsId] = useState(false);
   const [editNewsId, setEditNewsId] = useState(null);
+  const roleIS = localStorage.getItem('role');
 
   useEffect(() => {
     const token = localStorage.getItem('authToken');
-    fetch('/admin-panel/news', {
+    console.log(token,"the token is");
+    fetch('http://localhost:8000/admin-panel/news', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`, // Include token
@@ -19,6 +21,7 @@ const NewsAndMedia = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log("news data is",data);
         setNewsData(data.news); // Assuming the response structure is { news: [...] }
       })
       .catch((error) => {
@@ -62,7 +65,7 @@ const NewsAndMedia = () => {
     formData.append('showOnNewspage', news.showOnNewspage);
 
     try {
-      const response = await fetch('/admin-panel/news', {
+      const response = await fetch('http://localhost:8000/admin-panel/news', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`, // Include token
@@ -120,7 +123,7 @@ const handleEditSubmit = async (e) => {
   formData.append('showOnNewspage', news.showOnNewspage);
 
   try {
-    const response = await fetch(`/admin-panel/news/update`, {
+    const response = await fetch(`http://localhost:8000/admin-panel/news/update`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -165,7 +168,7 @@ const handleEditSubmit = async (e) => {
     if (confirmDelete) {
       const token = localStorage.getItem('authToken');
       try {
-        const response = await fetch(`/admin-panel/news/${newsId}`, {
+        const response = await fetch(`http://localhost:8000/admin-panel/news/${newsId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -186,6 +189,7 @@ const handleEditSubmit = async (e) => {
   };
 
   return (
+    (roleIS === 'superadmin' || roleIS === 'admin') ?
     <>
       <div className="flex w-full justify-between">
         <button
@@ -449,6 +453,8 @@ const handleEditSubmit = async (e) => {
         </div>
       )}
     </>
+            : <div className='text-xl mt-4'> You are restricted to view this</div>
+
   );
 };
 

@@ -11,7 +11,10 @@ import Close from '@mui/icons-material/Close';
 
 export default function AlertInvertedColors({ msg }) {
   const [open, setOpen] = useState(false); // state to control visibility
+  console.log(msg);
+  
   useEffect(() => {
+    if(msg.split(',')&&msg.split(',')[0].length>3)
     setOpen(true);
 
     const timer = setTimeout(() => {
@@ -77,7 +80,7 @@ export default function AlertInvertedColors({ msg }) {
       >
         <div>
           <Typography level="title-lg">Success</Typography>
-          <Typography level="body-sm">{msg}</Typography>
+          <Typography level="body-sm">{msg.split(',')[0].length&&msg.split(',')[0]}</Typography>
         </div>
         <LinearProgress
           variant="solid"

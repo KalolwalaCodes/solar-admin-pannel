@@ -44,6 +44,7 @@ function descendingComparator(a, b, orderBy) {
   }
   return 0;
 }
+const roleIS = localStorage.getItem('role');
 
 function getComparator(order, orderBy) {
   return order === 'desc'
@@ -105,7 +106,7 @@ export default function ContactUs() {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch('/admin-panel/contact-us');
+      const response = await fetch('http://localhost:8000/admin-panel/contact-us');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -121,7 +122,7 @@ export default function ContactUs() {
   const handleDelete = async (id) => {
     console.log(id, "delete triggered");
     try {
-      const response = await fetch(`/admin-panel/contact-us/${id}`, {
+      const response = await fetch(`http://localhost:8000/admin-panel/contact-us/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
@@ -234,6 +235,8 @@ export default function ContactUs() {
   );
 
   return (
+   
+    (roleIS === 'superadmin' || roleIS === 'admin') ?
     <React.Fragment>
       {/* Search and Filters for Mobile */}
       <Sheet
@@ -499,5 +502,8 @@ export default function ContactUs() {
         </Button>
       </Box>
     </React.Fragment>
+            : <div className='text-xl mt-4'> You are restricted to view this</div>
+
+  
   );
 }

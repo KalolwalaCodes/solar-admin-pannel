@@ -184,6 +184,15 @@ const [selectedItem,setSelectedItem]=React.useState(1);
             </ListItemButton>
           </ListItem>
 
+          <ListItem>
+            <ListItemButton selected={selectedItem===7} onClick={()=>changePageRoutingView("Board's of Director",7)}>
+              <ConnectWithoutContactIcon />
+              <ListItemContent>
+                <Typography level="title-sm">Board's of director</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
+
         </List>
         <List
           size="sm"

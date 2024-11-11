@@ -27,7 +27,7 @@ const Sustainability = () => {
   const[activeFolderNAme,setActiveFolderName]=useState();
   const [filesIs,setFiles]=useState();
   const[folderIs,SetFolderIs]=useState();
-  const [alertMessage,setAlertMessage]=useState('hii');
+  const [alertMessage,setAlertMessage]=useState('');
   // New state variables for folder editing
   const [folderToEdit, setFolderToEdit] = useState(null);
   const [editedFolderName, setEditedFolderName] = useState('');
@@ -54,7 +54,7 @@ const Sustainability = () => {
   useEffect(() => {
     const fetchInvestorData = async () => {
       try {
-        let res = await fetch("/admin-panel/Sustainability");
+        let res = await fetch("http://localhost:8000/admin-panel/Sustainability");
         let data = await res.json();
         setInvestorData(data);
         console.log("here is ", data[activeTab][0]);
@@ -84,7 +84,7 @@ const Sustainability = () => {
       const newFileName = needToEdit.value; // new file name from input
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('/admin-panel/Sustainability', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -144,12 +144,12 @@ const Sustainability = () => {
         });
         setNeedToEdit({...needToEdit,need:false});
       } else {
-        setAlertMessage('Failed to update file name')
+        setAlertMessage(`Failed to update file name ,${Math.floor(Date.now() / 1000)}`)
         console.log('Failed to update file name');
       }
     } catch (error) {
       console.error('Error:', error);
-      setAlertMessage(error.message);
+      setAlertMessage(`${error.message}, ${Math.floor(Date.now() / 1000)}`);
     }
   };
 
@@ -162,7 +162,7 @@ const Sustainability = () => {
       const category = activeTab; // active tab as the category
       const folderName = activeFolderNAme; // folder name from active folder
   
-      const response = await fetch('/admin-panel/Sustainability', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ const Sustainability = () => {
   
       if (response.ok) {
         console.log('File deleted successfully');
-        setAlertMessage('File deleted successfully')
+        setAlertMessage(`File deleted successfully, ${Math.floor(Date.now() / 1000)}`)
         // Update investorData state
         setInvestorData((prevData) => {
           // Make a deep copy of the previous state
@@ -218,11 +218,11 @@ const Sustainability = () => {
   
         setNeedToEdit({ ...needToEdit, need: false });
       } else {
-        setAlertMessage('Failed to delete file');
+        setAlertMessage(`Failed to delete file ${Math.floor(Date.now() / 1000)}`);
         console.log('Failed to delete file');
       }
     } catch (error) {
-      setAlertMessage(error.message);
+      setAlertMessage(`${error.message} , ${Math.floor(Date.now() / 1000)}`);
       console.error('Error:', error);
     }
   };
@@ -263,7 +263,7 @@ const Sustainability = () => {
   
   const deleteFolder = async (itemHeading) => {
     try {
-      const response = await fetch('/admin-panel/Sustainability/delete-folder-nesting', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability/delete-folder-nesting', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -279,7 +279,7 @@ const Sustainability = () => {
   
       if (response.ok) {
         console.log('Item deleted successfully');
-        setAlertMessage('Item deleted successfully');
+        setAlertMessage(`Item deleted successfully ,${Math.floor(Date.now() / 1000)}`);
   
         // Update the investorData state
         setInvestorData((prevData) => {
@@ -338,14 +338,14 @@ const Sustainability = () => {
       formData.append('folderName', folderName);
       formData.append('category', category);
   
-      const response = await fetch('/admin-panel/Sustainability/upload-files', {
+      const response = await fetch('http://localhost:8000/admin-panel/Sustainability/upload-files', {
         method: 'POST',
         body: formData, // Use FormData for file upload
       });
      console.log(response,"here is respoense ");
       if (response.ok) {
         console.log('File uploaded successfully');
-        setAlertMessage('File uploaded successfully')
+        setAlertMessage(`File uploaded successfully , ${Math.floor(Date.now() / 1000)}`)
         // Update the investorData state
         setInvestorData((prevData) => {
           const updatedData = { ...prevData };
@@ -379,11 +379,11 @@ const Sustainability = () => {
         setNeedToEdit({ ...needToEdit, need: false });
       } else {
         console.log('Failed to upload file');
-        setAlertMessage('Failed to upload file')
+        setAlertMessage(`Failed to upload file , ${Math.floor(Date.now() / 1000)}`)
       }
     } catch (error) {
       console.error('Error:', error);
-      setAlertMessage(error.message)
+      setAlertMessage(`${error.message} , ${Math.floor(Date.now() / 1000)}`)
     }
     setActiveUploader(!activeUploader);
   };
@@ -401,7 +401,7 @@ const Sustainability = () => {
 
         // Send a POST request based on the folder type
         if (activeFD === 'newFolder') {
-            response = await fetch('/admin-panel/Sustainability/create-folder', {
+            response = await fetch('http://localhost:8000/admin-panel/Sustainability/create-folder', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -412,7 +412,7 @@ const Sustainability = () => {
                 }),
             });
         } else {
-            response = await fetch('/admin-panel/Sustainability/create-folder-nesting', {
+            response = await fetch('http://localhost:8000/admin-panel/Sustainability/create-folder-nesting', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -429,7 +429,7 @@ const Sustainability = () => {
         if (!response.ok) {
             const errorMessage = await response.text();  // Get error message as text
             console.error('Error creating folder:', errorMessage);
-            setAlertMessage('Error creating folder: ' + errorMessage);  // Optional: display error to user
+            setAlertMessage(`Error creating folder:${errorMessage},${Math.floor(Date.now() / 1000)}`);  // Optional: display error to user
             return;
         }
 
@@ -443,7 +443,7 @@ const Sustainability = () => {
         }
 
         console.log('Folder created successfully:', data);
-        setAlertMessage('Folder created successfully!');
+        setAlertMessage(`Folder created successfully!, ${Math.floor(Date.now() / 1000)}`);
 
         // Automatically update `InvestorData`
         setInvestorData((prevData) => {
@@ -484,7 +484,7 @@ const Sustainability = () => {
 
     } catch (error) {
         console.error('Error while creating folder:', error);
-        setAlertMessage('An error occurred while creating the folder.');
+        setAlertMessage(`An error occurred while creating the folder , ${Math.floor(Date.now() / 1000)}`);
     }
 };
 
