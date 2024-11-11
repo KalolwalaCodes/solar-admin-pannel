@@ -21,6 +21,7 @@ import NewsAndMedia from './Pages/NewsAndMedia';
 import CommitteeTable from './Pages/Commities';
 import UserManagement from './Pages/Settings';
 import BoardOfDirector from './Pages/BoardOfDirector';
+import RevenueExpenseManager from './Pages/Chartdata';
 
 export default function JoyOrderDashboardTemplate({handleLogout}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
@@ -129,6 +130,9 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
           }
           {
      activePage === "Board's of Director" &&<BoardOfDirector  />
+          }
+          {
+     activePage === "RevenueExpenseManager" &&<RevenueExpenseManager  />
           }
 
           {/* <OrderTable />*/}

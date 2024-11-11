@@ -174,6 +174,15 @@ const [selectedItem,setSelectedItem]=React.useState(1);
               </ListItemContent>
             </ListItemButton>
           </ListItem>
+          <ListItem>
+            <ListItemButton selected={selectedItem===8} onClick={()=>changePageRoutingView("RevenueExpenseManager",8)}>
+              {/* <MenuIcon /> */}
+              <img className="w-[17px]" src="./newsIcons.svg" alt="" />
+              <ListItemContent>
+                <Typography level="title-sm">Revenue Expense Manager</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
 
           <ListItem>
             <ListItemButton selected={selectedItem===5} onClick={()=>changePageRoutingView("Contact-us",5)}>

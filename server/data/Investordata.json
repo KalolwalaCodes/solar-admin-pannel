@@ -1,135 +1,140 @@
 {
   "announcements": [
     {
+     "title":"LODR",
+     "items":[
+      {
+        "heading":"LODR",
+       "details": [
+            {
+              "title": "LODR",
+              "url": "https://solargroup.com/Solar/LODR/LODR.html"
+            }
+          ]
+        
+      }
+     ]
+    },
+    {
       "title": "Conference call with Investors",
       "items": [
         {
-          "heading": "Update on Concall and Analyst Meet",
+          "heading": "Updates on Concall and Analyst Meet",
           "details": [
             {
-              "title": "Audio Recording of Concall_Aug 7 2024",
-              "type": "mp3",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Audio Recording of Concall_Aug 7 2024.mp3"
+              "title": "Transcription of Concall_August 7, 2024.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall_August 7, 2024.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall_August 7, 2024",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall_August 7, 2024.pdf"
+              "title": "Audio Recording of Concall_Aug 7 2024.mp3",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Audio Recording of Concall_Aug 7 2024.mp3",
+              "fileType": "audio/mpeg"
             },
             {
-              "title": "Transcription of Concall 08.08.2023",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 08.08.2023.pdf"
+              "title": "Transcription of Concall 08.08.2023.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 08.08.2023.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 03.11.2023",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 03.11.2023.pdf"
+              "title": "Transcription of Concall 03.11.2023.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 03.11.2023.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 04.05.2022",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 04.05.2022.pdf"
+              "title": "Transcription of Concall 04.05.2022.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 04.05.2022.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 31.01.2022",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 31.01.2022.pdf"
+              "title": "Transcription of Concall 31.01.2022.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 31.01.2022.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 26.06.2022",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 26.06.2022.pdf"
+              "title": "Transcription of Concall 26.06.2022.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 26.06.2022.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 08.11.2022",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 08.11.2022.pdf"
+              "title": "Transcription of Concall 08.11.2022.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 08.11.2022.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 03.11.2021",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 03.11.2021.pdf"
+              "title": "Transcription of Concall 03.11.2021.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 03.11.2021.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 03.08.2021",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 03.08.2021.pdf"
+              "title": "Transcription of Concall 02.02.2021.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 02.02.2021.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 02.02.2021",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 02.02.2021.pdf"
+              "title": "Transcription of Concall 01.06.2021.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 01.06.2021.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 01.06.2021",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 01.06.2021.pdf"
+              "title": "Transcription of Concall 23.11.2020.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 23.11.2020.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 23.11.2020",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 23.11.2020.pdf"
+              "title": "Transcription of Concall 21.09.2020.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 21.09.2020.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 21.09.2020",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 21.09.2020.pdf"
+              "title": "Transcription of Concall 18.02.2020.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 18.02.2020.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 18.02.2020",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 18.02.2020.pdf"
+              "title": "Transcription of Concall 14.05.2019.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 14.05.2019.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 14.05.2019",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 14.05.2019.pdf"
+              "title": "Transcription of Concall 13.11.2019.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 13.11.2019.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 13.11.2019",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 13.11.2019.pdf"
+              "title": "Transcription of Concall 06.02.2019.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 06.02.2019.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 06.02.2019",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 06.02.2019.pdf"
+              "title": "Transcription of Concall 05.08.2019.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 05.08.2019.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 05.08.2019",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 05.08.2019.pdf"
+              "title": "Transcription of Concall 24.11.2017.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 24.11.2017.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 24.11.2017",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 24.11.2017.pdf"
+              "title": "Transcription of Concall 01.06.2017.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 01.06.2017.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 24.11.2017",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 24.11.2017.pdf"
+              "title": "Update on Analysts Meet 08.09.2016.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Update on Analysts Meet 08.09.2016.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Transcription of Concall 01.06.2017",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 01.06.2017.pdf"
+              "title": "Transcription of Concall 20.05.2016.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall 20.05.2016.pdf",
+              "fileType": "application/pdf"
             },
             {
-              "title": "Update on Analysts Meet 08.09.2016",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Update on Analysts Meet 08.09.2016.pdf"
-            },
-            {
-              "title": "Transcription of Concall 20.05.2016",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Transcription of Concall 20.05.2016.pdf"
-            },
-            {
-              "title": "Intimation of cancellation of conference call",
-              "type": "pdf",
-              "url": "Investors-Relation/Announcement/Update on Concall and Analyst Meet/Intimation of cancellation of conference call.pdf"
+              "title": "Intimation of cancellation of conference call.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Intimation of cancellation of conference call.pdf",
+              "fileType": "application/pdf"
             }
           ]
         },
