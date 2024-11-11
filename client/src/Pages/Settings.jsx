@@ -17,7 +17,7 @@ const Settings = () => {
         const fetchUsers = async () => {
             console.log("Fetching users from S3...");
             try {
-                const response = await axios.get('http://localhost:8000/admin-panel/login');  // Replace with S3 fetching logic
+                const response = await axios.get('/admin-panel/login');  // Replace with S3 fetching logic
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -47,7 +47,7 @@ const Settings = () => {
         const userData = { username, password, role };
 
         try {
-            await axios.post('http://localhost:8000/admin-panel/login/register', userData);
+            await axios.post('/admin-panel/login/register', userData);
             alert('User created successfully !!');
             resetForm();
             setTriggerFetch(!triggerFetch);  // Trigger re-fetch after user creation
@@ -77,7 +77,7 @@ const Settings = () => {
         };
 
         try {
-            await axios.put(`http://localhost:8000/admin-panel/login/update/${selectedUser.username}`, userData);
+            await axios.put(`/admin-panel/login/update/${selectedUser.username}`, userData);
             alert('User updated successfully !!');
             resetForm();
             setTriggerFetch(!triggerFetch);  // Trigger re-fetch after user update
@@ -90,7 +90,7 @@ const Settings = () => {
     const handleUserDeleteRequest = async (user) => {
         if (window.confirm(`Are you sure you want to delete user ${user.username}?`)) {
             try {
-                await axios.delete(`http://localhost:8000/admin-panel/login/delete/${user.username}`);
+                await axios.delete(`/admin-panel/login/delete/${user.username}`);
                 alert('User deleted successfully !!');
                 setTriggerFetch(!triggerFetch);  // Trigger re-fetch after user deletion
             } catch (error) {
