@@ -1,19 +1,18 @@
 {
   "announcements": [
     {
-     "title":"LODR",
-     "items":[
-      {
-        "heading":"LODR",
-       "details": [
-            { 
+      "title": "LODR",
+      "items": [
+        {
+          "heading": "LODR",
+          "details": [
+            {
               "title": "LODR",
               "url": "https://solargroup.com/LODR/LODR.html"
             }
           ]
-
-      }
-     ]
+        }
+      ]
     },
     {
       "title": "Conference call with Investors",
@@ -21,6 +20,21 @@
         {
           "heading": "Updates on Concall and Analyst Meet",
           "details": [
+            {
+              "title": "Transcription of Concall_November 14, 2024.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall_November 14, 2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Audio_recording Q2 14.11.2024.pdf",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Audio_recording Q2 14.11.2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Audio Recording of Concall Nov 13 2024.mp3",
+              "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Audio Recording of Concall Nov 13 2024.mp3",
+              "fileType": "audio/mpeg"
+            },
             {
               "title": "Transcription of Concall_August 7, 2024.pdf",
               "url": "Investors-Relation/announcements/Conference call with Investors/Updates on Concall and Analyst Meet/Transcription of Concall_August 7, 2024.pdf",
@@ -181,6 +195,11 @@
         {
           "heading": "Press release",
           "details": [
+            {
+              "title": "Press release 13.11.2024.pdf",
+              "url": "Investors-Relation/announcements/Press release/Press release 13.11.2024.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "Press Release 06.08.2024",
               "url": "Investors-Relation/announcements/Press Release/Press release/Press Release 06.08.2024.pdf",
@@ -366,6 +385,21 @@
         {
           "heading": "Other Announcements ",
           "details": [
+            {
+              "title": "Newspaper Update Quarter 2 Financial Results.pdf",
+              "url": "Investors-Relation/announcements/Other Announcements /Newspaper Update Quarter 2Â  Financial Results.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Compliance of Related Party Transactions_ 13.11.2024.pdf",
+              "url": "Investors-Relation/announcements/Other Announcements /Compliance of Related Party Transactions_ 13.11.2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Outcome of BM dated 13.11.2024.pdf",
+              "url": "Investors-Relation/announcements/Other Announcements /Outcome of BM dated 13.11.2024.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "Receipt of export order of INR 580 Crores.pdf",
               "url": "Investors-Relation/announcements/Other Announcements /Receipt of export order of INR 580 Crores.pdf",
@@ -1396,6 +1430,11 @@
         {
           "heading": "Record Date",
           "details": [
+            {
+              "title": "Intimation of record date 18th Nov 2024.pdf",
+              "url": "Investors-Relation/announcements/Non-Convertible Debentures (NCD)/Record Date/Intimation of record date 18th Nov 2024.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "record date _sept '2024 signed",
               "url": "Investors-Relation/Announcement/Non-Convertible Debentures (NCD)/Record Date/record date _sept '2024 signed.pdf",
@@ -2862,6 +2901,11 @@
           "heading": "Investor Presentation 2024-25",
           "details": [
             {
+              "title": "Investor Presentation Q2.pdf",
+              "url": "Investors-Relation/FinancialReporting/Investors Presentation/Investor Presentation 2024-25/Investor Presentation Q2.pdf",
+              "fileType": "application/pdf"
+            },
+            {
               "title": "Investors Presentation Q1 FY 2024-25.pdf",
               "url": "Investors-Relation/FinancialReporting/Investors Presentation/Investor Presentation 2024-25/Investors Presentation Q1 FY 2024-25.pdf",
               "fileType": "application/pdf"
@@ -3726,6 +3770,11 @@
         {
           "heading": "Quarter Results FY 2024-25",
           "details": [
+            {
+              "title": "Second Quarter Results FY 2024-25.pdf",
+              "url": "Investors-Relation/FinancialReporting/Quaterly Results/Quarter Results FY 2024-25/Second Quarter Results FY 2024-25.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "First Quarter Results FY _2024-25.pdf",
               "url": "Investors-Relation/FinancialReporting/Quaterly Results/Quarter Results FY 2024-25/First Quarter Results FY _2024-25.pdf",
