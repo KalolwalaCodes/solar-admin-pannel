@@ -17,7 +17,11 @@ app.use(express.json());
 
 // Middleware to parse URL-encoded bodies (form data)
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({origin:"*",credentials: true,}))
+app.use(cors({ origin: [
+    'http://localhost:5173', 
+    'https://solargroup.com', 
+    // 'http://127.0.0.1:5500'
+  ],credentials: true,}))
 app.use("/admin-panel/Investor-relation",investorRouter);
 app.use("/admin-panel/Sustainability",sustainabilityRouter);
 app.use("/admin-panel/contact-us",contactRouter)
