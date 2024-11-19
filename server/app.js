@@ -10,7 +10,8 @@ const loginRouter = require('./routes/User.js');
 const newsRouter = require('./routes/News.js');
 const bodRouter = require('./routes/boardsprofile.js');
 const committeesRouter = require('./routes/Committies.js');
-const RevenueExpenseManager = require('./routes/RevenueExpenseManager.js')
+const RevenueExpenseManager = require('./routes/RevenueExpenseManager.js');
+const formDataRouter = require('./Controllers/Formhelper.js');
 const {authenticateJWT} =require('./Controllers/auth.js')
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: [
     'http://localhost:5173', 
     'https://solargroup.com', 
-    // 'http://127.0.0.1:5500'
+    'http://127.0.0.1:5500'
   ],credentials: true,}))
 app.use("/admin-panel/Investor-relation",investorRouter);
 app.use("/admin-panel/Sustainability",sustainabilityRouter);
@@ -30,6 +31,7 @@ app.use("/admin-panel/news",authenticateJWT,newsRouter);
 app.use("/admin-panel/committees",authenticateJWT,committeesRouter);
 app.use("/admin-panel/directors",authenticateJWT,bodRouter);
 app.use("/admin-panel/RevenueExpenseManager",authenticateJWT,RevenueExpenseManager);
+app.use("/admin-panel/submit-form",formDataRouter);
 
 app.listen("8000",()=>{
     console.log("server running on port 8000");
