@@ -13,7 +13,7 @@ const RevenueExpenseManager = () => {
   useEffect(() => {
     const fetchRevenueData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/admin-panel/RevenueExpenseManager', {
+        const response = await fetch('/admin-panel/RevenueExpenseManager', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -44,8 +44,8 @@ const RevenueExpenseManager = () => {
   const handleAddOrUpdate = async () => {
     try {
       const url = editIndex !== null
-        ? `http://localhost:8000/admin-panel/RevenueExpenseManager/edit/${selectedDataset}/${editIndex}`
-        : `http://localhost:8000/admin-panel/RevenueExpenseManager/add/${selectedDataset}`;
+        ? `/admin-panel/RevenueExpenseManager/edit/${selectedDataset}/${editIndex}`
+        : `/admin-panel/RevenueExpenseManager/add/${selectedDataset}`;
   
       const method = editIndex !== null ? 'PUT' : 'POST';
   
@@ -73,7 +73,7 @@ const RevenueExpenseManager = () => {
 
   const handleDelete = async (index) => {
     try {
-      const response = await fetch(`http://localhost:8000/admin-panel/RevenueExpenseManager/delete/${selectedDataset}/${index}`, {
+      const response = await fetch(`/admin-panel/RevenueExpenseManager/delete/${selectedDataset}/${index}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

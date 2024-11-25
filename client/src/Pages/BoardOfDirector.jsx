@@ -18,7 +18,7 @@ const BoardOfDirectors = () => {
   useEffect(() => {
     const fetchDirectors = async () => {
       try {
-        const response = await fetch('http://localhost:8000/admin-panel/directors', {
+        const response = await fetch('/admin-panel/directors', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -57,7 +57,7 @@ const BoardOfDirectors = () => {
     });
   
     try {
-      const response = await fetch(`http://localhost:8000/admin-panel/directors${isEditing ? `/${editDirectorId}` : ''}`, {
+      const response = await fetch(`/admin-panel/directors${isEditing ? `/${editDirectorId}` : ''}`, {
         method: isEditing ? 'PUT' : 'POST',
         body: formData,
         headers: {
@@ -110,7 +110,7 @@ const BoardOfDirectors = () => {
     const confirmDelete = window.confirm('Are you sure you want to delete this director?');
     if (confirmDelete) {
       try {
-        const response = await fetch(`http://localhost:8000/admin-panel/directors/${id}`, {
+        const response = await fetch(`/admin-panel/directors/${id}`, {
           method: 'DELETE',
           headers: {
             Authorization: `Bearer ${token}`,
