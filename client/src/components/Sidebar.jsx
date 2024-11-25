@@ -202,6 +202,24 @@ const [selectedItem,setSelectedItem]=React.useState(1);
             </ListItemButton>
           </ListItem>
 
+          <ListItem>
+            <ListItemButton selected={selectedItem===9} onClick={()=>changePageRoutingView("Industrial Products",9)}>
+              <ConnectWithoutContactIcon />
+              <ListItemContent>
+                <Typography level="title-sm">Industrial Products</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
+            <ListItemButton selected={selectedItem===11} onClick={()=>changePageRoutingView("Defense Products",11)}>
+              <ConnectWithoutContactIcon />
+              <ListItemContent>
+                <Typography level="title-sm">Defense Products</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
+
         </List>
         <List
           size="sm"
@@ -214,9 +232,9 @@ const [selectedItem,setSelectedItem]=React.useState(1);
           }}
         >
           <ListItem>
-            <ListItemButton>
+            <ListItemButton  selected={selectedItem===10} onClick={()=>changePageRoutingView("DragDropData",10)}>
               <SupportRoundedIcon />
-              Support
+              Industrial file Sequencing
             </ListItemButton>
           </ListItem>
           <ListItem>

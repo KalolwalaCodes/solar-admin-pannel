@@ -53,7 +53,7 @@ const [alertMessage,setAlertMessage]=useState('');
       const token = localStorage.getItem('authToken');
       console.log("fetching result---------");
       try {
-        let res = await fetch(`/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,{
+        let res = await fetch(`http://localhost:8000/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,{
           method:'GET',
           headers: {
             'Authorization': `Bearer ${token}`, // Include token
@@ -91,7 +91,7 @@ const [alertMessage,setAlertMessage]=useState('');
       const folderName = activeFolderNAme; // folder name from active folder
       const token = localStorage.getItem('authToken');
 
-      const response = await fetch('/admin-panel/Investor-relation', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation', {
         method: 'PATCH',
        
         headers: {
@@ -172,7 +172,7 @@ const [alertMessage,setAlertMessage]=useState('');
       const folderName = activeFolderNAme; // folder name from active folder
       const token = localStorage.getItem('authToken');
 
-      const response = await fetch('/admin-panel/Investor-relation', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation', {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -276,7 +276,7 @@ const [alertMessage,setAlertMessage]=useState('');
     const token = localStorage.getItem('authToken');
 
     try {
-      const response = await fetch('/admin-panel/Investor-relation/delete-folder-nesting', {
+      const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/delete-folder-nesting', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -339,7 +339,7 @@ const renameFolder = async (itemHeading, newFolderName) => {
     const token = localStorage.getItem('authToken');
 
     try {
-        const response = await fetch('/admin-panel/Investor-relation/edit-folder-nesting', {
+        const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/edit-folder-nesting', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -421,7 +421,7 @@ const handleUploadFileRequest = async () => {
     formData.append('category', category);
     const token = localStorage.getItem('authToken');
 
-    const response = await fetch('/admin-panel/Investor-relation/upload-files', {
+    const response = await fetch('http://localhost:8000/admin-panel/Investor-relation/upload-files', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -496,7 +496,7 @@ const handleUploadFileRequest = async () => {
         if (activeFD === 'newFolder') {
           const token = localStorage.getItem('authToken');
 
-            response = await fetch('/admin-panel/Investor-relation/create-folder', {
+            response = await fetch('http://localhost:8000/admin-panel/Investor-relation/create-folder', {
                 method: 'POST',
                 headers: {
                   'Authorization': `Bearer ${token}`,
@@ -511,7 +511,7 @@ const handleUploadFileRequest = async () => {
         } else {
           const token = localStorage.getItem('authToken');
 
-            response = await fetch('/admin-panel/Investor-relation/create-folder-nesting', {
+            response = await fetch('http://localhost:8000/admin-panel/Investor-relation/create-folder-nesting', {
                 method: 'POST',
                 headers: {
                   'Authorization': `Bearer ${token}`,

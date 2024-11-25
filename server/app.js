@@ -12,6 +12,7 @@ const bodRouter = require('./routes/boardsprofile.js');
 const committeesRouter = require('./routes/Committies.js');
 const RevenueExpenseManager = require('./routes/RevenueExpenseManager.js');
 const formDataRouter = require('./Controllers/Formhelper.js');
+const solarProductRouter = require('./routes/mainProducts.js');
 const {authenticateJWT} =require('./Controllers/auth.js')
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -32,6 +33,7 @@ app.use("/admin-panel/committees",authenticateJWT,committeesRouter);
 app.use("/admin-panel/directors",authenticateJWT,bodRouter);
 app.use("/admin-panel/RevenueExpenseManager",authenticateJWT,RevenueExpenseManager);
 app.use("/admin-panel/submit-form",formDataRouter);
+app.use("/admin-panel/product-category",authenticateJWT,solarProductRouter);
 
 app.listen("8000",()=>{
     console.log("server running on port 8000");

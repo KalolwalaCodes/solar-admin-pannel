@@ -22,6 +22,9 @@ import CommitteeTable from './Pages/Commities';
 import UserManagement from './Pages/Settings';
 import BoardOfDirector from './Pages/BoardOfDirector';
 import RevenueExpenseManager from './Pages/Chartdata';
+import AnnouncementDummy from './Pages/DummyDrag';
+import DefenseProducts from './Pages/DefenseProducts';
+import IndustrialProducts from './Pages/IndustrialProducts';
 
 export default function JoyOrderDashboardTemplate({handleLogout}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
@@ -132,7 +135,16 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
      activePage === "Board's of Director" &&<BoardOfDirector  />
           }
           {
+     activePage === "Industrial Products" &&<IndustrialProducts />
+          }
+          {
+     activePage === "Defense Products" &&<DefenseProducts  />
+          }
+          {
      activePage === "RevenueExpenseManager" &&<RevenueExpenseManager  />
+          }
+          {
+     activePage === "DragDropData" &&<AnnouncementDummy  />
           }
 
           {/* <OrderTable />*/}
