@@ -18,7 +18,7 @@ const IndustrialProducts = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "/admin-panel/product-category/industrial-data",
+          "http://localhost:8000/admin-panel/product-category/industrial-data",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -57,7 +57,7 @@ const IndustrialProducts = () => {
 
     try {
       await axios.delete(
-        `/admin-panel/product-category/industrial-data?title=${encodeURIComponent(productTitle)}`,
+        `http://localhost:8000/admin-panel/product-category/industrial-data?title=${encodeURIComponent(productTitle)}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -81,7 +81,7 @@ const IndustrialProducts = () => {
 
       if (isEdit) {
         const res = await axios.put(
-          `/admin-panel/product-category/industrial-data`,
+          `http://localhost:8000/admin-panel/product-category/industrial-data`,
           formData,
           {
             headers: {
@@ -93,7 +93,7 @@ const IndustrialProducts = () => {
         setData(res.data);
       } else {
         const response = await axios.post(
-          "/admin-panel/product-category/industrial-data",
+          "http://localhost:8000/admin-panel/product-category/industrial-data",
           formData,
           {
             headers: {

@@ -1614,11 +1614,7 @@
         {
           "heading": "Charters",
           "details": [
-            {
-              "title": "Charter for the Investment Committee.pdf",
-              "url": "Investors-Relation/CorporateGovernance/Charters/Charter for the Investment Committee.pdf",
-              "fileType": "application/pdf"
-            },
+           
             {
               "title": "Charter for the Audit Committee",
               "url": "Investors-Relation/Corporate Governance/Charters/Charter for the Audit Committee.pdf",
@@ -1643,6 +1639,11 @@
               "title": "Charter of Risk Management Committee",
               "url": "Investors-Relation/Corporate Governance/Charters/Charter of Risk Management Committee.pdf",
               "type": "pdf"
+            },
+            {
+              "title": "Charter for the Investment Committee.pdf",
+              "url": "Investors-Relation/CorporateGovernance/Charters/Charter for the Investment Committee.pdf",
+              "fileType": "application/pdf"
             }
           ]
         }
@@ -1666,8 +1667,13 @@
       "title": "Compliance Reports",
       "items": [
         {
-          "heading": "SHP",
+          "heading": "Share Holding Pattern",
           "details": [
+            {
+              "title": "SHP_30.09.2024",
+              "url": "Investors-Relation/CorporateGovernance/Compliance Reports/SHP/Share Holding Pattern-31.09.2024.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "SHP_30.06.2024",
               "url": "Investors-Relation/CorporateGovernance/Compliance Reports/SHP/1. SHP_30.06.2024.pdf",
@@ -2069,6 +2075,17 @@
           "heading": "Investor Complaint Report",
           "details": [
             {
+              "title": "Investor Complaint Report as on 31.03.2024",
+              "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaint as on 31.03.2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Investor Complaint Report as on 31.12.2023",
+              "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaint as on 31.12.2023.pdf",
+              "fileType": "application/pdf"
+            },
+            
+            {
               "title": "Investor Complaints Report as on 30.06.2023",
               "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaints report 30.06.2023.pdf",
               "fileType": "application/pdf"
@@ -2117,6 +2134,11 @@
               "title": "Investor Complaint Report as on 30.06.2021",
               "url": "Investors-Relation/Corporate Governance/Compliance Reports/Investor Complaint Report/Investor Complaint Report as on 30.06.2021.pdf",
               "type": "pdf"
+            },
+            {
+              "title": "Investor Complaints Report as on 31.03.2021",
+              "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor_Complaints31032021.pdf",
+              "fileType": "application/pdf"
             },
             {
               "title": "Investor Complaint Report as on 31.12.2020",
@@ -2227,16 +2249,6 @@
               "title": "Initial disclosure- 12.04.2023",
               "url": "Investors-Relation/Corporate Governance/Compliance Reports/Large Corporate/Initial disclosure- 12.04.2023.pdf",
               "type": "pdf"
-            }
-          ]
-        },
-        {
-          "heading": "Share holding Pattern folder 2024-2025",
-          "details": [
-            {
-              "title": "Signed_SHP_30.09.2024.pdf",
-              "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Share holding Pattern folder 2024-2025/Signed_SHP_30.09.2024.pdf",
-              "fileType": "application/pdf"
             }
           ]
         }
