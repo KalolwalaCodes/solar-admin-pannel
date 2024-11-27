@@ -27,7 +27,7 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
     };
 
     try {
-      const response = await fetch('http://localhost:8000/admin-panel/committees/update-committee', {
+      const response = await fetch('/admin-panel/committees/update-committee', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
     };
   
     try {
-      const response = await fetch('http://localhost:8000/admin-panel/committees/delete-row', {
+      const response = await fetch('/admin-panel/committees/delete-row', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ export default function BasicTable({ columns, rows, committeeName, setData, data
     };
 
     try {
-      const response = await fetch('http://localhost:8000/admin-panel/committees/add-member', {
+      const response = await fetch('/admin-panel/committees/add-member', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

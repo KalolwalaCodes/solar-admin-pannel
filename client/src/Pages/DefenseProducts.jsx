@@ -18,7 +18,7 @@ const DefenseProducts = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/admin-panel/product-category/defense-data",
+          "/admin-panel/product-category/defense-data",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -56,7 +56,7 @@ const DefenseProducts = () => {
     const token = localStorage.getItem("authToken");
     try {
       await axios.delete(
-        `http://localhost:8000/admin-panel/product-category/defense-data?title=${encodeURIComponent(productTitle)}`,
+        `/admin-panel/product-category/defense-data?title=${encodeURIComponent(productTitle)}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setData(data.filter((item) => item.title !== productTitle));
@@ -78,7 +78,7 @@ const DefenseProducts = () => {
 
       if (isEdit) {
         const res = await axios.put(
-          "http://localhost:8000/admin-panel/product-category/defense-data",
+          "/admin-panel/product-category/defense-data",
           formData,
           {
             headers: {
@@ -90,7 +90,7 @@ const DefenseProducts = () => {
         setData(res.data);
       } else {
         const response = await axios.post(
-          "http://localhost:8000/admin-panel/product-category/defense-data",
+          "/admin-panel/product-category/defense-data",
           formData,
           {
             headers: {

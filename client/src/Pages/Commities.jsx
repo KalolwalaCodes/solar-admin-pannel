@@ -11,7 +11,7 @@ const CommitteeTable = () => {
       const token = localStorage.getItem('authToken');
 
       try {
-        const response = await axios.get('http://localhost:8000/admin-panel/committees', {
+        const response = await axios.get('/admin-panel/committees', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
