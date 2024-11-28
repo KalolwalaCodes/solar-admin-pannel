@@ -25,6 +25,7 @@ import RevenueExpenseManager from './Pages/Chartdata';
 import AnnouncementDummy from './Pages/DummyDrag';
 import DefenseProducts from './Pages/DefenseProducts';
 import IndustrialProducts from './Pages/IndustrialProducts';
+import ShareholdersValues from './Pages/SharerholdersValues';
 
 export default function JoyOrderDashboardTemplate({handleLogout}) {
   const [activePage,setActivePage]=React.useState("Investor-relation");
@@ -132,19 +133,22 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
           activePage === "Settings" &&<UserManagement  />
           }
           {
-     activePage === "Board's of Director" &&<BoardOfDirector  />
+          activePage === "Board's of Director" &&<BoardOfDirector  />
           }
           {
-     activePage === "Industrial Products" &&<IndustrialProducts />
+          activePage === "Industrial Products" &&<IndustrialProducts />
           }
           {
-     activePage === "Defense Products" &&<DefenseProducts  />
+           activePage === "Defense Products" &&<DefenseProducts  />
           }
           {
-     activePage === "RevenueExpenseManager" &&<RevenueExpenseManager  />
+          activePage === "RevenueExpenseManager" &&<RevenueExpenseManager  />
           }
           {
-     activePage === "DragDropData" &&<AnnouncementDummy  />
+          activePage === "DragDropData" &&<AnnouncementDummy  />
+          }
+          {
+          activePage === "shareHolderValues" &&<ShareholdersValues/>
           }
 
           {/* <OrderTable />*/}

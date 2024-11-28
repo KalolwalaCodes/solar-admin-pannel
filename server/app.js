@@ -13,6 +13,7 @@ const committeesRouter = require('./routes/Committies.js');
 const RevenueExpenseManager = require('./routes/RevenueExpenseManager.js');
 const formDataRouter = require('./Controllers/Formhelper.js');
 const solarProductRouter = require('./routes/mainProducts.js');
+const shareHolderRouter = require('./routes/Shareholder.js');
 const {authenticateJWT} =require('./Controllers/auth.js')
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -26,14 +27,15 @@ app.use(cors({ origin: [
   ],credentials: true,}))
 app.use("/admin-panel/Investor-relation",investorRouter);
 app.use("/admin-panel/Sustainability",sustainabilityRouter);
-app.use("/admin-panel/contact-us",contactRouter)
+app.use("/admin-panel/contact-us",authenticateJWT,contactRouter)
 app.use("/admin-panel/login",loginRouter);
 app.use("/admin-panel/news",authenticateJWT,newsRouter);
 app.use("/admin-panel/committees",authenticateJWT,committeesRouter);
 app.use("/admin-panel/directors",authenticateJWT,bodRouter);
 app.use("/admin-panel/RevenueExpenseManager",authenticateJWT,RevenueExpenseManager);
-app.use("/admin-panel/submit-form",formDataRouter);
+app.use("/admin-panel/submit-form",authenticateJWT,formDataRouter);
 app.use("/admin-panel/product-category",authenticateJWT,solarProductRouter);
+app.use("/admin-panel/shareholder-value",authenticateJWT,shareHolderRouter);
 
 app.listen("8000",()=>{
     console.log("server running on port 8000");

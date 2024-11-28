@@ -183,6 +183,15 @@ const [selectedItem,setSelectedItem]=React.useState(1);
               </ListItemContent>
             </ListItemButton>
           </ListItem>
+          <ListItem>
+            <ListItemButton selected={selectedItem===12} onClick={()=>changePageRoutingView("shareHolderValues",12)}>
+              {/* <MenuIcon /> */}
+              <img className="w-[17px]" src="./newsIcons.svg" alt="" />
+              <ListItemContent>
+                <Typography level="title-sm">Shareholder's value</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
 
           <ListItem>
             <ListItemButton selected={selectedItem===5} onClick={()=>changePageRoutingView("Contact-us",5)}>

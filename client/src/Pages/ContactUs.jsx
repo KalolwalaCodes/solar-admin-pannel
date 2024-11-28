@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
+import * as XLSX from 'xlsx';
 import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
@@ -62,9 +63,8 @@ function RowMenu({ onDelete }) {
         <MoreHorizRoundedIcon />
       </MenuButton>
       <Menu size="sm" sx={{ minWidth: 140 }}>
-        <MenuItem>Edit</MenuItem>
-        <MenuItem>Download</MenuItem>
-        <Divider />
+        {/* <MenuItem>Edit</MenuItem>
+        <Divider /> */}
         <MenuItem color="danger" onClick={onDelete}>
           <DeleteIcon fontSize="small" sx={{ mr: 1 }} />
           Delete
@@ -103,10 +103,12 @@ export default function ContactUs() {
   useEffect(() => {
     applyFilters();
   }, [contacts, filters, searchTerm]);
-
+  const token=localStorage.getItem("authToken");
   const fetchContacts = async () => {
     try {
-      const response = await fetch('/admin-panel/contact-us');
+      const response = await fetch('/admin-panel/contact-us', { headers: {
+        Authorization: `Bearer ${token}`, // Include token
+      }});
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -124,6 +126,9 @@ export default function ContactUs() {
     try {
       const response = await fetch(`/admin-panel/contact-us/${id}`, {
         method: 'DELETE',
+        headers:{
+          Authorization: `Bearer ${token}`, // Include token
+        }
       });
       if (response.ok) {
         setContacts((prev) => prev.filter((contact) => contact.id !== id));
@@ -233,7 +238,38 @@ export default function ContactUs() {
       </FormControl>
     </React.Fragment>
   );
+// Add this function to handle Excel download with adjusted column widths
+const downloadExcel = () => {
+  if (filteredContacts.length === 0) {
+    alert("No data available to download.");
+    return;
+  }
 
+  // Create a worksheet from the filtered contacts data
+  const worksheet = XLSX.utils.json_to_sheet(filteredContacts);
+
+  // Adjust column widths based on the data
+  const columnWidths = Object.keys(filteredContacts[0] || {}).map((key) => ({
+    wch: Math.max(key.length, ...filteredContacts.map((row) => (row[key] ? row[key].toString().length : 0))) + 2, // Adjust padding
+  }));
+  worksheet['!cols'] = columnWidths;
+
+  // Create a new workbook and append the worksheet
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Contacts');
+
+  // Convert the workbook to a Blob and trigger download
+  const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+  const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+
+  // Create a link and download the file
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'Contacts.xlsx';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
   return (
    
     (roleIS === 'superadmin' || roleIS === 'admin') ?
@@ -301,6 +337,13 @@ export default function ContactUs() {
           />
         </FormControl>
         {renderFilters()}
+        <Button  variant="outlined"
+    color="primary"
+    onClick={downloadExcel}
+    sx={{ height: '30px', marginTop:"20px"  }}
+ >
+    Download Excel
+  </Button>
       </Box>
 
       {/* Contact Us Table */}
@@ -471,35 +514,7 @@ export default function ContactUs() {
           },
         }}
       >
-        <Button
-          size="sm"
-          variant="outlined"
-          color="neutral"
-          startDecorator={<KeyboardArrowLeftIcon />}
-        >
-          Previous
-        </Button>
-
-        <Box sx={{ flex: 1 }} />
-        {['1', '2', '3', '…', '8', '9', '10'].map((page) => (
-          <IconButton
-            key={page}
-            size="sm"
-            variant={Number(page) ? 'outlined' : 'plain'}
-            color="neutral"
-          >
-            {page}
-          </IconButton>
-        ))}
-        <Box sx={{ flex: 1 }} />
-        <Button
-          size="sm"
-          variant="outlined"
-          color="neutral"
-          endDecorator={<KeyboardArrowRightIcon />}
-        >
-          Next
-        </Button>
+       
       </Box>
     </React.Fragment>
             : <div className='text-xl mt-4'> You are restricted to view this</div>

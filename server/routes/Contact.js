@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch'); // Works with node-fetch@2
-
+const { getExistingToken } = require('../Controllers/auth');
 // Get contacts
+let token;
 router.get('/', async (req, res) => {
+   token=getExistingToken();
   try {
-    const response = await fetch('https://solargroup.com/admin-panel/submit-form/contact-us');
+    const response = await fetch('https://solargroup.com/admin-panel/submit-form/contact-us', { headers: {
+      Authorization: `Bearer ${token}`, // Include token
+    }});
     const data = await response.json();
     res.json(data);
   } catch (error) {

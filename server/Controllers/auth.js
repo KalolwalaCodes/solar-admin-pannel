@@ -3,14 +3,18 @@ const jwt = require('jsonwebtoken');
 
 // Secret key for signing the token
 const SECRET_KEY = 'normal secret key'; // Replace with your actual secret key
-
+let Token_TO_SENT;
 // Function to generate a JWT
 const generateToken = (user) => {
   // Token will expire in 1 day (86400 seconds)
   const token=jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, { expiresIn: '1d' });
   console.log("user",user,token)
+  Token_TO_SENT=token;
   return token;
 };
+const getExistingToken=()=>{
+  return Token_TO_SENT;
+}
 
 // Function to verify the JWT
 const verifyToken = (token) => {
@@ -37,4 +41,4 @@ const authenticateJWT = (req, res, next) => {
 //     res.json({ message: 'This is a protected route', user: req.user });
 //   });
   
-module.exports = { generateToken, verifyToken,authenticateJWT };
+module.exports = { generateToken, verifyToken,authenticateJWT,getExistingToken };
