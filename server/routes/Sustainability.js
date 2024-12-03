@@ -155,24 +155,20 @@ sustainabilityRouter.get('/', async (req, res) => {
         let folderFound = false;
         for (const categoryItem of categoryData) {
             if (categoryItem.title === folderName) {
-                categoryItem.items.forEach((item)=>{
-                   if( item.heading==itemsHeading){
-                      item.details.push({
-                      
-                                title: fileName,
-                                path: `${s3FilePath}`, // File download link
-                                fileType: file.mimetype,
-                      });
-                   }
+                categoryItem.items[0].details.unshift({
+                    title: fileName,
+                    path: `${s3FilePath}`, // File download link
+                    fileType: file.mimetype,
                 })
                 folderFound = true;
                 break;
             }
         }
-
+        
         if (!folderFound) {
             return res.status(400).send('Folder not found in category');
         }
+        
 
         // Write the updated data back to the JSON file
         fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
@@ -180,6 +176,8 @@ sustainabilityRouter.get('/', async (req, res) => {
                 console.error('Error writing to file:', err);
                 return res.status(500).send('Error updating data');
             }
+            // console.log('Updated data:', JSON.stringify(data, null, 2));
+
             console.log("File uploaded and JSON updated successfully.");
             res.status(200).send('File uploaded and JSON updated successfully');
         });
