@@ -386,6 +386,11 @@
           "heading": "Other Announcements ",
           "details": [
             {
+              "title": "Receipt of Export Order 2039 Cr",
+              "url": "Investors-Relation/announcements/Other Announcements /Receipt of export order 2039 Cr.pdf",
+              "fileType": "application/pdf"
+            },
+            {
               "title": "Newspaper Update Quarter 2 Financial Results.pdf",
               "url": "Investors-Relation/announcements/Other Announcements /Newspaper Update Quarter 2Â  Financial Results.pdf",
               "fileType": "application/pdf"
@@ -1256,7 +1261,12 @@
           "heading": "Credit Rating",
           "details": [
             {
-              "title": "Credit Rating as on 04:09:2024",
+              "title": "Credit Rating as on 28.11.2024",
+              "url": "Investors-Relation/announcements/Credit Rating/Credit Rating as on 28.11.2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Credit Rating as on 04.09.2024",
               "url": "Investors-Relation/Announcement/Credit Rating/Credit Rating as on 04:09:2024.pdf",
               "type": "pdf"
             },
@@ -1271,7 +1281,7 @@
               "type": "pdf"
             },
             {
-              "title": "Credit Rating 19.03.2022",
+              "title": "Credit Rating as on 19.03.2022",
               "url": "Investors-Relation/Announcement/Credit Rating/Credit Rating 19.03.2022.pdf",
               "type": "pdf"
             },
@@ -1281,7 +1291,7 @@
               "type": "pdf"
             },
             {
-              "title": "Credit Rating 01.03.2022",
+              "title": "Credit Rating as on 01.03.2022",
               "url": "Investors-Relation/Announcement/Credit Rating/Credit Rating 01.03.2022.pdf",
               "type": "pdf"
             },
@@ -1614,7 +1624,6 @@
         {
           "heading": "Charters",
           "details": [
-           
             {
               "title": "Charter for the Audit Committee",
               "url": "Investors-Relation/Corporate Governance/Charters/Charter for the Audit Committee.pdf",
@@ -2075,6 +2084,16 @@
           "heading": "Investor Complaint Report",
           "details": [
             {
+              "title": "Investor Complaint Report as on 30.09.2024",
+              "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaint as on 30.09.2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Investor Complaint Report as on 30.06.2024",
+              "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaint as on 30.06.2024.pdf",
+              "fileType": "application/pdf"
+            },
+            {
               "title": "Investor Complaint Report as on 31.03.2024",
               "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaint as on 31.03.2024.pdf",
               "fileType": "application/pdf"
@@ -2084,19 +2103,18 @@
               "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaint as on 31.12.2023.pdf",
               "fileType": "application/pdf"
             },
-            
             {
-              "title": "Investor Complaints Report as on 30.06.2023",
+              "title": "Investor Complaint Report as on 30.06.2023",
               "url": "Investors-Relation/CorporateGovernance/Compliance Reports/Investor Complaint Report/Investor Complaints report 30.06.2023.pdf",
               "fileType": "application/pdf"
             },
             {
-              "title": "Investor Complaints Report as on 30.09.2023",
+              "title": "Investor Complaint Report as on 30.09.2023",
               "url": "Investors-Relation/Corporate Governance/Compliance Reports/Investor Complaint Report/Investor Complaints Report as on 30.09.2023.pdf",
               "type": "pdf"
             },
             {
-              "title": "Investor Complaints Report as on 31.03.2023",
+              "title": "Investor Complaint Report as on 31.03.2023",
               "url": "Investors-Relation/Corporate Governance/Compliance Reports/Investor Complaint Report/Investor Complaints Report as on 31.03.2023.pdf",
               "type": "pdf"
             },

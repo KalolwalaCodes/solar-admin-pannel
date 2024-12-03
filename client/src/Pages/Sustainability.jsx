@@ -328,7 +328,7 @@ const Sustainability = () => {
     const file = filesIs[0]; // Assuming only one file is uploaded at a time
   
     try {
-      const itemsHeading = activeFD.heading; // Use the uploaded file's name
+      const itemsHeading = activeFDMain; // Use the uploaded file's name
       const category = activeTab;  // active tab as the category
       const folderName = activeFDMain; // folder name from active folder
       const fileName=file.name;
@@ -645,7 +645,7 @@ const Sustainability = () => {
                       element?.details?.map((data, id) => (
                         <AccordionDetails
                           onClick={() => callMeToEditFile(data, key.title)} // Pass key.title as folder name
-                          className={`cursor-pointer ${mode !== 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50'}`}
+                          className={`cursor-pointer ${mode === 'dark' ? 'hover:bg-slate-700' : 'hover:bg-slate-50'}`}
                           key={id}
                         >
                           {data.title}
