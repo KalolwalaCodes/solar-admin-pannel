@@ -157,7 +157,7 @@ sustainabilityRouter.get('/', async (req, res) => {
             if (categoryItem.title === folderName) {
                 categoryItem.items[0].details.unshift({
                     title: fileName,
-                    url: `${s3FilePath}`, // File download link
+                    url: `${decodeURIComponent(s3FilePath)}`, // Decoded URL
                     type: file.mimetype,
                 })
                 folderFound = true;
