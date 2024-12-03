@@ -151,8 +151,8 @@
           "details": [
             {
               "title": "ESG Focus 2023-24",
-              "path": "Investors-Relation/ESG+Reports/ESG+Reports/ESG+Focus+2023-24.pdf",
-              "fileType": "application/pdf"
+              "url": "Investors-Relation/ESG+Reports/ESG+Reports/ESG+Focus+2023-24.pdf",
+              "type": "application/pdf"
             },
             {
               "title": "ESG Focus 2020-21",
@@ -233,8 +233,8 @@
           "details": [
             {
               "title": "Business Responsibility and Sustainability Report FY 2023-24",
-              "path": "Investors-Relation/Sustainability Reports/Sustainability Reports/Business Responsibility and Sustainability Report FY 2023-24.pdf",
-              "fileType": "application/pdf"
+              "url": "Investors-Relation/Sustainability Reports/Sustainability Reports/Business Responsibility and Sustainability Report FY 2023-24.pdf",
+              "type": "application/pdf"
             },
             {
               "title": "Business Responsibility and Sustainability Report FY 2022-23",
