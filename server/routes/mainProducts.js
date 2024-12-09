@@ -107,7 +107,7 @@ router.post("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, {
     if (pdfFile) {
       const uploadParams = {
         Bucket: "solarwebsite-documents",
-        Key: `products/pdfs/${Date.now()}_${pdfFile.originalname}`,
+        Key: `products/pdfs/${pdfFile.originalname}`,
         Body: pdfFile.buffer,
         ContentType: pdfFile.mimetype,
       };
@@ -118,7 +118,7 @@ router.post("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, {
       });
 
       await parallelUpload.done();
-      url = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      url = `products/pdfs/${pdfFile.originalname}`;
     }
 
     // Create new product
@@ -179,7 +179,7 @@ router.put("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, { 
     if (pdfFile) {
       const uploadParams = {
         Bucket: "solarwebsite-documents",
-        Key: `products/pdfs/${Date.now()}_${pdfFile.originalname}`,
+        Key: `products/pdfs/${pdfFile.originalname}`,
         Body: pdfFile.buffer,
         ContentType: pdfFile.mimetype,
       };
@@ -190,7 +190,7 @@ router.put("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, { 
       });
 
       await parallelUpload.done();
-      url = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      url = `products/pdfs/${pdfFile.originalname}`;
     }
 
     // Update product
@@ -310,7 +310,7 @@ router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }])
       const pdf = files.pdf[0];
       const uploadParams = {
         Bucket: "solarwebsite-documents",
-        Key: `products/pdfs/${Date.now()}_${pdf.originalname}`,
+        Key: `products/pdfs/${pdf.originalname}`,
         Body: pdf.buffer,
         ContentType: pdf.mimetype,
       };
@@ -321,7 +321,7 @@ router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }])
       });
 
       const s3UploadResult = await parallelUpload.done();
-      url = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      url = `products/pdfs/${pdf.originalname}`;
     }
 
     // Create new product
@@ -383,7 +383,7 @@ router.put("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }]),
       const pdf = files.pdf[0];
       const uploadParams = {
         Bucket: "solarwebsite-documents",
-        Key: `products/pdfs/${Date.now()}_${pdf.originalname}`,
+        Key: `products/pdfs/${pdf.originalname}`,
         Body: pdf.buffer,
         ContentType: pdf.mimetype,
       };
@@ -394,7 +394,7 @@ router.put("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }]),
       });
 
       const s3UploadResult = await parallelUpload.done();
-      url = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      url = `products/pdfs/${pdf.originalname}`;
     }
 
     // Update product
