@@ -1,0 +1,254 @@
+{
+  "departments": [
+      {
+          "name": "AUDIT COMMITTEE",
+          "columns": [
+              "Name of Committee Member",
+              "Designation in Committee",
+              "Category"
+          ],
+          "data": [
+              [
+                  "Mr. Natrajan Ramkrishna",
+                  "Chairman",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mr. Manish Nuwal",
+                  "Member",
+                  "Executive-Managing Director & CEO"
+              ],
+              [
+                  "Mr. Jagdish Belwal",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mrs. Rashmi Prasad",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mrs. Khushboo Pasari",
+                  "Secretary",
+                  "Company Secretary & Compliance Officer"
+              ]
+          ]
+      },
+      {
+          "name": "STAKEHOLDERS RELATIONSHIP COMMITTEE",
+          "columns": [
+              "Name of Committee Member",
+              "Designation in Committee",
+              "Category"
+          ],
+          "data": [
+              [
+                  "Mr. Jagdish Belwal",
+                  "Chairman",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mr. Manish Nuwal",
+                  "Member",
+                  "Executive-Managing Director & CEO"
+              ],
+              [
+                  "Mr. Suresh Menon",
+                  "Member",
+                  "Executive Director"
+              ],
+              [
+                  "Mrs. Khushboo Pasari",
+                  "Secretary",
+                  "Company Secretary & Compliance Officer"
+              ]
+          ]
+      },
+      {
+          "name": "NOMINATION AND REMUNERATION COMMITTEE",
+          "columns": [
+              "Name of Committee Member",
+              "Designation in Committee",
+              "Category"
+          ],
+          "data": [
+              [
+                  "Mr. Natrajan Ramkrishna",
+                  "Chairman",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mr. Jagdish Belwal",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mr. Dinesh Kumar Batra",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mrs. Khushboo Pasari",
+                  "Secretary",
+                  "Company Secretary & Compliance Officer"
+              ]
+          ]
+      },
+      {
+          "name": "CORPORATE SOCIAL RELATIONSHIP COMMITTEE",
+          "columns": [
+              "Name of Committee Member",
+              "Designation in Committee",
+              "Category"
+          ],
+          "data": [
+              [
+                  "Mr. Satyanarayan Nuwal",
+                  "Chairman",
+                  "Chairman-Non-Executive Director"
+              ],
+              [
+                  "Mr. Manish Nuwal",
+                  "Member",
+                  "Executive-Managing Director & CEO"
+              ],
+              [
+                  "Mr. Jagdish Belwal",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mrs. Khushboo Pasari",
+                  "Secretary",
+                  "Company Secretary & Compliance Officer"
+              ]
+          ]
+      },
+      {
+          "name": "RISK MANAGEMENT COMMITTEE",
+          "columns": [
+              "Name of Committee Member",
+              "Designation in Committee",
+              "Category"
+          ],
+          "data": [
+              [
+                  "Mr. Manish Nuwal",
+                  "Chairman",
+                  "Executive-Managing Director & CEO"
+              ],
+              [
+                  "Mr. Natrajan Ramkrishna",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mr. Jagdish Belwal",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mrs. Rashmi Prasad",
+                  "Member",
+                  "Non-Executive Independent Director"
+              ],
+              [
+                  "Mr. Suresh Menon",
+                  "Member",
+                  "Executive Director"
+              ],
+              [
+                  "Mr. Milind Deshmukh",
+                  "Member",
+                  "Executive Director"
+              ],
+              [
+                  "Mr. Moneesh Agrawal",
+                  "Member",
+                  "Joint Chief Financial Officer"
+              ],
+              [
+                  "Mrs. Shalinee Mandhana",
+                  "Member",
+                  "Joint Chief Financial Officer"
+              ],
+              [
+                  "Mr. Ashish Khole",
+                  "Member",
+                  "Senior General Manager-HR"
+              ],
+              [
+                  "Mr. Paresh Patel",
+                  "Member",
+                  "Senior Manager - IT"
+              ],
+              [
+                  "Mrs. Khushboo Pasari",
+                  "Secretary",
+                  "Company Secretary & Compliance Officer"
+              ]
+          ]
+      },
+      {
+          "name": "EXECUTIVE COMMITTEE",
+          "columns": [
+              "Name of Committee Member",
+              "Designation in Committee",
+              "Category"
+          ],
+          "data": [
+              [
+                  "Mr. Manish Satyanarayan Nuwal",
+                  "Chairman",
+                  "Executive-Managing Director & CEO"
+              ],
+              [
+                  "Mr. Milind Deshmukh",
+                  "Member",
+                  "Executive Director"
+              ],
+              [
+                  "Mr. Suresh Menon",
+                  "Member",
+                  "Executive Director"
+              ]
+          ]
+      },
+      {
+          "name": "INVESTMENT COMMITTEE",
+          "columns": [
+              "Name of Committee Member",
+              "Designation in Committee",
+              "Category"
+          ],
+          "data": [
+              [
+                  "Mr. Manish Satyanarayan Nuwal",
+                  "Chairman",
+                  "Executive-Managing Director & CEO"
+              ],
+              [
+                  "Mr. Milind Deshmukh",
+                  "Member",
+                  "Executive Director"
+              ],
+              [
+                  "Mr. Suresh Menon",
+                  "Member",
+                  "Executive Director"
+              ],
+              [
+                  "Mrs. Shalinee Mandhana",
+                  "Member",
+                  "Joint Chief Financial Officer"
+              ],
+              [
+                  "Mrs. Khushboo Pasari",
+                  "Secretary",
+                  "Company Secretary & Compliance Officer"
+              ]
+          ]
+      }
+  ]
+}

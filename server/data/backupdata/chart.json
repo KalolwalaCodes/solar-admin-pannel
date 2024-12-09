@@ -1,0 +1,161 @@
+{
+    "datasets": [
+      [
+        {
+          "name": "Others",
+          "value": "5",
+          "color": "#4765ad"
+        },
+        {
+          "name": "CIL",
+          "value": 15,
+          "color": "#74c9f1"
+        },
+        {
+          "name": "Exports and Overseas",
+          "value": 40,
+          "color": "#6fa3ad"
+        },
+        {
+          "name": "Non-CIL & Institutional",
+          "value": 17,
+          "color": "#418bbf"
+        },
+        {
+          "name": "Defence",
+          "value": 9,
+          "color": "#7167ae"
+        },
+        {
+          "name": "Housing and Infrastructure",
+          "value": 18,
+          "color": "#bbb5da"
+        }
+      ],
+      [
+        {
+          "name": "Others",
+          "value": 1,
+          "color": "#4765ad"
+        },
+        {
+          "name": "CIL",
+          "value": 25,
+          "color": "#74c9f1"
+        },
+        {
+          "name": "Non-CIL & Institutional",
+          "value": 20,
+          "color": "#6fa3ad"
+        },
+        {
+          "name": "Housing and Infrastructure",
+          "value": 24,
+          "color": "#418bbf"
+        },
+        {
+          "name": "Subsidiary",
+          "value": 15,
+          "color": "#7c869f"
+        },
+        {
+          "name": "Exports",
+          "value": 7,
+          "color": "#7167ae"
+        },
+        {
+          "name": "Defence",
+          "value": 8,
+          "color": "#bbb5da"
+        }
+      ],
+      [
+        {
+          "name": "Category n",
+          "value": 2,
+          "color": "#4765ad"
+        },
+        {
+          "name": "Category o",
+          "value": 53,
+          "color": "#74c9f1"
+        },
+        {
+          "name": "Category p",
+          "value": 2,
+          "color": "#6fa3ad"
+        },
+        {
+          "name": "Category q",
+          "value": 7,
+          "color": "#418bbf"
+        },
+        {
+          "name": "Category r",
+          "value": 5,
+          "color": "#7167ae"
+        },
+        {
+          "name": "Category s",
+          "value": 14,
+          "color": "#bbb5da"
+        },
+        {
+          "name": "Category t",
+          "value": 17,
+          "color": "#7c869f"
+        }
+      ],
+      [
+        {
+          "name": "Category u",
+          "value": 1,
+          "color": "#4765ad"
+        },
+        {
+          "name": "Category v",
+          "value": 62,
+          "color": "#74c9f1"
+        },
+        {
+          "name": "Category w",
+          "value": 1,
+          "color": "#6fa3ad"
+        },
+        {
+          "name": "Category x",
+          "value": 5,
+          "color": "#418bbf"
+        },
+        {
+          "name": "Category y",
+          "value": 5,
+          "color": "#7167ae"
+        },
+        {
+          "name": "Category z",
+          "value": 16,
+          "color": "#bbb5da"
+        },
+        {
+          "name": "Category za",
+          "value": 10,
+          "color": "#7c869f"
+        }
+      ]
+    ],
+    "titles": [
+      [
+        "CONSOLIDATED BASIS FY 24 (IN %)",
+        "STANDALONE BASIS FY 24 (IN %)"
+      ],
+      [
+        "CONSOLIDATED BASIS FY 24 (IN %)",
+        "STANDALONE BASIS FY 24 (IN %)"
+      ]
+    ],
+    "mainTitles": [
+      "Customer Wise Revenue Break-up",
+      "Annual Expense Break-up"
+    ]
+  }

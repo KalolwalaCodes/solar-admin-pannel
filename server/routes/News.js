@@ -85,11 +85,13 @@ router.post('/', upload.single('thumbnail'), async (req, res) => {
       console.error("Error uploading to S3 or updating JSON:", error);
       res.status(500).json({ error: 'An error occurred while processing the request.' });
     }
-  }).
+  })
+.
 get('/', async(req, res) => {
     try {
       const jsonString = await readNewsData(); // Read the file asynchronously
       data = JSON.parse(jsonString); // Parse the JSON data
+      
         res.status(200).json(data); // Send the news data in the response
 
     } catch (error) {

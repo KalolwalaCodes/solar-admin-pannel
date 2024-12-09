@@ -1,0 +1,44 @@
+[
+    {
+      "id": 2,
+      "img": "img/about/manish-satyanarayan2.jpg",
+      "name": "Manish Satyanarayan Nuwal ",
+      "position": "Managing Director and CEO",
+      "desc": "A qualified Chartered Accountant, Mr. Manish Satyanarayan Nuwal joined when the Company ventured into its first manufacturing foray under the leadership and tutelage of his father, Shri Satyanarayan Nuwal. His dynamic and entrepreneurial vision has driven Solar Group into becoming a global leader in the explosives and ammunition industry. During the two and a half decades he has devoted to Solar, he has successfully shaped the Company’s strategy, aligning it with the future business landscape. He plays a key role in Business Planning, Commercial & Technical aspects, which resulted in the setting up of customer base in more than 75+ countries and manufacturing operations in 8 countries. His value-driven approach underlines his strong commitment to fair and ethical business practices, of which success is a natural outcome."
+    },
+    {
+      "id": 3,
+      "img": "img/about/Menon_Ji (1).jpg",
+      "name": "Suresh Menon",
+      "position": "Executive Director",
+      "desc": "Bachelor of Technology (Hons) in Mining Engineering from I.I.T., Kharagpur, Shri Suresh Menon is associated with Solar Group from past 15 years. He has over 38 years of experience in the coal, mining and explosives industries. With his strong expertise and deep understanding of the explosives market, he monitors the marketing operations of the Company at domestic and global levels. Delivering value to customers is thus at the heart of the Company’s business model, of which he is a significant pillar."
+    },
+    {
+      "id": 4,
+      "img": "img/about/Milind_Ji (1).jpg",
+      "name": "Milind Deshmukh",
+      "position": "Executive Director",
+      "desc": "Mr. Milind Deshmukh is a Commerce Graduate from Mumbai University (1987) and has completed Master’s in management studies from Somaiya Institute of Management (1989). He has also completed management program of Wipro in 1996. Mr. Milind Deshmukh has worked in various organizations like Philips (India) Limited as an Area Manager between 1989 to 1993, Wipro Limited as a Regional Manager between 1994 to 1997. He has also worked with Credcom Limited as General Manager – West Africa between 1997 to 2009 before joining Solar Group’s African Subsidiaries in 2010 as Director. Mr. Milind Deshmukh has played a key role in managing operations, expanding business, relationship management with key stakeholders and managing Projects in line with organization’s strategy and business development in the region."
+    },
+    {
+      "id": 5,
+      "img": "img/about/rashmi-prasad.jpg",
+      "name": "Rashmi Prasad",
+      "position": "Non-Executive Independent Director",
+      "desc": "In a Career span of more than 35 years, Smt. Rashmi Prasad has served under various designations in State Bank of India. She brings with her multidisciplinary experience in the fields like Credit, Risk Management, Marketing, Compliances related to the SEBI regulations etc. She also headed the London office of State Bank of India. Her area of expertise includes crises Management, Training and Policy making. She is an associate member of Certified Associate of Indian Institute of Bankers (CAIIB) which is a professional body and certified Behavioral Science trainer."
+    },
+    {
+      "id": 6,
+      "img": "img/about/jagdish-belwal.jpg",
+      "name": "Jagdish Belwal",
+      "position": "Non-Executive Independent Director",
+      "desc": "Mr. Jagdish Chandra Belwal is a transformational CIO turned entrepreneur. He has led technology anchored business transformations in large organisations. He has experience of over twenty five years in Industries like Automotive, Construction Equipment and Railway Transportation. He is a Board Mentor with UK based Criticaleye and is a coach to aspiring technology CEOs. He has run strategic interventions for corporates in Change Management, Customer Centricity and Global Operating Models. His areas of core competencies are :- Digital Transformation, Enterprise Architecture, Public Speaking, Change Management, Leadership Development, Executive Coaching, IT Strategy."
+    },
+    {
+      "id": 7,
+      "img": "img/about/natrajan-ramKrishna.jpg",
+      "name": "Natrajan RamKrishna",
+      "position": "Non-Executive Independent Director",
+      "desc": "A qualified Chartered Accountant, Mr. Natrajan Ramakrishna has an experience of over forty years in the accounting profession focusing mainly on Generally Accepted Accounting Principles (GAAP), IFRS, IndAS and Auditing. His areas of core competencies include Financial Reporting, Board and Corporate Governance, Financial Services Sector and Operational Excellence. He has extensive knowledge and experience in handling cultural integrations. Having worked with some large International Accounting firms he has gained immense experience with boards and committees as to laying down policy frameworks relating to Business Resilience and Continuity Planning. He has a proven track record of work spread over various sectors such as Information Technology, Financial Services, FMCG Companies and Telecom."
+    }
+  ]
