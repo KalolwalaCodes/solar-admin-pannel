@@ -35,7 +35,7 @@ const InvestorsRelation = () => {
       console.log("fetching result---------");
       try {
         let res = await fetch(
-          `http://localhost:8000/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,
+          `/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,
           {
             method: "GET",
             headers: {

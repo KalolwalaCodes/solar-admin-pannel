@@ -14,7 +14,7 @@ const ShareHolderValue = () => {
   // Fetch data from the backend
   useEffect(() => {
     axios
-      .get("http://localhost:8000/admin-panel/shareholder-value", {
+      .get("/admin-panel/shareholder-value", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ const ShareHolderValue = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/admin-panel/shareholder-value",
+        "/admin-panel/shareholder-value",
         formData
       );
       setData([...data, response.data.newItem]);
@@ -44,7 +44,7 @@ const ShareHolderValue = () => {
   const handleDelete = async (index) => {
     try {
       await axios.delete(
-        `http://localhost:8000/admin-panel/shareholder-value/${index}`
+        `/admin-panel/shareholder-value/${index}`
       );
       setData(data.filter((_, i) => i !== index));
     } catch (error) {
@@ -56,7 +56,7 @@ const ShareHolderValue = () => {
   const handleUpdate = async (index, updatedItem) => {
     try {
       const response = await axios.put(
-        `http://localhost:8000/admin-panel/shareholder-value/${index}`,
+        `/admin-panel/shareholder-value/${index}`,
         updatedItem
       );
       const newData = [...data];

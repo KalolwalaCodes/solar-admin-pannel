@@ -106,7 +106,7 @@ export default function ContactUs() {
   const token=localStorage.getItem("authToken");
   const fetchContacts = async () => {
     try {
-      const response = await fetch('http://localhost:8000/admin-panel/contact-us', { headers: {
+      const response = await fetch('/admin-panel/contact-us', { headers: {
         Authorization: `Bearer ${token}`, // Include token
       }});
       if (!response.ok) {
@@ -124,7 +124,7 @@ export default function ContactUs() {
   const handleDelete = async (id) => {
     console.log(id, "delete triggered");
     try {
-      const response = await fetch(`http://localhost:8000/admin-panel/contact-us/${id}`, {
+      const response = await fetch(`/admin-panel/contact-us/${id}`, {
         method: 'DELETE',
         headers:{
           Authorization: `Bearer ${token}`, // Include token
