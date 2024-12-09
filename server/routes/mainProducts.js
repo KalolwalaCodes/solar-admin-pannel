@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require('fs');
 const multer = require('multer');
-const { S3Client } = require('@aws-sdk/client-s3');
+const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
 const { Upload } = require('@aws-sdk/lib-storage');
 const { DeleteObjectCommand } = require('@aws-sdk/client-s3');
 const path = require('path');
@@ -27,7 +27,12 @@ try {
 } catch (error) {
   console.error("Error loading JSON file: ", error.message);
 }
+const cacheDir = path.join(__dirname, 'cache');
 
+// Ensure cache directory exists
+if (!fs.existsSync(cacheDir)) {
+    fs.mkdirSync(cacheDir);
+}
 
 // Load the existing JSON data defense
 let dataDefenseProducts;
@@ -467,6 +472,56 @@ router.delete("/defense-data", async (req, res) => {
   }
 });
 
+router.get('/pdf/:fileKey', async (req, res) => {
+  const fileKey = req.params.fileKey;
+
+  const fetchFileFromS3 = async (bucketName, fileKey) => {
+      const headParams = { Bucket: bucketName, Key: fileKey };
+
+      try {
+          // Check if file exists on S3
+          await s3.send(new HeadObjectCommand(headParams));
+
+          const filePath = path.join(cacheDir, fileKey.replace(/\//g, '_')); // Cache-safe filename
+
+          // Check if cached
+          if (fs.existsSync(filePath)) {
+              return filePath;
+          }
+
+          // Download from S3
+          const getObjectParams = { Bucket: bucketName, Key: fileKey };
+          const data = await s3.send(new GetObjectCommand(getObjectParams));
+          const writeStream = fs.createWriteStream(filePath);
+
+          return new Promise((resolve, reject) => {
+              data.Body.pipe(writeStream);
+              writeStream.on('finish', () => resolve(filePath));
+              writeStream.on('error', (err) => reject(err));
+          });
+      } catch (err) {
+          console.error(`Error fetching file from S3:`, err);
+          throw err;
+      }
+  };
+
+  try {
+      const bucketName = 'solarwebsite-documents';
+      const decodedFileKey = decodeURIComponent(fileKey);
+      const filePath = await fetchFileFromS3(bucketName, decodedFileKey);
+
+      res.sendFile(filePath, (err) => {
+          if (err) {
+              console.error('Error sending file:', err);
+              if (!res.headersSent) {
+                  res.status(500).send('Failed to send file');
+              }
+          }
+      });
+  } catch (error) {
+      res.status(500).send('Failed to fetch file');
+  }
+});
 
 
 

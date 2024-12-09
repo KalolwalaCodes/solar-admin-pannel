@@ -53,7 +53,7 @@ const InvestorsRelation = () => {
       console.log("fetching result---------");
       try {
         let res = await fetch(
-          `/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,
+          `http://localhost:8000/admin-panel/Investor-relation?timestamp=${new Date().getTime()}`,
           {
             method: "GET",
             headers: {
@@ -94,7 +94,7 @@ const InvestorsRelation = () => {
       const token = localStorage.getItem("authToken");
 
       const response = await fetch(
-        "/admin-panel/Investor-relation",
+        "http://localhost:8000/admin-panel/Investor-relation",
         {
           method: "PATCH",
 
@@ -179,7 +179,7 @@ const InvestorsRelation = () => {
       const token = localStorage.getItem("authToken");
 
       const response = await fetch(
-        "/admin-panel/Investor-relation",
+        "http://localhost:8000/admin-panel/Investor-relation",
         {
           method: "DELETE",
           headers: {
@@ -292,7 +292,7 @@ const InvestorsRelation = () => {
 
     try {
       const response = await fetch(
-        "/admin-panel/Investor-relation/delete-folder-nesting",
+        "http://localhost:8000/admin-panel/Investor-relation/delete-folder-nesting",
         {
           method: "POST",
           headers: {
@@ -362,7 +362,7 @@ const InvestorsRelation = () => {
 
     try {
       const response = await fetch(
-        "/admin-panel/Investor-relation/edit-folder-nesting",
+        "http://localhost:8000/admin-panel/Investor-relation/edit-folder-nesting",
         {
           method: "POST",
           headers: {
@@ -443,7 +443,7 @@ const InvestorsRelation = () => {
       const token = localStorage.getItem("authToken");
 
       const response = await fetch(
-        "/admin-panel/Investor-relation/upload-files",
+        "http://localhost:8000/admin-panel/Investor-relation/upload-files",
         {
           method: "POST",
           headers: {
@@ -526,7 +526,7 @@ const InvestorsRelation = () => {
         const token = localStorage.getItem("authToken");
 
         response = await fetch(
-          "/admin-panel/Investor-relation/create-folder",
+          "http://localhost:8000/admin-panel/Investor-relation/create-folder",
           {
             method: "POST",
             headers: {
@@ -544,7 +544,7 @@ const InvestorsRelation = () => {
         const token = localStorage.getItem("authToken");
 
         response = await fetch(
-          "/admin-panel/Investor-relation/create-folder-nesting",
+          "http://localhost:8000/admin-panel/Investor-relation/create-folder-nesting",
           {
             method: "POST",
             headers: {

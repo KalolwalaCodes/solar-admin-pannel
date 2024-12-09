@@ -18,7 +18,7 @@ const IndustrialProducts = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "/admin-panel/product-category/industrial-data",
+          "http://localhost:8000/admin-panel/product-category/industrial-data",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -57,7 +57,7 @@ const IndustrialProducts = () => {
 
     try {
       await axios.delete(
-        `/admin-panel/product-category/industrial-data?title=${encodeURIComponent(productTitle)}`,
+        `http://localhost:8000/admin-panel/product-category/industrial-data?title=${encodeURIComponent(productTitle)}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -81,7 +81,7 @@ const IndustrialProducts = () => {
 
       if (isEdit) {
         const res = await axios.put(
-          `/admin-panel/product-category/industrial-data`,
+          `http://localhost:8000/admin-panel/product-category/industrial-data`,
           formData,
           {
             headers: {
@@ -93,7 +93,7 @@ const IndustrialProducts = () => {
         setData(res.data);
       } else {
         const response = await axios.post(
-          "/admin-panel/product-category/industrial-data",
+          "http://localhost:8000/admin-panel/product-category/industrial-data",
           formData,
           {
             headers: {
@@ -111,6 +111,64 @@ const IndustrialProducts = () => {
     }
   };
 
+
+  async function handleDownload(fileKey) {
+    const token = localStorage.getItem("authToken");
+  
+    // Validate file key
+    if (!fileKey) {
+      console.error("File key is undefined.");
+      alert("Cannot open file: Missing file key.");
+      return;
+    }
+  
+    // Validate token
+    if (!token) {
+      console.error("Auth token is missing.");
+      alert("Cannot open file: Missing authentication token.");
+      return;
+    }
+  
+    // Define the API URL
+    const url = `http://localhost:8000/admin-panel/product-category/pdf/${encodeURIComponent(fileKey)}`;
+  
+    try {
+      // Send GET request with Authorization header
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      // Check if the request was successful
+      if (!response.ok) {
+        console.error("Failed to fetch file:", response.statusText);
+        alert("Failed to open file. Please try again.");
+        return;
+      }
+  
+      // Convert the response to a Blob
+      const blob = await response.blob();
+  
+      // Create a Blob URL
+      const fileUrl = window.URL.createObjectURL(blob);
+  
+      // Open the Blob URL in a new tab
+      window.open(fileUrl, "_blank", "noopener,noreferrer");
+  
+      // Optional: Revoke the Blob URL after a delay to free up resources
+      setTimeout(() => {
+        window.URL.revokeObjectURL(fileUrl);
+      }, 1000);
+    } catch (error) {
+      console.error("Error during file fetch:", error);
+      alert("An error occurred while opening the file. Please try again.");
+    }
+  }
+  
+
+  
   const handleFileChange = (e, type) => {
     const file = e.target.files[0];
     if (type === "image") {
@@ -174,14 +232,14 @@ const IndustrialProducts = () => {
               <h3 className="text-lg font-bold text-gray-800">{item.title || "Untitled Product"}</h3>
               <p className="text-sm text-gray-600 mt-2">{item.description || "No description available."}</p>
               {item.url && (
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 underline text-sm mt-2 block"
-                >
-                  Download PDF
-                </a>
+              <a
+              href={item.url}
+              // onClick={() => handleDownload(item.url)}
+              className="text-blue-600 underline text-sm mt-2 block cursor-pointer"
+            >
+              Download PDF
+            </a>
+                      
               )}
               <p className="text-xs text-gray-500 mt-4 font-medium">Category: {item.category || "Uncategorized"}</p>
             </div>

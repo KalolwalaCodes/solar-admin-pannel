@@ -1,6 +1,1368 @@
 [
   {
     "category": "non-permitted",
+    "title": "Superpower 90",
+    "url": "https://solarwebsite-documents.s3.amazonaws.com/products/pdfs/1733744151402_testing.pdf",
+    "calloutValues": [
+      {
+        "number": "1.20 ± 0.05",
+        "property": "Nominal Density (g/cc)"
+      },
+      {
+        "number": "118 %",
+        "property": "Relative Weight Strength*"
+      },
+      {
+        "number": "166%",
+        "property": "Relative Bulk Strength*"
+      },
+      {
+        "number": "3.5",
+        "property": "Minimum Velocity of Detonation (Km / Sec)"
+      }
+    ],
+    "content": [
+      {
+        "type": "description",
+        "text": "Superpower 90 packaged emulsion explosive is a robust, high strength, detonator sensitive explosive. The explosive is having a firm putty-like consistency. Products are sensitized through chemical gassing / micro-spheres / combination of both. It is a water resistant packaged explosive."
+      },
+      {
+        "type": "description",
+        "text": "Superpower 90 is designed for priming applications and as a column explosive in surface and underground mining and general blasting. The high detonation velocity and the robust nature of Superpower 90 make it an ideal primer for the initiation of column charge."
+      },
+      {
+        "type": "description",
+        "text": "[h5]ADVANTAGES[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Delivers excellent fragmentation with improved dig ability."
+      },
+      {
+        "type": "description",
+        "text": "Low post blast fumes helps to improve turnaround time in underground mines."
+      },
+      {
+        "type": "description",
+        "text": "Highly water resistant, minimizes leaching and reduces environmental impact."
+      },
+      {
+        "type": "table",
+        "title": "TECHNICAL PROPERTIES",
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "Nominal Density (g/cc)",
+            "1.20 ± 0.05"
+          ],
+          [
+            "Relative Weight Strength*",
+            "118 %"
+          ],
+          [
+            "Relative Bulk Strength*",
+            "166 %"
+          ],
+          [
+            "Minimum Velocity of Detonation (Km / Sec)",
+            "3.5"
+          ],
+          [
+            "*Compared to ANFO@ 0.85 g/cc",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]PACKAGING[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Superpower 90 is packaged in a plastic film with with product name & other details. Each box contains 25kg of product."
+      },
+      {
+        "type": "table",
+        "title": "",
+        "headers": [
+          "Cartridge Dia mm",
+          "Nominal length mm",
+          "Nominal Wt. gm",
+          "Cartridge/Box No’s."
+        ],
+        "rows": [
+          [
+            "25",
+            "200",
+            "125",
+            "200"
+          ],
+          [
+            "32",
+            "200",
+            "200",
+            "125"
+          ],
+          [
+            "40",
+            "300",
+            "390",
+            "64"
+          ],
+          [
+            "50",
+            "240",
+            "500",
+            "50"
+          ],
+          [
+            "50",
+            "450",
+            "1000",
+            "25"
+          ],
+          [
+            "60",
+            "460",
+            "1560",
+            "16"
+          ],
+          [
+            "80",
+            "480",
+            "2780",
+            "9"
+          ],
+          [
+            "90",
+            "420",
+            "2780",
+            "9"
+          ],
+          [
+            "Other diameter / grams combinations can be offered on request."
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]RECOMMENDATIONS FOR USE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use upto 20m depth of watery holes."
+      },
+      {
+        "type": "description",
+        "text": "SCan be initiated with an electric or a non electric detonator (minimum No.8 strength) and detonating cord (5g and above)."
+      },
+      {
+        "type": "description",
+        "text": "Maximum energy of blasthole can be achieved by tamping the explosive with a wooden tamping rod."
+      },
+      {
+        "type": "description",
+        "text": "Do Not use metal instrument to tamp explosives."
+      },
+      {
+        "type": "description",
+        "text": "Do Not tamp primer cartridge containing a detontor."
+      },
+      {
+        "type": "description",
+        "text": "Post detonation fume characteristics of the product make it suitable for both underground and surface blasting applications, however users should ensure that adequate ventilation is provided prior to re-entry into the blast area."
+      },
+      {
+        "type": "description",
+        "text": "Avoid extremes of shock, heat, friction or mechanical impact to prevent pre-mature initiation."
+      },
+      {
+        "type": "description",
+        "text": "[h5]TECHNICAL DATA[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "[h5]REACTIVE GROUND & GROUND TEMPERATURE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Not suitable for ground containing reactive Sulphides."
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use in ground temperatures up to 65ºC."
+      },
+      {
+        "type": "description",
+        "text": "In case application requires to operate outside this temperature range, please contact your Solar representative."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SLEEP TIME WITHIN BLASTHOLES[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The undamaged product may be charged and fired several days later in dry holes (provided the product remains within its recommended shelf life)."
+      },
+      {
+        "type": "description",
+        "text": "If the explosives packaging is damaged, the sleep-time in a blasthole is influenced by the extent of damage to the packaging and by the nature of any water present. Even with full length slitting of cartridges, the explosive will give good performance after two weeks immersion."
+      },
+      {
+        "type": "description",
+        "text": "[h5]STORAGE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "For the best results, store under moderate temperatures and dry conditions in a well ventilated, approved magazine."
+      },
+      {
+        "type": "description",
+        "text": "If stored in cool, dry, well ventilated magazine and handled properly, the shelf life of Superpower 90 is 12 Months from the date of Manufacturing. However exposure to hot or cold extremes may cause the product to deteriorate pre-maturely."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SHIPPING INFORMATION :[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Authorised Name of Explosive : SUPERPOWER 90"
+      },
+      {
+        "type": "description",
+        "text": "Proper Shipping Name : EXPLOSIVE, BLASTING, TYPE E"
+      },
+      {
+        "type": "description",
+        "text": "Class / Div. : 1.1D"
+      },
+      {
+        "type": "description",
+        "text": "UN No. : 0241"
+      },
+      {
+        "type": "description",
+        "text": "[h5]DISPOSAL[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
+      }
+    ],
+    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SuperPower90-NS.png"
+  },
+  {
+    "category": "non-permitted",
+    "title": "Superpower 80",
+    "url": "TDS/TDS-Superpower-80.pdf",
+    "calloutValues": [
+      {
+        "number": "1.20 ± 0.05",
+        "property": "Nominal Density (g/cc)"
+      },
+      {
+        "number": "100 %",
+        "property": "Relative Weight Strength*"
+      },
+      {
+        "number": "140 %",
+        "property": "Relative Bulk Strength*"
+      },
+      {
+        "number": "3.5",
+        "property": "Minimum Velocity of Detonation (Km / Sec)"
+      }
+    ],
+    "content": [
+      {
+        "type": "description",
+        "text": "Superpower 80 packaged emulsion explosive is a robust, high strength, detonator sensitive explosive. The explosive is having a firm putty-like consistency. Products are sensitized through chemical gassing / micro-spheres / combination of both. It is a water resistant packaged explosive."
+      },
+      {
+        "type": "description",
+        "text": "Superpower 80 is designed for priming applications and as a column explosive in surface and underground mining and general blasting. The high detonation velocity and the robust nature of Superpower 80 make it an ideal primer for the initiation of column charge."
+      },
+      {
+        "type": "description",
+        "text": "[h5]ADVANTAGES[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Delivers excellent fragmentation with improved dig ability."
+      },
+      {
+        "type": "description",
+        "text": "Low post blast fumes helps to improve turnaround time in underground mines."
+      },
+      {
+        "type": "description",
+        "text": "Highly water resistant, minimizes leaching and reduces environmental impact."
+      },
+      {
+        "type": "table",
+        "title": "TECHNICAL PROPERTIES",
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "Nominal Density (g/cc)",
+            "1.20 ± 0.05"
+          ],
+          [
+            "Relative Weight Strength*",
+            "100 %"
+          ],
+          [
+            "Relative Bulk Strength*",
+            "140 %"
+          ],
+          [
+            "Minimum Velocity of Detonation (Km / Sec)",
+            "3.5"
+          ],
+          [
+            "*Compared to ANFO@ 0.85 g/cc",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]PACKAGING[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Superpower 80 is packaged in a plastic film with with product name & other details. Each box contains 25kg of product."
+      },
+      {
+        "type": "table",
+        "title": "",
+        "headers": [
+          "Cartridge Dia mm",
+          "Nominal length mm",
+          "Nominal Wt. gm",
+          "Cartridge/Box No’s."
+        ],
+        "rows": [
+          [
+            "25",
+            "200",
+            "125",
+            "200"
+          ],
+          [
+            "32",
+            "200",
+            "200",
+            "125"
+          ],
+          [
+            "40",
+            "300",
+            "390",
+            "64"
+          ],
+          [
+            "50",
+            "240",
+            "500",
+            "50"
+          ],
+          [
+            "50",
+            "450",
+            "1000",
+            "25"
+          ],
+          [
+            "60",
+            "460",
+            "1560",
+            "16"
+          ],
+          [
+            "80",
+            "480",
+            "2780",
+            "9"
+          ],
+          [
+            "90",
+            "420",
+            "2780",
+            "9"
+          ],
+          [
+            "Other diameter / grams combinations can be offered on request."
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]RECOMMENDATIONS FOR USE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use upto 20m depth of watery holes."
+      },
+      {
+        "type": "description",
+        "text": "SCan be initiated with an electric or a non electric detonator (minimum No.8 strength) and detonating cord (5g and above)."
+      },
+      {
+        "type": "description",
+        "text": "Maximum energy of blasthole can be achieved by tamping the explosive with a wooden tamping rod."
+      },
+      {
+        "type": "description",
+        "text": "Do Not use metal instrument to tamp explosives."
+      },
+      {
+        "type": "description",
+        "text": "Do Not tamp primer cartridge containing a detontor."
+      },
+      {
+        "type": "description",
+        "text": "Post detonation fume characteristics of the product make it suitable for both underground and surface blasting applications, however users should ensure that adequate ventilation is provided prior to re-entry into the blast area."
+      },
+      {
+        "type": "description",
+        "text": "Avoid extremes of shock, heat, friction or mechanical impact to prevent pre-mature initiation."
+      },
+      {
+        "type": "description",
+        "text": "[h5]TECHNICAL DATA[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "[h5]REACTIVE GROUND & GROUND TEMPERATURE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Not suitable for ground containing reactive Sulphides."
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use in ground temperatures up to 65ºC."
+      },
+      {
+        "type": "description",
+        "text": "In case application requires to operate outside this temperature range, please contact your Solar representative."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SLEEP TIME WITHIN BLASTHOLES[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The undamaged product may be charged and fired several days later in dry holes (provided the product remains within its recommended shelf life)."
+      },
+      {
+        "type": "description",
+        "text": "If the explosives packaging is damaged, the sleep-time in a blasthole is influenced by the extent of damage to the packaging and by the nature of any water present. Even with full length slitting of cartridges, the explosive will give good performance after two weeks immersion."
+      },
+      {
+        "type": "description",
+        "text": "[h5]STORAGE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "For the best results, store under moderate temperatures and dry conditions in a well ventilated, approved magazine."
+      },
+      {
+        "type": "description",
+        "text": "If stored in cool, dry, well ventilated magazine and handled properly, the shelf life of Superpower 80 is 12 Months from the date of Manufacturing. However exposure to hot or cold extremes may cause the product to deteriorate pre-maturely."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SHIPPING INFORMATION :[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Authorised Name of Explosive : SUPERPOWER 80"
+      },
+      {
+        "type": "description",
+        "text": "Proper Shipping Name : EXPLOSIVE, BLASTING, TYPE E"
+      },
+      {
+        "type": "description",
+        "text": "Class / Div. : 1.1D"
+      },
+      {
+        "type": "description",
+        "text": "UN No. : 0241"
+      },
+      {
+        "type": "description",
+        "text": "[h5]DISPOSAL[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
+      }
+    ],
+    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SuperPower80-NS.png"
+  },
+  {
+    "category": "non-permitted",
+    "title": "Solargel",
+    "url": "TDS/TDS-SolarGel.pdf",
+    "calloutValues": [
+      {
+        "number": "1.20 ± 0.05",
+        "property": "Nominal Density (g/cc)"
+      },
+      {
+        "number": "75 %",
+        "property": "Relative Weight Strength*"
+      },
+      {
+        "number": "  100 %",
+        "property": "Relative Bulk Strength* "
+      },
+      {
+        "number": "3.5",
+        "property": "Minimum Velocity of Detonation  (Km / Sec) "
+      }
+    ],
+    "content": [
+      {
+        "type": "description",
+        "text": "Solar Gel is a high strength booster sensitive packaged emulsion explosives suitable for use in most types of blasting applications using small, medium and large diameter holes and represent the latest development in slurry explosives technology."
+      },
+      {
+        "type": "description",
+        "text": "The product is chemically gassed and is specifically designed for blasts in open cut mines, quarries and construction. Superior rigid gel also ensures good handling."
+      },
+      {
+        "type": "description",
+        "text": "Its high strength and high velocity of detonation ensures good fragmentation in hard strata and give excellent blast results in quarrying, road cutting, canal excavation and civil construction."
+      },
+      {
+        "type": "description",
+        "text": "Product is relatively insensitive to accidental initiation due to impact, friction and fire. Hence it is very safe during handling, transportation, storage and usage."
+      },
+      {
+        "type": "description",
+        "text": "Excellent water resistance allows usage in watery holes. Product has excellent fume characteristics post detonation."
+      },
+      {
+        "type": "table",
+        "title": "TECHNICAL PROPERTIES",
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "Nominal Density (g/cc)",
+            "1.20 ± 0.05"
+          ],
+          [
+            "Relative Weight Strength*",
+            "75 %"
+          ],
+          [
+            "Relative Bulk Strength*",
+            "100 %"
+          ],
+          [
+            "Minimum Velocity of Detonation (Km / Sec)",
+            "3.5"
+          ],
+          [
+            "Compared to ANFO@ 0.85 g/cc",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]PACKAGING[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Superpower 80 is packaged in a plastic film with with product name & other details. Each box contains 25kg of product."
+      },
+      {
+        "type": "table",
+        "title": "",
+        "headers": [
+          "Cartridge Dia mm",
+          "Nominal length mm",
+          "Nominal Wt. gm",
+          "Cartridge/Box No’s."
+        ],
+        "rows": [
+          [
+            "83",
+            "460",
+            "2780",
+            "9"
+          ],
+          [
+            "125",
+            "460",
+            "6250",
+            "4"
+          ],
+          [
+            "Other diameter / grams combinations can be offered on request."
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]RECOMMENDATIONS FOR USE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use upto 20m depth of watery holes."
+      },
+      {
+        "type": "description",
+        "text": "SCan be initiated with an electric or a non electric detonator (minimum No.8 strength) and detonating cord (5g and above)."
+      },
+      {
+        "type": "description",
+        "text": "Maximum energy of blasthole can be achieved by tamping the explosive with a wooden tamping rod."
+      },
+      {
+        "type": "description",
+        "text": "Do Not use metal instrument to tamp explosives."
+      },
+      {
+        "type": "description",
+        "text": "Do Not tamp primer cartridge containing a detontor."
+      },
+      {
+        "type": "description",
+        "text": "Post detonation fume characteristics of the product make it suitable for both underground and surface blasting applications, however users should ensure that adequate ventilation is provided prior to re-entry into the blast area."
+      },
+      {
+        "type": "description",
+        "text": "Avoid extremes of shock, heat, friction or mechanical impact to prevent pre-mature initiation."
+      },
+      {
+        "type": "description",
+        "text": "[h5]TECHNICAL DATA[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "[h5]REACTIVE GROUND & GROUND TEMPERATURE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Not suitable for ground containing reactive Sulphides."
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use in ground temperatures up to 65ºC."
+      },
+      {
+        "type": "description",
+        "text": "In case application requires to operate outside this temperature range, please contact your Solar representative."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SLEEP TIME WITHIN BLASTHOLES[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The undamaged product may be charged and fired several days later in dry holes (provided the product remains within its recommended shelf life)."
+      },
+      {
+        "type": "description",
+        "text": "If the explosives packaging is damaged, the sleep-time in a blasthole is influenced by the extent of damage to the packaging and by the nature of any water present. Even with full length slitting of cartridges, the explosive will give good performance after two weeks immersion."
+      },
+      {
+        "type": "description",
+        "text": "[h5]STORAGE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "For the best results, store under moderate temperatures and dry conditions in a well ventilated, approved magazine."
+      },
+      {
+        "type": "description",
+        "text": "If stored in cool, dry, well ventilated magazine and handled properly, the shelf life of SOLARGEL is 12 Months from the date of Manufacturing. However exposure to hot or cold extremes may cause the product to deteriorate pre-maturely."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SHIPPING INFORMATION :[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Authorised Name of Explosive : SOLARGEL"
+      },
+      {
+        "type": "description",
+        "text": "Proper Shipping Name : EXPLOSIVE, BLASTING, TYPE E"
+      },
+      {
+        "type": "description",
+        "text": "Class / Div. : 1.1D"
+      },
+      {
+        "type": "description",
+        "text": "UN No. : 0241"
+      },
+      {
+        "type": "description",
+        "text": "[h5]DISPOSAL[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
+      }
+    ],
+    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/Solargel-NS.png"
+  },
+  {
+    "category": "non-permitted",
+    "title": "Solargel-E",
+    "url": "TDS/TDS-SolarGel-E.pdf",
+    "calloutValues": [
+      {
+        "number": "1.20 ± 0.05",
+        "property": "Nominal Density (g/cc)"
+      },
+      {
+        "number": "82 %",
+        "property": "Relative Weight Strength*"
+      },
+      {
+        "number": "  100 %",
+        "property": "Relative Bulk Strength* "
+      },
+      {
+        "number": "3.8",
+        "property": "Minimum Velocity of Detonation  (Km / Sec) "
+      }
+    ],
+    "content": [
+      {
+        "type": "description",
+        "text": "Solargel-E is a high strength booster sensitive packaged emulsion explosives suitable for use in most types of blasting applications using small, medium and large diameter holes and represent the latest development in slurry explosives technology."
+      },
+      {
+        "type": "description",
+        "text": "The product is chemically gassed and is specifically designed for blasts in open cut mines, quarries and construction. Superior rigid gel also ensures good handling."
+      },
+      {
+        "type": "description",
+        "text": "Its high strength and high velocity of detonation ensures good fragmentation in hard strata and give excellent blast results in quarrying, road cutting, canal excavation and civil construction."
+      },
+      {
+        "type": "description",
+        "text": "Product is relatively insensitive to accidental initiation due to impact, friction and fire. Hence it is very safe during handling, transportation, storage and usage."
+      },
+      {
+        "type": "description",
+        "text": "Excellent water resistance allows usage in watery holes. Product has excellent fume characteristics post detonation."
+      },
+      {
+        "type": "table",
+        "title": "TECHNICAL PROPERTIES",
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "Nominal Density (g/cc)",
+            "1.20 ± 0.05"
+          ],
+          [
+            "Relative Weight Strength*",
+            "75 %"
+          ],
+          [
+            "Relative Bulk Strength*",
+            "100 %"
+          ],
+          [
+            "Minimum Velocity of Detonation (Km / Sec)",
+            "3.5"
+          ],
+          [
+            "Compared to ANFO@ 0.85 g/cc",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]PACKAGING[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Superpower 80 is packaged in a plastic film with with product name & other details. Each box contains 25kg of product."
+      },
+      {
+        "type": "table",
+        "title": "",
+        "headers": [
+          "Cartridge Dia mm",
+          "Nominal length mm",
+          "Nominal Wt. gm",
+          "Cartridge/Box No’s."
+        ],
+        "rows": [
+          [
+            "83",
+            "460",
+            "2780",
+            "9"
+          ],
+          [
+            "125",
+            "460",
+            "6250",
+            "4"
+          ],
+          [
+            "Other diameter / grams combinations can be offered on request."
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]RECOMMENDATIONS FOR USE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use upto 20m depth of watery holes."
+      },
+      {
+        "type": "description",
+        "text": "SCan be initiated with an electric or a non electric detonator (minimum No.8 strength) and detonating cord (5g and above)."
+      },
+      {
+        "type": "description",
+        "text": "Maximum energy of blasthole can be achieved by tamping the explosive with a wooden tamping rod."
+      },
+      {
+        "type": "description",
+        "text": "Do Not use metal instrument to tamp explosives."
+      },
+      {
+        "type": "description",
+        "text": "Do Not tamp primer cartridge containing a detontor."
+      },
+      {
+        "type": "description",
+        "text": "Post detonation fume characteristics of the product make it suitable for both underground and surface blasting applications, however users should ensure that adequate ventilation is provided prior to re-entry into the blast area."
+      },
+      {
+        "type": "description",
+        "text": "Avoid extremes of shock, heat, friction or mechanical impact to prevent pre-mature initiation."
+      },
+      {
+        "type": "description",
+        "text": "[h5]TECHNICAL DATA[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "[h5]REACTIVE GROUND & GROUND TEMPERATURE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Not suitable for ground containing reactive Sulphides."
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use in ground temperatures up to 65ºC."
+      },
+      {
+        "type": "description",
+        "text": "In case application requires to operate outside this temperature range, please contact your Solar representative."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SLEEP TIME WITHIN BLASTHOLES[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The undamaged product may be charged and fired several days later in dry holes (provided the product remains within its recommended shelf life)."
+      },
+      {
+        "type": "description",
+        "text": "If the explosives packaging is damaged, the sleep-time in a blasthole is influenced by the extent of damage to the packaging and by the nature of any water present. Even with full length slitting of cartridges, the explosive will give good performance after two weeks immersion."
+      },
+      {
+        "type": "description",
+        "text": "[h5]STORAGE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "For the best results, store under moderate temperatures and dry conditions in a well ventilated, approved magazine."
+      },
+      {
+        "type": "description",
+        "text": "If stored in cool, dry, well ventilated magazine and handled properly, the shelf life of SOLARGEL-E is 12 Months from the date of Manufacturing. However exposure to hot or cold extremes may cause the product to deteriorate pre-maturely."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SHIPPING INFORMATION :[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Authorised Name of Explosive : SOLARGEL-E"
+      },
+      {
+        "type": "description",
+        "text": "Proper Shipping Name : EXPLOSIVE, BLASTING, TYPE E"
+      },
+      {
+        "type": "description",
+        "text": "Class / Div. : 1.1D"
+      },
+      {
+        "type": "description",
+        "text": "UN No. : 0241"
+      },
+      {
+        "type": "description",
+        "text": "[h5]DISPOSAL[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
+      }
+    ],
+    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/Solargel-E-NS.png"
+  },
+  {
+    "category": "non-permitted",
+    "title": "Solar Prime",
+    "url": "TDS/TDS - Solarprime.pdf",
+    "calloutValues": [
+      {
+        "number": "1.15 ± 0.05",
+        "property": "Nominal Density (g/cc)"
+      },
+      {
+        "number": "85 %",
+        "property": "Relative Weight Strength*"
+      },
+      {
+        "number": "  110 %",
+        "property": "Relative Bulk Strength* "
+      },
+      {
+        "number": "3.5",
+        "property": "Minimum Velocity of Detonation  (Km / Sec) "
+      }
+    ],
+    "content": [
+      {
+        "type": "description",
+        "text": "Solarprime is a high strength cap sensitive packaged slurry explosives suitable for use in most types of blasting applications using small, medium and large diameter holes and represent the latest development in slurry explosives technology."
+      },
+      {
+        "type": "description",
+        "text": "The product is chemically gassed and then cross-linked and is specifically designed for blasts in open cut mines, quarries and construction. Superior rigid gel also ensures good handling.."
+      },
+      {
+        "type": "description",
+        "text": "Its high strength and high velocity of detonation ensures good fragmentation in hard strata and give excellent blast results in quarrying, road cutting, canal excavation and civil construction."
+      },
+      {
+        "type": "description",
+        "text": "Product is relatively insensitive to accidental initiation due to impact, friction and fire. Hence it is very safe during handling, transportation, storage and usage."
+      },
+      {
+        "type": "description",
+        "text": "Excellent water resistance allows usage in watery holes. Product has excellent fume characteristics post detonation."
+      },
+      {
+        "type": "table",
+        "title": "TECHNICAL PROPERTIES",
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "Nominal Density (g/cc)",
+            "1.20 ± 0.05"
+          ],
+          [
+            "Relative Weight Strength*",
+            "85 %"
+          ],
+          [
+            "Relative Bulk Strength*",
+            "110 %"
+          ],
+          [
+            "Minimum Velocity of Detonation (Km / Sec)",
+            "3.5"
+          ],
+          [
+            "*Compared to ANFO@ 0.85 g/cc",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]PACKAGING[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Solarprime is packaged in a plastic film with with product name & other details. Each box contains 25kg of product."
+      },
+      {
+        "type": "table",
+        "title": "",
+        "headers": [
+          "Cartridge Dia mm",
+          "Nominal length mm",
+          "Nominal Wt. gm",
+          "Cartridge/Box No’s."
+        ],
+        "rows": [
+          [
+            "83",
+            "460",
+            "2780",
+            "9"
+          ],
+          [
+            "125",
+            "460",
+            "6250",
+            "4"
+          ],
+          [
+            "Other diameter / grams combinations can be offered on request."
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]RECOMMENDATIONS FOR USE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use upto 20m depth of watery holes."
+      },
+      {
+        "type": "description",
+        "text": "SCan be initiated with an electric or a non electric detonator (minimum No.8 strength) and detonating cord (5g and above)."
+      },
+      {
+        "type": "description",
+        "text": "Maximum energy of blasthole can be achieved by tamping the explosive with a wooden tamping rod."
+      },
+      {
+        "type": "description",
+        "text": "Do Not use metal instrument to tamp explosives."
+      },
+      {
+        "type": "description",
+        "text": "Do Not tamp primer cartridge containing a detontor."
+      },
+      {
+        "type": "description",
+        "text": "Post detonation fume characteristics of the product make it suitable for both underground and surface blasting applications, however users should ensure that adequate ventilation is provided prior to re-entry into the blast area."
+      },
+      {
+        "type": "description",
+        "text": "Avoid extremes of shock, heat, friction or mechanical impact to prevent pre-mature initiation."
+      },
+      {
+        "type": "description",
+        "text": "[h5]TECHNICAL DATA[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "[h5]REACTIVE GROUND & GROUND TEMPERATURE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Not suitable for ground containing reactive Sulphides."
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use in ground temperatures up to 65ºC."
+      },
+      {
+        "type": "description",
+        "text": "In case application requires to operate outside this temperature range, please contact your Solar representative."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SLEEP TIME WITHIN BLASTHOLES[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The undamaged product may be charged and fired several days later in dry holes (provided the product remains within its recommended shelf life)."
+      },
+      {
+        "type": "description",
+        "text": "If the explosives packaging is damaged, the sleep-time in a blasthole is influenced by the extent of damage to the packaging and by the nature of any water present. Even with full length slitting of cartridges, the explosive will give good performance after two weeks immersion."
+      },
+      {
+        "type": "description",
+        "text": "[h5]STORAGE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "For the best results, store under moderate temperatures and dry conditions in a well ventilated, approved magazine."
+      },
+      {
+        "type": "description",
+        "text": "If stored in cool, dry, well ventilated magazine and handled properly, the shelf life of SOLARPRIME is 12 Months from the date of Manufacturing. However exposure to hot or cold extremes may cause the product to deteriorate pre-maturely."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SHIPPING INFORMATION :[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Authorised Name of Explosive : SOLARPRIME"
+      },
+      {
+        "type": "description",
+        "text": "Proper Shipping Name : EXPLOSIVE, BLASTING, TYPE E"
+      },
+      {
+        "type": "description",
+        "text": "Class / Div. : 1.1D"
+      },
+      {
+        "type": "description",
+        "text": "UN No. : 0241"
+      },
+      {
+        "type": "description",
+        "text": "[h5]DISPOSAL[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
+      }
+    ],
+    "imageUrl": "solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime-NS.png"
+  },
+  {
+    "category": "non-permitted",
+    "title": "Solar Prime-E",
+    "url": "TDS/TDS - Solarprime-E.pdf",
+    "calloutValues": [
+      {
+        "number": "1.15 ± 0.05",
+        "property": "Nominal Density (g/cc)"
+      },
+      {
+        "number": "85 %",
+        "property": "Relative Weight Strength*"
+      },
+      {
+        "number": "  110 %",
+        "property": "Relative Bulk Strength* "
+      },
+      {
+        "number": "3.5",
+        "property": "Minimum Velocity of Detonation  (Km / Sec) "
+      }
+    ],
+    "content": [
+      {
+        "type": "description",
+        "text": "Solar Prime-E is a high strength cap sensitive packaged slurry explosives suitable for use in most types of blasting applications using small, medium and large diameter holes and represent the latest development in slurry explosives technology."
+      },
+      {
+        "type": "description",
+        "text": "The product is chemically gassed and then cross-linked and is specifically designed for blasts in open cut mines, quarries and construction. Superior rigid gel also ensures good handling."
+      },
+      {
+        "type": "description",
+        "text": "Its high strength and high velocity of detonation ensures good fragmentation in hard strata and give excellent blast results in quarrying, road cutting, canal excavation and civil construction."
+      },
+      {
+        "type": "description",
+        "text": "Product is relatively insensitive to accidental initiation due to impact, friction and fire. Hence it is very safe during handling, transportation, storage and usage."
+      },
+      {
+        "type": "description",
+        "text": "Excellent water resistance allows usage in watery holes. Product has excellent fume characteristics post detonation."
+      },
+      {
+        "type": "table",
+        "title": "TECHNICAL PROPERTIES",
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "Nominal Density (g/cc)",
+            "1.15 ± 0.05"
+          ],
+          [
+            "Relative Weight Strength*",
+            "88 %"
+          ],
+          [
+            "Relative Bulk Strength*",
+            "125 %"
+          ],
+          [
+            "Minimum Velocity of Detonation (Km / Sec)",
+            "4.0"
+          ],
+          [
+            "*Compared to ANFO@ 0.85 g/cc",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]PACKAGING[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Solar Prime-E is packaged in a plastic film with with product name & other details. Each box contains 25kg of product."
+      },
+      {
+        "type": "table",
+        "title": "",
+        "headers": [
+          "Cartridge Dia mm",
+          "Nominal length mm",
+          "Nominal Wt. gm",
+          "Cartridge/Box No’s."
+        ],
+        "rows": [
+          [
+            "83",
+            "460",
+            "2780",
+            "9"
+          ],
+          [
+            "125",
+            "460",
+            "6250",
+            "4"
+          ],
+          [
+            "Other diameter / grams combinations can be offered on request."
+          ]
+        ]
+      },
+      {
+        "type": "description",
+        "text": "[h5]RECOMMENDATIONS FOR USE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Excellent water resistance and high density allow use in wet blastholes."
+      },
+      {
+        "type": "description",
+        "text": "Requires Detonator of No. 8 Strength/Detonating Cord for initiation."
+      },
+      {
+        "type": "description",
+        "text": "Suitable for use in ground temperatures up to 65ºC. During charging ensure that cartridges are charged in a continuous column in the bore hole."
+      },
+      {
+        "type": "description",
+        "text": "Post detonation fume characteristics of the product make it suitable for both underground and surface blasting applications, however users should ensure that adequate ventilation is provided prior to re-entry into the blast area."
+      },
+      {
+        "type": "description",
+        "text": "Avoid extremes of shock, heat, friction or mechanical impact to prevent pre-mature initiation."
+      },
+      {
+        "type": "description",
+        "text": "[h5]TECHNICAL DATA[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "[h5]STORAGE[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "For the best results, store under moderate temperatures and dry conditions in a well ventilated, approved magazine."
+      },
+      {
+        "type": "description",
+        "text": "If stored in cool, dry, well ventilated magazine and handled properly, the shelf life of SOLARPRIME-E is 12 Months from the date of Manufacturing. However exposure to hot or cold extremes may cause the product to deteriorate pre-maturely."
+      },
+      {
+        "type": "description",
+        "text": "[h5]SHIPPING INFORMATION :[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "Authorised Name of Explosive : SOLARPRIME-E"
+      },
+      {
+        "type": "description",
+        "text": "Proper Shipping Name : EXPLOSIVE, BLASTING, TYPE E"
+      },
+      {
+        "type": "description",
+        "text": "Class / Div. : 1.1D"
+      },
+      {
+        "type": "description",
+        "text": "UN No. : 0241"
+      },
+      {
+        "type": "description",
+        "text": "[h5]DISPOSAL[/h5]"
+      },
+      {
+        "type": "description",
+        "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
+      }
+    ],
+    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime-E-NS.png"
+  },
+  {
+    "category": "non-permitted",
+    "title": "SolarPrime Gold",
+    "url": "TDS/TDS - Solarprime_Gold.pdf",
+    "calloutValues": [
+      {
+        "number": "1.20 ± 0.05",
+        "property": "Nominal Density (g/cc)"
+      },
+      {
+        "number": "126 %",
+        "property": "Relative Weight Strength*"
+      },
+      {
+        "number": "  178 %",
+        "property": "Relative Bulk Strength* "
+      },
+      {
+        "number": "3.5",
+        "property": "Minimum Velocity of Detonation  (Km / Sec) "
+      }
+    ],
+    "description": [
+      "Superpower Gold packaged emulsion explosive is a robust, high strength, detonator sensitive explosive. The explosive is having a firm putty-like consistency. Products are sensitized through chemical gassing / micro-spheres / combination of both. It is a water resistant packaged explosive.",
+      "Superpower Gold is designed for priming applications and as a column explosive in surface and underground mining and general blasting. The high detonation velocity and the robust nature of Superpower Gold make it an ideal primer for the initiation of column charge."
+    ],
+    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrimeGold-NS.png"
+  },
+  {
+    "category": "non-permitted",
     "title": "Solarprime MaxX",
     "calloutValues": [
       {
@@ -176,9 +1538,7 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime MaxX-NS.png",
-    "pdfUrl": "https://solarwebsite-documents.s3.amazonaws.com/products/pdfs/1732513479787_Solar Industries India Limited_27th AGM Transcript.pdf",
-    "url": "https://solarwebsite-documents.s3.amazonaws.com/products/pdfs/1732514238187_Solar-Industries-India-Limited_IEPFPendingRefister20042022_043720.pdf"
+    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime MaxX-NS.png"
   },
   {
     "category": "non-permitted",

@@ -17,6 +17,7 @@ const NewsCard = ({ news, handleDelete,handelEdit,SetSelectedNewsId }) => {
           <CardMedia
             component="img"
             height="140"
+            width="140"
             image={item.thumbnail}
             alt={item.headline}
           />

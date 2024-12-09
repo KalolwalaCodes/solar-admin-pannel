@@ -1,246 +1,234 @@
 [
   {
-    "category": "uas&drones",
-    "title": "Nagastra 2 (Loiter Munition 2)",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/nagastra 2.png",
-    "pdfUrl": "https://solarwebsite-documents.s3.amazonaws.com/products/pdfs/1732513057668_Solar-Industries-India-Limited_IEPFPendingRefister20042022_043720.pdf"
-  },
-  {
-    "category": "uas&drones",
-    "title": "Rudrastra (Hexacopter)",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/hexacopter.png"
-  },
-  {
-    "category": "uas&drones",
-    "title": "Bhargavastra",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/Bhargavastra.png"
-  },
-  {
-    "category": "uas&drones",
-    "title": "Payloads for Weaponization of Drones",
-    "description": [
-      "developing fragmentation cum blast warheads weighing 01- 10 kg that can be dropped from individual Drones or Swarms of Drones. These warheads can neutralise enemy or anti national personnel in open and also neutralise hostile soft skinned targets within a lethal radius of 8-30 m.",
-      "The said warheads are being developed with electronic fuzes to ensure effective air burst or detonation on impact. EEL is also developing hexa-copter drones with single or multiple explosive payloads that can be dropped from a height of 300-500 m with an accuracy of 3-5 m at the target end. EEL has developed the competency to develop other variants of warheads to neutralise armoured vehicles, civil or field fortifications employed against us or any other target specified by the users. ",
-      "EEL developed warheads can be integrated with drones manufactured by other manufacturers also. Thus we can look at weaponizing drones already held in the inventory or those already in the supply pipeline, of course based on the platform suitability and legal provisions of upgrading the equipment."
-    ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Payloads_Warheads.jpg"
-  },
-  {
-    "category": "ammunitions",
-    "title": "Multi Mode Hand Grenades",
-    "description": [
-      "Economic Explosives Limited, a subsidiary of Solar Industries India Ltd., Nagpur, has successfully established production of Multi Mode Hand Grenade as per TOT obtained from TBRL (DRDO).",
-      "Multi Mode Hand Grenade as a replacement of the vintage Hand Grenade M 36, offers numerous advantages to the Soldier in terms of Safety, Dual Mode capability and Lethality."
-    ],
-    "imageUrl": "./solar-products/defence/For Website/MMHG.png"
-  },
-  {
-    "category": "ammunitions",
-    "title": "Medium Caliber",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/30mm.png"
-  },
-  {
-    "category": "ammunitions",
-    "title": "Bund Blasting Device",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/BBD.png"
-  },
-  {
-    "category": "military-exp",
-    "title": "HMX",
-    "description": [
-      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar has facilities to produce HMX and HMX Compounds with high purity and fineness.",
-      "Solar also produces HMX compounds coated with high melting waxes and synthetic polymers such as Viton for pressing applications providing an enhanced phlegmatization effect resulting in less sensitivity.",
-      "The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
-    ],
-    "imageUrl": "./solar-products/defence/Military Explosives/hmx1.png"
-  },
-  {
-    "category": "military-exp",
-    "title": "TNT",
-    "description": [
-      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar produces flaked TNT, Type I required for Ammunition and Warhead production.",
-      "The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
-    ],
-    "imageUrl": "./solar-products/defence/Military Explosives/tnt1.png"
-  },
-  {
-    "category": "military-exp",
-    "title": "RDX",
-    "description": [
-      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar also produces latest insensitive RDX which offers significant advantage by reducing shock sensitivity level of RDX based compositions.",
-      "Solar also manufactures RDX coated with high melting waxes and synthetic polymers such as Viton for pressing applications providing an enhanced phlegmatization effect resulting in less sensitivity. The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
-    ],
-    "imageUrl": "./solar-products/defence/Military Explosives/rdx1.png"
-  },
-  {
-    "category": "bombs",
-    "title": "Air Bomb 250kg",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/AirBomb.png"
-  },
-  {
-    "category": "bombs",
-    "title": "Air Bomb 180kg",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/airbom2.png"
-  },
-  {
-    "category": "bombs",
-    "title": "Konkur",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/konkur.png"
-  },
-  {
-    "category": "bombs",
-    "title": "Inwar Torpedos",
-    "description": [
-      ""
-    ],
-    "imageUrl": "solar-products/defence/Bombs & Warheads/Torpedos-new1.jpg"
-  },
-  {
-    "category": "bombs",
-    "title": "War Heads for Rockets and Missiles",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/For Website/Inwar.png"
-  },
-  {
-    "category": "int-of-rockets",
-    "title": "Pinaka MK-1",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka-MK1 for web.png"
-  },
-  {
-    "category": "int-of-rockets",
-    "title": "Pinaka Enhanced",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka Enhanced for web.png"
-  },
-  {
-    "category": "int-of-rockets",
-    "title": "Pinaka Guided",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka guided for web.png"
-  },
-  {
-    "category": "int-of-rockets",
-    "title": "Booster for Bramhos",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Brahmos Psom motor for web.png"
-  },
-  {
-    "category": "motors-for-space",
-    "title": "TSOM-XL Motor (ISRO)",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Space_Motors.jpg"
-  },
-  {
-    "category": "motors-for-space",
-    "title": "Motors for Skyroot",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Skyroot image for web.png"
-  },
-  {
-    "category": "r&d",
-    "title": "R&D Centre for Life Assesment",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/R&D Centre/R&D.jpg"
-  },
-  {
-    "category": "ini-pyros",
-    "title": "Chaff & Flare",
-    "description": [
-      ""
-    ],
-    "imageUrl": "./solar-products/defence/Initiating Systems and Pyros/Chaff_Flares.jpg"
-  },
-  {
-    "category": "ini-pyros",
-    "title": "Fuzes",
-    "description": [
-      ""
-    ],
-    "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Fuzes1.jpg"
-  },
-  {
-    "category": "ini-pyros",
-    "title": "Detonators",
-    "description": [
-      ""
-    ],
-    "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Detonators1.jpg"
-  },
-  {
-    "category": "ini-pyros",
-    "title": "Ignitors",
-    "description": [
-      ""
-    ],
-    "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Igniters1-1.jpg"
-  },
-  {
-    "id": 27,
-    "category": "uas&drones",
-    "title": "new",
-    "url": "",
-    "imageUrl": ""
-  },
-  {
-    "id": 31,
-    "category": "ammunitions",
-    "title": "kbd21bw",
-    "url": "",
-    "imageUrl": ""
-  },
-  {
-    "id": 31,
-    "category": "military-exp",
-    "title": "xbkqb x",
-    "url": "",
-    "imageUrl": ""
-  },
-  {
-    "id": 33,
-    "category": "",
-    "title": "ljofne2wnqf",
-    "url": "",
-    "imageUrl": ""
-  }
+      "category": "uas&drones",
+      "title": "Nagastra 1 (Loiter Munition 1)",
+      "description": [
+        "Hand launched Loiter Munition (LM-0) that can carry a 1.5 kg explosive warhead to a range of 15 This is an ideal choice for the Tactical Battle Area and it can establish firepower supremacy of our troops in contact."
+      ],
+      "imageUrl": "./solar-products/defence/For Website/nagastra-1.png"
+    },
+    {
+      "category": "uas&drones",
+      "title": "Nagastra 2 (Loiter Munition 2)",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/nagastra 2.png"
+    },
+    {
+      "category": "uas&drones",
+      "title": "Rudrastra (Hexacopter)",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/hexacopter.png"
+    },
+    {
+      "category": "uas&drones",
+      "title": "Bhargavastra",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/Bhargavastra.png"
+    },
+    {
+      "category": "uas&drones",
+      "title": "Payloads for Weaponization of Drones",
+      "description": [
+        "developing fragmentation cum blast warheads weighing 01- 10 kg that can be dropped from individual Drones or Swarms of Drones. These warheads can neutralise enemy or anti national personnel in open and also neutralise hostile soft skinned targets within a lethal radius of 8-30 m.",
+        "The said warheads are being developed with electronic fuzes to ensure effective air burst or detonation on impact. EEL is also developing hexa-copter drones with single or multiple explosive payloads that can be dropped from a height of 300-500 m with an accuracy of 3-5 m at the target end. EEL has developed the competency to develop other variants of warheads to neutralise armoured vehicles, civil or field fortifications employed against us or any other target specified by the users. ",
+        "EEL developed warheads can be integrated with drones manufactured by other manufacturers also. Thus we can look at weaponizing drones already held in the inventory or those already in the supply pipeline, of course based on the platform suitability and legal provisions of upgrading the equipment."
+      ],
+      "imageUrl": "./solar-products/defence/UAS & Drones/Payloads_Warheads.jpg"
+    },
+    {
+      "category": "ammunitions",
+      "title": "Multi Mode Hand Grenades",
+      "description": [
+        "Economic Explosives Limited, a subsidiary of Solar Industries India Ltd., Nagpur, has successfully established production of Multi Mode Hand Grenade as per TOT obtained from TBRL (DRDO).",
+        "Multi Mode Hand Grenade as a replacement of the vintage Hand Grenade M 36, offers numerous advantages to the Soldier in terms of Safety, Dual Mode capability and Lethality."
+      ],
+      "imageUrl": "./solar-products/defence/For Website/MMHG.png"
+    },
+    {
+      "category": "ammunitions",
+      "title": "Medium Caliber",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/30mm.png"
+    },
+    {
+      "category": "ammunitions",
+      "title": "81 mm AT-AL Smoke Granade",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/80mm.png"
+    },
+    {
+      "category": "ammunitions",
+      "title": "Bund Blasting Device",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/BBD.png"
+    },
+    {
+      "category": "military-exp",
+      "title": "HMX",
+      "description": [
+        "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar has facilities to produce HMX and HMX Compounds with high purity and fineness.",
+        "Solar also produces HMX compounds coated with high melting waxes and synthetic polymers such as Viton for pressing applications providing an enhanced phlegmatization effect resulting in less sensitivity.",
+        "The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
+      ],
+      "imageUrl": "./solar-products/defence/Military Explosives/hmx1.png"
+    },
+    {
+      "category": "military-exp",
+      "title": "TNT",
+      "description": [
+        "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar produces flaked TNT, Type I required for Ammunition and Warhead production.",
+        "The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
+      ],
+      "imageUrl": "./solar-products/defence/Military Explosives/tnt1.png"
+    },
+    {
+      "category": "military-exp",
+      "title": "RDX",
+      "description": [
+        "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar also produces latest insensitive RDX which offers significant advantage by reducing shock sensitivity level of RDX based compositions.",
+        "Solar also manufactures RDX coated with high melting waxes and synthetic polymers such as Viton for pressing applications providing an enhanced phlegmatization effect resulting in less sensitivity. The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
+      ],
+      "imageUrl": "./solar-products/defence/Military Explosives/rdx1.png"
+    },
+    {
+      "category": "bombs",
+      "title": "Air Bomb 250kg",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/AirBomb.png"
+    },
+    {
+      "category": "bombs",
+      "title": "Air Bomb 180kg",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/airbom2.png"
+    },
+    {
+      "category": "bombs",
+      "title": "Konkur",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/konkur.png"
+    },
+    {
+      "category": "bombs",
+      "title": "Inwar Torpedos",
+      "description": [
+        ""
+      ],
+      "imageUrl": "solar-products/defence/Bombs & Warheads/Torpedos-new1.jpg"
+    },
+    {
+      "category": "bombs",
+      "title": "War Heads for Rockets and Missiles",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/For Website/Inwar.png"
+    },
+    {
+      "category": "int-of-rockets",
+      "title": "Pinaka MK-1",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka-MK1 for web.png"
+    },
+    {
+      "category": "int-of-rockets",
+      "title": "Pinaka Enhanced",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka Enhanced for web.png"
+    },
+    {
+      "category": "int-of-rockets",
+      "title": "Pinaka Guided",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka guided for web.png"
+    },
+    {
+      "category": "int-of-rockets",
+      "title": "Booster for Bramhos",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/UAS & Drones/Brahmos Psom motor for web.png"
+    },
+    
+    {
+      "category": "motors-for-space",
+      "title": "TSOM-XL Motor (ISRO)",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/UAS & Drones/Space_Motors.jpg"
+    },
+    {
+      "category": "motors-for-space",
+      "title": "Motors for Skyroot",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/UAS & Drones/Skyroot image for web.png"
+    },
+    {
+      "category": "r&d",
+      "title": "R&D Centre for Life Assesment",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/R&D Centre/R&D.jpg"
+    },
+    {
+      "category": "ini-pyros",
+      "title": "Chaff & Flare",
+      "description": [
+        ""
+      ],
+      "imageUrl": "./solar-products/defence/Initiating Systems and Pyros/Chaff_Flares.jpg"
+    },
+    {
+      "category": "ini-pyros",
+      "title": "Fuzes",
+      "description": [
+        ""
+      ],
+      "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Fuzes1.jpg"
+    },
+    {
+      "category": "ini-pyros",
+      "title": "Detonators",
+      "description": [
+        ""
+      ],
+      "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Detonators1.jpg"
+    },
+    {
+      "category": "ini-pyros",
+      "title": "Ignitors",
+      "description": [
+        ""
+      ],
+      "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Igniters1-1.jpg"
+    }
 ]

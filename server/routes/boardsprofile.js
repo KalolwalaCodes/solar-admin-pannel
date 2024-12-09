@@ -156,6 +156,7 @@ router.put("/:id", upload.single("img"), async (req, res) => {
     await writeData(data);
     res.status(200).json({ message: "Director updated successfully.", data: director });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Failed to update director." });
   }
 });

@@ -111,42 +111,42 @@ router.post('/', upload.single('file'), async (req, res) => {
       res.status(500).send('Error reading the Excel file');
     }
   });
-//   router.delete('/contact-us/:id', async (req, res) => {
-//     console.log(".................................")
-//     console.log("i'm delting called",req.params);
-//     const { id } = req.params; // Extract the ID from the request parameters
-//     const excelPath = path.join(__dirname, 'form_data.xlsx');
+  router.delete('/contact-us/:id', async (req, res) => {
+    console.log(".................................")
+    console.log("i'm delting called",req.params);
+    const { id } = req.params; // Extract the ID from the request parameters
+    const excelPath = path.join(__dirname, 'form_data.xlsx');
 
-//     try {
-//         // Check if the Excel file exists
-//         if (!fs.existsSync(excelPath)) {
-//             return res.status(404).send('Excel file not found');
-//         }
+    try {
+        // Check if the Excel file exists
+        if (!fs.existsSync(excelPath)) {
+            return res.status(404).send('Excel file not found');
+        }
 
-//         const workbook = xlsx.readFile(excelPath);
-//         const sheet = workbook.Sheets['Sheet1'];
-//         const data = xlsx.utils.sheet_to_json(sheet);
+        const workbook = xlsx.readFile(excelPath);
+        const sheet = workbook.Sheets['Sheet1'];
+        const data = xlsx.utils.sheet_to_json(sheet);
 
-//         // Find the index of the row to delete
-//         const index = data.findIndex(row => row.id === parseInt(id)); // Ensure ID is compared as a number
+        // Find the index of the row to delete
+        const index = data.findIndex(row => row.id === parseInt(id)); // Ensure ID is compared as a number
 
-//         if (index !== -1) {
-//             // Remove the row from the array
-//             data.splice(index, 1);
+        if (index !== -1) {
+            // Remove the row from the array
+            data.splice(index, 1);
             
-//             // Update the Excel sheet with the modified data
-//             const updatedSheet = xlsx.utils.json_to_sheet(data);
-//             workbook.Sheets['Sheet1'] = updatedSheet;
-//             xlsx.writeFile(workbook, excelPath);
+            // Update the Excel sheet with the modified data
+            const updatedSheet = xlsx.utils.json_to_sheet(data);
+            workbook.Sheets['Sheet1'] = updatedSheet;
+            xlsx.writeFile(workbook, excelPath);
 
-//             res.status(200).send('Row deleted successfully');
-//         } else {
-//             res.status(404).send('Row not found');
-//         }
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send('An error occurred while processing your request.');
-//     }
-// });
+            res.status(200).send('Row deleted successfully');
+        } else {
+            res.status(404).send('Row not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('An error occurred while processing your request.');
+    }
+});
 
  module.exports = router;
