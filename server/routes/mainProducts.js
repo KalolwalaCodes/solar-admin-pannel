@@ -77,7 +77,7 @@ router.get('/industrial-data', async(req, res) => {
 
 // POST: Add new industrial product (handling both image and PDF)
 router.post('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
-  const { category, title } = req.body;
+  const { category, title,description } = req.body;
   const imageFile = req.files['image'] ? req.files['image'][0] : null;
   const pdfFile = req.files['pdf'] ? req.files['pdf'][0] : null;
 
@@ -132,6 +132,7 @@ router.post('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, {
       title,
       url,
       imageUrl,
+      description
     };
 
     data.push(newProduct);
@@ -145,7 +146,7 @@ router.post('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, {
 
 // PUT: Update industrial product (handling both image and PDF)
 router.put('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
-  const { category, title ,id} = req.body;
+  const { category, title ,id,description} = req.body;
   console.log("here is the data--------",category, title);
   const imageFile = req.files['image'] ? req.files['image'][0] : null;
   const pdfFile = req.files['pdf'] ? req.files['pdf'][0] : null;
@@ -205,6 +206,7 @@ router.put('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { 
       title,
       url,
       imageUrl,
+      description
     };
 
     await writeData(data, dataPathOfIndustrial);
@@ -284,7 +286,7 @@ router.get('/defense-data', async(req, res) => {
 
 
 router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }]), async (req, res) => {
-  const { category, title } = req.body;
+  const { category, title,description } = req.body;
   const files = req.files;
 
   try {
@@ -337,7 +339,8 @@ router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }])
       category,
       title,
       url,
-      imageUrl
+      imageUrl,
+      description
     };
 
     data.push(newProduct);
@@ -415,6 +418,7 @@ router.put(
         title,
         url,
         imageUrl,
+        description
       };
 
       await writeData(data, dataPathOfDefense);

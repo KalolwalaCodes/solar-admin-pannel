@@ -2,7 +2,7 @@
   {
     "category": "non-permitted",
     "title": "Superpower 90",
-    "url": "",
+    "url": "products/pdfs/testing.pdf",
     "calloutValues": [
       {
         "number": "1.20 ± 0.05",
@@ -252,7 +252,7 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SuperPower90-NS.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813505074_testing.png",
     "id": 1
   },
   {
@@ -508,7 +508,7 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SuperPower80-NS.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813514669_SuperPower80-NS.png",
     "id": 2
   },
   {
@@ -724,7 +724,7 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/Solargel-NS.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813650630_Solargel-NS.png",
     "id": 3
   },
   {
@@ -940,7 +940,7 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/Solargel-E-NS.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813695485_Solargel-E-NS.png",
     "id": 4
   },
   {

@@ -6,6 +6,8 @@ const xlsx = require('xlsx');
 const { Upload } = require('@aws-sdk/lib-storage');
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
 const router = express.Router();
+const s3 = new S3Client({ region: 'ap-south-1' });
+
 // Configure Multer for file uploads
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
