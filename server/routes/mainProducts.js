@@ -100,7 +100,10 @@ router.post("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, {
       });
 
       await parallelUpload.done();
-      imageUrl = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      // Extract the filename for use in the URL
+      const fileName = uploadParams.Key.split('/').pop(); // Get just the filename
+      imageUrl = `https://solargroup.com/api/download-file?file=products/images/${fileName}`; // Create the URL
+      // imageUrl = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
     }
 
     // Upload PDF to S3 if provided
@@ -172,7 +175,8 @@ router.put("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, { 
       });
 
       await parallelUpload.done();
-      imageUrl = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      const fileName = uploadParams.Key.split('/').pop(); // Get just the filename
+      imageUrl = `https://solargroup.com/api/download-file?file=products/images/${fileName}`; // Create the URL
     }
 
     // Upload new PDF to S3 if provided
@@ -302,7 +306,8 @@ router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }])
       });
 
       const s3UploadResult = await parallelUpload.done();
-      imageUrl = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      const fileName = uploadParams.Key.split('/').pop(); // Get just the filename
+      imageUrl = `https://solargroup.com/api/download-file?file=products/images/${fileName}`; // Create the URL
     }
 
     // Upload PDF to S3 if provided
@@ -375,7 +380,8 @@ router.put("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }]),
       });
 
       const s3UploadResult = await parallelUpload.done();
-      imageUrl = `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+      const fileName = uploadParams.Key.split('/').pop(); // Get just the filename
+      imageUrl = `https://solargroup.com/api/download-file?file=products/images/${fileName}`; // Create the URL
     }
 
     // Upload new PDF to S3 if provided

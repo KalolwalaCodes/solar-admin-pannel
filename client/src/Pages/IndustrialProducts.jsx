@@ -233,8 +233,8 @@ const IndustrialProducts = () => {
               <p className="text-sm text-gray-600 mt-2">{item.description || "No description available."}</p>
               {item.url && (
               <a
-              href={item.url}
-              // onClick={() => handleDownload(item.url)}
+              // href={item.url}
+              onClick={() => handleDownload(item.url)}
               className="text-blue-600 underline text-sm mt-2 block cursor-pointer"
             >
               Download PDF

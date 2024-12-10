@@ -108,6 +108,61 @@ const DefenseProducts = () => {
     }
   };
 
+  async function handleDownload(fileKey) {
+    const token = localStorage.getItem("authToken");
+  
+    // Validate file key
+    if (!fileKey) {
+      console.error("File key is undefined.");
+      alert("Cannot open file: Missing file key.");
+      return;
+    }
+  
+    // Validate token
+    if (!token) {
+      console.error("Auth token is missing.");
+      alert("Cannot open file: Missing authentication token.");
+      return;
+    }
+  
+    // Define the API URL
+    const url = `/admin-panel/product-category/pdf/${encodeURIComponent(fileKey)}`;
+  
+    try {
+      // Send GET request with Authorization header
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      // Check if the request was successful
+      if (!response.ok) {
+        console.error("Failed to fetch file:", response.statusText);
+        alert("Failed to open file. Please try again.");
+        return;
+      }
+  
+      // Convert the response to a Blob
+      const blob = await response.blob();
+  
+      // Create a Blob URL
+      const fileUrl = window.URL.createObjectURL(blob);
+  
+      // Open the Blob URL in a new tab
+      window.open(fileUrl, "_blank", "noopener,noreferrer");
+  
+      // Optional: Revoke the Blob URL after a delay to free up resources
+      setTimeout(() => {
+        window.URL.revokeObjectURL(fileUrl);
+      }, 1000);
+    } catch (error) {
+      console.error("Error during file fetch:", error);
+      alert("An error occurred while opening the file. Please try again.");
+    }
+  }
+
   const handleFileChange = (e, type) => {
     const file = e.target.files[0];
     if (type === "image") {
@@ -173,10 +228,10 @@ const DefenseProducts = () => {
               <p className="text-xs text-gray-500 mt-4 font-medium">Category: {item.category || "Uncategorized"}</p>
               {item.url && (
                 <a
-                  href={item.url}
+                onClick={() => handleDownload(item.url)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 underline mt-2 block"
+                  className="text-blue-600 underline mt-2 block cursor-pointer"
                 >
                   View PDF
                 </a>
