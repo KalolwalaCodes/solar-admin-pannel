@@ -76,7 +76,7 @@ router.get('/industrial-data', async(req, res) => {
 
 
 // POST: Add new industrial product (handling both image and PDF)
-router.post("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
+router.post('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
   const { category, title } = req.body;
   const imageFile = req.files['image'] ? req.files['image'][0] : null;
   const pdfFile = req.files['pdf'] ? req.files['pdf'][0] : null;
@@ -144,14 +144,15 @@ router.post("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, {
 });
 
 // PUT: Update industrial product (handling both image and PDF)
-router.put("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
-  const { category, title } = req.body;
+router.put('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
+  const { category, title ,id} = req.body;
+  console.log("here is the data--------",category, title);
   const imageFile = req.files['image'] ? req.files['image'][0] : null;
   const pdfFile = req.files['pdf'] ? req.files['pdf'][0] : null;
 
   try {
     const data = JSON.parse(await readData(dataPathOfIndustrial));
-    const productIndex = data.findIndex((product) => product.title === title || product.category === category);
+    const productIndex = data.findIndex((product) => product.id === parseInt(id, 10));
 
     if (productIndex === -1) {
       return res.status(404).json({ error: "Product not found" });
@@ -217,12 +218,12 @@ router.put("/industrial-data", upload.fields([{ name: "image", maxCount: 1 }, { 
 });
 
 // DELETE: Delete a product by title (handling both image and PDF)
-router.delete("/industrial-data", async (req, res) => {
-  const { title } = req.query; // Assume title is passed as a query parameter
+router.delete('/industrial-data', async (req, res) => {
+  const { id } = req.query; // Assume title is passed as a query parameter
 
   try {
     const data = JSON.parse(await readData(dataPathOfIndustrial));
-    const productIndex = data.findIndex((product) => product.title === title);
+    const productIndex = data.findIndex((product) =>product.id === parseInt(id, 10));
     
     if (productIndex === -1) {
       return res.status(404).json({ error: "Product not found" });
@@ -349,87 +350,90 @@ router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }])
   }
 });
 
-router.put("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }]), async (req, res) => {
-  const { category, title } = req.body;
-  const files = req.files;
+router.put(
+  "/defense-data",
+  upload.fields([{ name: "image" }, { name: "pdf" }]),
+  async (req, res) => {
+    const { category, title, id } = req.body;
+    const files = req.files;
 
-  try {
-    const data = JSON.parse(await readData(dataPathOfDefense));
-    const productIndex = data.findIndex((product) => product.title === title || product.category === category);
+    try {
+      const data = await readData(dataPathOfDefense);
+      const productIndex = data.findIndex((product) => product.id === parseInt(id, 10));
 
-    if (productIndex === -1) {
-      return res.status(404).json({ error: "Product not found" });
-    }
+      if (productIndex === -1) {
+        return res.status(404).json({ error: "Product not found" });
+      }
 
-    let imageUrl = data[productIndex].imageUrl;
-    let url = data[productIndex].url;
+      let imageUrl = data[productIndex].imageUrl;
+      let url = data[productIndex].url;
 
-    // Upload new image to S3 if provided
-    if (files.image && files.image[0]) {
-      const image = files.image[0];
-      const uploadParams = {
-        Bucket: "solarwebsite-documents",
-        Key: `products/images/${Date.now()}_${image.originalname}`,
-        Body: image.buffer,
-        ContentType: image.mimetype,
+      // Upload new image to S3 if provided
+      if (files.image && files.image[0]) {
+        const image = files.image[0];
+        const uploadParams = {
+          Bucket: "solarwebsite-documents",
+          Key: `products/images/${Date.now()}_${image.originalname}`,
+          Body: image.buffer,
+          ContentType: image.mimetype,
+        };
+
+        const parallelUpload = new Upload({
+          client: s3,
+          params: uploadParams,
+        });
+
+        await parallelUpload.done();
+        const fileName = uploadParams.Key.split('/').pop();
+        imageUrl = `https://solargroup.com/api/download-file?file=products/images/${fileName}`;
+      }
+
+      // Upload new PDF to S3 if provided
+      if (files.pdf && files.pdf[0]) {
+        const pdf = files.pdf[0];
+        const uploadParams = {
+          Bucket: "solarwebsite-documents",
+          Key: `products/pdfs/${Date.now()}_${pdf.originalname}`,
+          Body: pdf.buffer,
+          ContentType: pdf.mimetype,
+        };
+
+        const parallelUpload = new Upload({
+          client: s3,
+          params: uploadParams,
+        });
+
+        await parallelUpload.done();
+        const fileName = uploadParams.Key.split('/').pop();
+        url = `products/pdfs/${fileName}`;
+      }
+
+      // Update the product
+      data[productIndex] = {
+        ...data[productIndex],
+        category,
+        title,
+        url,
+        imageUrl,
       };
 
-      const parallelUpload = new Upload({
-        client: s3,
-        params: uploadParams,
-      });
+      await writeData(data, dataPathOfDefense);
 
-      const s3UploadResult = await parallelUpload.done();
-      const fileName = uploadParams.Key.split('/').pop(); // Get just the filename
-      imageUrl = `https://solargroup.com/api/download-file?file=products/images/${fileName}`; // Create the URL
+      res.json(data[productIndex]);
+    } catch (error) {
+      console.error("Error updating product:", error);
+      res.status(500).json({ error: "Failed to update product." });
     }
-
-    // Upload new PDF to S3 if provided
-    if (files.pdf && files.pdf[0]) {
-      const pdf = files.pdf[0];
-      const uploadParams = {
-        Bucket: "solarwebsite-documents",
-        Key: `products/pdfs/${pdf.originalname}`,
-        Body: pdf.buffer,
-        ContentType: pdf.mimetype,
-      };
-
-      const parallelUpload = new Upload({
-        client: s3,
-        params: uploadParams,
-      });
-
-      const s3UploadResult = await parallelUpload.done();
-      url = `products/pdfs/${pdf.originalname}`;
-    }
-
-    // Update product
-    data[productIndex] = {
-      ...data[productIndex],
-      category,
-      title,
-      url,
-      imageUrl
-    };
-
-    await writeData(data, dataPathOfDefense);
-
-    const newData = JSON.parse(await readData(dataPathOfDefense));
-    res.json(newData);
-  } catch (error) {
-    console.error("Error updating product:", error);
-    res.status(500).json({ error: "Failed to update product." });
   }
-});
+);
+
 
 router.delete("/defense-data", async (req, res) => {
-  const { title } = req.query;
-
+  const { id } = req.query;
+  console.log(id,"the id is");
   try {
     const data = JSON.parse(await readData(dataPathOfDefense));
-    const productIndex = data.findIndex(
-      (product) => product.title.trim().toLowerCase() === title.trim().toLowerCase()
-    );
+    const productIndex = data?.findIndex((product) => product.id === parseInt(id, 10));
 
     if (productIndex === -1) {
       return res.status(404).json({ error: "Product not found" });
@@ -477,6 +481,7 @@ router.delete("/defense-data", async (req, res) => {
     res.status(500).json({ error: "Failed to delete product." });
   }
 });
+
 
 router.get('/pdf/:fileKey', async (req, res) => {
   const fileKey = req.params.fileKey;
