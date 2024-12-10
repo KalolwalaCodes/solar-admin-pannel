@@ -7,7 +7,7 @@ const IndustrialProducts = () => {
   const [showModal, setShowModal] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [modalData, setModalData] = useState({ title: "", description: "", imageUrl: "", pdfUrl: "", category: "" });
+  const [modalData, setModalData] = useState({ title: "", description: "", imageUrl: "", pdfUrl: "", category: "",id:"" });
   const [isEdit, setIsEdit] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const [pdfFile, setPdfFile] = useState(null);
@@ -38,7 +38,7 @@ const IndustrialProducts = () => {
 
   const handleAddProduct = () => {
     setIsEdit(false);
-    setModalData({ title: "", description: "", imageUrl: "", pdfUrl: "", category: "" });
+    setModalData({ title: "", description: "", imageUrl: "", pdfUrl: "", category: "",id:"" });
     setImageFile(null);
     setPdfFile(null);
     setShowModal(true);
@@ -52,17 +52,17 @@ const IndustrialProducts = () => {
     setShowModal(true);
   };
 
-  const handleDelete = async (productTitle) => {
+  const handleDelete = async (productId) => {
     const token = localStorage.getItem("authToken");
 
     try {
       await axios.delete(
-        `/admin-panel/product-category/industrial-data?title=${encodeURIComponent(productTitle)}`,
+        `/admin-panel/product-category/industrial-data?id=${encodeURIComponent(productId)}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      setData(data.filter((item) => item.title !== productTitle));
+      setData(data.filter((item) => item.id !== productId));
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -76,9 +76,10 @@ const IndustrialProducts = () => {
       formData.append("category", modalData.category || "");
       formData.append("title", modalData.title || "");
       formData.append("description", modalData.description || "");
+      formData.append("id", modalData.id || "");
       if (imageFile) formData.append("image", imageFile);
       if (pdfFile) formData.append("pdf", pdfFile);
-
+     console.log("the form data is ",formData);
       if (isEdit) {
         const res = await axios.put(
           `/admin-panel/product-category/industrial-data`,
@@ -251,7 +252,7 @@ const IndustrialProducts = () => {
                 Edit
               </button>
               <button
-                onClick={() => handleDelete(item.title)}
+                onClick={() => handleDelete(item.id)}
                 className="bg-red-500 text-white px-4 py-2 rounded shadow hover:bg-red-600 transition"
               >
                 Delete
