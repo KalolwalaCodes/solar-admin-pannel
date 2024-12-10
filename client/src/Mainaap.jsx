@@ -133,13 +133,13 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
           activePage === "Settings" &&<UserManagement  />
           }
           {
-          activePage === "Board's of Director" &&<BoardOfDirector  />
+          activePage === "Board of Directors" &&<BoardOfDirector  />
           }
           {
           activePage === "Industrial Products" &&<IndustrialProducts />
           }
           {
-           activePage === "Defense Products" &&<DefenseProducts  />
+           activePage === "Defence Products" &&<DefenseProducts  />
           }
           {
           activePage === "RevenueExpenseManager" &&<RevenueExpenseManager  />
@@ -148,7 +148,7 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
           activePage === "DragDropData" &&<AnnouncementDummy  />
           }
           {
-          activePage === "shareHolderValues" &&<ShareholdersValues/>
+          activePage === "shareHolderValue" &&<ShareholdersValues/>
           }
 
           {/* <OrderTable />*/}

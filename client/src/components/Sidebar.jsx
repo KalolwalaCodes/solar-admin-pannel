@@ -184,11 +184,11 @@ const [selectedItem,setSelectedItem]=React.useState(1);
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton selected={selectedItem===12} onClick={()=>changePageRoutingView("shareHolderValues",12)}>
+            <ListItemButton selected={selectedItem===12} onClick={()=>changePageRoutingView("shareHolderValue",12)}>
               {/* <MenuIcon /> */}
               <img className="w-[17px]" src="./newsIcons.svg" alt="" />
               <ListItemContent>
-                <Typography level="title-sm">Shareholder's value</Typography>
+                <Typography level="title-sm">Shareholder Value</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
@@ -203,10 +203,10 @@ const [selectedItem,setSelectedItem]=React.useState(1);
           </ListItem>
 
           <ListItem>
-            <ListItemButton selected={selectedItem===7} onClick={()=>changePageRoutingView("Board's of Director",7)}>
+            <ListItemButton selected={selectedItem===7} onClick={()=>changePageRoutingView("Board of Directors",7)}>
               <ConnectWithoutContactIcon />
               <ListItemContent>
-                <Typography level="title-sm">Board's of director</Typography>
+                <Typography level="title-sm">Board of Directors</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
@@ -221,10 +221,10 @@ const [selectedItem,setSelectedItem]=React.useState(1);
           </ListItem>
 
           <ListItem>
-            <ListItemButton selected={selectedItem===11} onClick={()=>changePageRoutingView("Defense Products",11)}>
+            <ListItemButton selected={selectedItem===11} onClick={()=>changePageRoutingView("Defence Products",11)}>
               <ConnectWithoutContactIcon />
               <ListItemContent>
-                <Typography level="title-sm">Defense Products</Typography>
+                <Typography level="title-sm">Defence Products</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>

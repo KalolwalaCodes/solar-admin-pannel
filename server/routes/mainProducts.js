@@ -361,7 +361,7 @@ router.put(
     const files = req.files;
 
     try {
-      const data = await readData(dataPathOfDefense);
+      const data = JSON.parse(await readData(dataPathOfDefense));
       const productIndex = data.findIndex((product) => product.id === parseInt(id, 10));
 
       if (productIndex === -1) {
