@@ -2,6 +2,7 @@ const express=require('express');
 const path=require('path');
 const cors=require('cors');
 const app=express();
+const bodyParser = require('body-parser');
 const userRouter=require("./routes/User.js");
 const investorRouter=require("./routes/Investor.js");
 const contactRouter=require('./routes/Contact.js');
@@ -14,12 +15,13 @@ const RevenueExpenseManager = require('./routes/RevenueExpenseManager.js');
 const formDataRouter = require('./Controllers/Formhelper.js');
 const solarProductRouter = require('./routes/mainProducts.js');
 const shareHolderRouter = require('./routes/Shareholder.js');
+const sequencingRouter = require('./routes/sequencingdata.js');
 const {authenticateJWT} =require('./Controllers/auth.js')
 // Middleware to parse JSON bodies
-app.use(express.json());
-
-// Middleware to parse URL-encoded bodies (form data)
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(express.json({ limit: '50mb' })); // For JSON payloads
+app.use(express.urlencoded({ limit: '50mb', extended: true })); // For URL-encoded payloads
 app.use(cors({ origin: [
     'http://localhost:5173', 
     'https://solargroup.com', 
@@ -36,6 +38,7 @@ app.use("/admin-panel/RevenueExpenseManager",authenticateJWT,RevenueExpenseManag
 app.use("/admin-panel/submit-form",formDataRouter);
 app.use("/admin-panel/product-category",authenticateJWT,solarProductRouter);
 app.use("/admin-panel/shareholder-value",authenticateJWT,shareHolderRouter);
+app.use("/admin-panel/sequencing",sequencingRouter);
 
 app.listen("8000",()=>{
     console.log("server running on port 8000");

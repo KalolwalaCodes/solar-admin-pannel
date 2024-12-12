@@ -21,6 +21,7 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded"
 import BrightnessAutoRoundedIcon from "@mui/icons-material/BrightnessAutoRounded"
 import ColorSchemeToggle from "./ColorSchemeToggle"
 import { closeSidebar } from "../utils"
+import Sustainability from '../Pages/Sustainability';
 
 function Toggler({ defaultExpanded = false, renderToggle, children }) {
   const [open, setOpen] = React.useState(defaultExpanded)
@@ -241,9 +242,9 @@ const [selectedItem,setSelectedItem]=React.useState(1);
           }}
         >
           <ListItem>
-            <ListItemButton  selected={selectedItem===10} onClick={()=>changePageRoutingView("DragDropData",10)}>
+            <ListItemButton  selected={selectedItem===10} onClick={()=>changePageRoutingView("Document-Sequencing",10)}>
               <SupportRoundedIcon />
-              Industrial file Sequencing
+              Document Sequencing
             </ListItemButton>
           </ListItem>
           <ListItem>

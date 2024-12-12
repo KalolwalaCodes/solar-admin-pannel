@@ -144,7 +144,7 @@ const IndustrialProducts = () => {
   
       // Check if the request was successful
       if (!response.ok) {
-        console.error("Failed to fetch file:", response.statusText);
+        console.error("Failed to fetch file:", response);
         alert("Failed to open file. Please try again.");
         return;
       }

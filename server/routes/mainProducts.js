@@ -523,6 +523,7 @@ router.get('/pdf/:fileKey', async (req, res) => {
   try {
       const bucketName = 'solarwebsite-documents';
       const decodedFileKey = decodeURIComponent(fileKey);
+      console.log(`Attempting to fetch file: ${decodedFileKey}`); // Add logging
       const filePath = await fetchFileFromS3(bucketName, decodedFileKey);
 
       res.sendFile(filePath, (err) => {
@@ -534,6 +535,7 @@ router.get('/pdf/:fileKey', async (req, res) => {
           }
       });
   } catch (error) {
+    console.log(error);
       res.status(500).send('Failed to fetch file');
   }
 });

@@ -145,7 +145,7 @@ export default function JoyOrderDashboardTemplate({handleLogout}) {
           activePage === "RevenueExpenseManager" &&<RevenueExpenseManager  />
           }
           {
-          activePage === "DragDropData" &&<AnnouncementDummy  />
+          activePage === "Document-Sequencing" &&<AnnouncementDummy  />
           }
           {
           activePage === "shareHolderValue" &&<ShareholdersValues/>

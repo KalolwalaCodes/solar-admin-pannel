@@ -2,7 +2,7 @@
   {
     "category": "non-permitted",
     "title": "Superpower 90",
-    "url": "products/pdfs/testing.pdf",
+    "url": "products/pdfs/TDS - Superpower90.pdf",
     "calloutValues": [
       {
         "number": "1.20 ± 0.05",
@@ -252,8 +252,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813505074_testing.png",
-    "id": 1
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733824304228_SuperPower90-WS.png",
+    "id": 1,
+    "description": "Superpower 90 packaged emulsion explosive is a robust, high strength, detonator sensitive explosive."
   },
   {
     "category": "non-permitted",
@@ -509,7 +510,8 @@
       }
     ],
     "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813514669_SuperPower80-NS.png",
-    "id": 2
+    "id": 2,
+    "description": "Superpower 80 packaged emulsion explosive is a \r\nrobust, high strength, detonator sensitive explosive."
   },
   {
     "category": "non-permitted",
@@ -1546,7 +1548,9 @@
       }
     ],
     "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime MaxX-NS.png",
-    "id": 8
+    "id": 8,
+    "url": "products/pdfs/testing.pdf",
+    "description": ""
   },
   {
     "category": "non-permitted",

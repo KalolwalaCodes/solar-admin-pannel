@@ -8,7 +8,14 @@ const dataPath = path.join(__dirname, "../data/shareholderdata.json");
 
 // Helper function to write data to the JSON file
 const writeDataToFile = (data) => {
-  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), "utf-8");
+   fs.writeFile(dataPath, JSON.stringify(data, null, 2), (err) => {
+      if (err) {
+        console.error("Error writing JSON file: ", err.message);
+        return res.status(500).json({ msg: "Error updating data" });
+      }
+  
+      console.log("written suscessfully data")
+    });
 };
 
 // Load the existing JSON data
@@ -29,6 +36,7 @@ router.get("/", (req, res) => {
 // POST: Add a new item
 router.post("/", (req, res) => {
   const newItem = req.body;
+  console.log(newItem,"here i am");
   if (!newItem.title || !newItem.subtitle || !newItem.value || !newItem.icon) {
     return res.status(400).json({ msg: "Missing required fields" });
   }

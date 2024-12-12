@@ -128,7 +128,8 @@ router.put("/:id", upload.single("img"), async (req, res) => {
     }
 
     if (file) {
-      if (director.img) {
+      if (director.img&&director.img.includes("https")) {
+        console.log("finding existing image");
         const oldFileName = director.img.split("/").pop();
         await s3.send(new DeleteObjectCommand({ Bucket: "your-s3-bucket-name", Key: `directors/${oldFileName}` }));
       }

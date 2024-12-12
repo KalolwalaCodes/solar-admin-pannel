@@ -9,10 +9,11 @@ const ShareHolderValue = () => {
     value: "",
     icon: "",
   });
-  const token = localStorage.getItem("authToken");
 
   // Fetch data from the backend
   useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
     axios
       .get("/admin-panel/shareholder-value", {
         headers: {
@@ -27,12 +28,20 @@ const ShareHolderValue = () => {
 
   // Handle form submission
   const handleSubmit = async (e) => {
+    const token = localStorage.getItem('authToken');
+
     e.preventDefault();
     try {
       const response = await axios.post(
         "/admin-panel/shareholder-value",
-        formData
+        formData, // Second argument is the body of the request
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
+      
       setData([...data, response.data.newItem]);
       setFormData({ title: "", subtitle: "", value: "", icon: "" });
     } catch (error) {
@@ -42,9 +51,15 @@ const ShareHolderValue = () => {
 
   // Delete an item
   const handleDelete = async (index) => {
+    const token = localStorage.getItem("authToken");
     try {
       await axios.delete(
-        `/admin-panel/shareholder-value/${index}`
+        `/admin-panel/shareholder-value/${index}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       setData(data.filter((_, i) => i !== index));
     } catch (error) {
@@ -54,10 +69,17 @@ const ShareHolderValue = () => {
 
   // Update an item
   const handleUpdate = async (index, updatedItem) => {
+    const token = localStorage.getItem("authToken");
     try {
       const response = await axios.put(
         `/admin-panel/shareholder-value/${index}`,
-        updatedItem
+        updatedItem, // Second argument is the body of the request
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+        
       );
       const newData = [...data];
       newData[index] = response.data.updatedItem;
@@ -69,7 +91,7 @@ const ShareHolderValue = () => {
 
   return (
     <div className="  p-8 overflow-y-auto">
-      <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
+      <h1 className="text-3xl font-bold text-center text-blue-500 mb-6">
         Shareholder Values
       </h1>
       <form
@@ -120,7 +142,7 @@ const ShareHolderValue = () => {
         </div>
         <button
           type="submit"
-          className="w-full mt-4 p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="w-full mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 ease-in-out duration-700 "
         >
           Add Item
         </button>
@@ -143,7 +165,7 @@ const ShareHolderValue = () => {
             <div className="flex gap-4 mt-4">
               <button
                 onClick={() => handleDelete(index)}
-                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                className="px-4 py-2 bg-red-400 text-white rounded-md hover:bg-[#dc3545]"
               >
                 Delete
               </button>
@@ -154,7 +176,7 @@ const ShareHolderValue = () => {
                     value: prompt("Update Value:", item.value) || item.value,
                   })
                 }
-                className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+                className="px-4 py-2 bg-[#198742] text-white rounded-md hover:bg-[#177751]"
               >
                 Update
               </button>

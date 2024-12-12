@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 // Path to the JSON file
-const dataPath = path.join(__dirname, '/defense.json');
+const dataPath = path.join(__dirname, '/Sustanabilitydata.json');
 console.log(dataPath, "the path is");
 
 // Helper function to read JSON data

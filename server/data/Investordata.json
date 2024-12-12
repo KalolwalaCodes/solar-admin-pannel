@@ -1,20 +1,6 @@
 {
   "announcements": [
     {
-      "title": "LODR",
-      "items": [
-        {
-          "heading": "LODR",
-          "details": [
-            {
-              "title": "LODR",
-              "url": "https://solargroup.com/LODR/LODR.html"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "Conference call with Investors",
       "items": [
         {
@@ -184,6 +170,20 @@
               "title": "Intimation of Conference Call-17.05.2024",
               "url": "Investors-Relation/Announcement/Schedule of Concall/Intimation of Conference Call-17.05.2024.pdf",
               "type": "pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "LODR",
+      "items": [
+        {
+          "heading": "LODR",
+          "details": [
+            {
+              "title": "LODR",
+              "url": "https://solargroup.com/LODR/LODR.html"
             }
           ]
         }
