@@ -1,6 +1,20 @@
 {
   "announcements": [
     {
+      "title": "LODR",
+      "items": [
+        {
+          "heading": "LODR",
+          "details": [
+            {
+              "title": "LODR",
+              "url": "https://solargroup.com/LODR/LODR.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Conference call with Investors",
       "items": [
         {
@@ -170,20 +184,6 @@
               "title": "Intimation of Conference Call-17.05.2024",
               "url": "Investors-Relation/Announcement/Schedule of Concall/Intimation of Conference Call-17.05.2024.pdf",
               "type": "pdf"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "LODR",
-      "items": [
-        {
-          "heading": "LODR",
-          "details": [
-            {
-              "title": "LODR",
-              "url": "https://solargroup.com/LODR/LODR.html"
             }
           ]
         }
@@ -385,6 +385,16 @@
         {
           "heading": "Other Announcements ",
           "details": [
+            {
+              "title": "Commercial Paper Disclosure December 2024",
+              "url": "Investors-Relation/announcements/Other Announcements /CPDiscDecember2024sd.pdf",
+              "fileType": "application/pdf"
+            },
+            {
+              "title": "Intimation about repayment of Commercial paper 11.12.2024",
+              "url": "Investors-Relation/announcements/Other Announcements /Intimation about repayment of Commercial paper_11_12_2024.pdf",
+              "fileType": "application/pdf"
+            },
             {
               "title": "Receipt of Export Order 2039 Cr",
               "url": "Investors-Relation/announcements/Other Announcements /Receipt of export order 2039 Cr.pdf",

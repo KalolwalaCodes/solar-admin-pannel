@@ -1,38 +1,38 @@
 [
-  {
-    "title": "Sales Volume",
-    "subtitle": "(In MT)",
-    "value": "5,50,092",
-    "icon": "./img/investor/growth.svg"
-  },
-  {
-    "title": "Order Book",
-    "subtitle": "(₹ in Crores)",
-    "value": "5,129",
-    "icon": "./img/investor/growth.svg"
-  },
-  {
-    "title": "Market Capitalisation",
-    "subtitle": "(₹ in Crores)",
-    "value": "79,509",
-    "icon": "./img/investor/growth.svg"
-  },
-  {
-    "title": "EBITDA",
-    "subtitle": "(₹ in Crores)",
-    "value": "1,414",
-    "icon": "./img/investor/growth.svg"
-  },
-  {
-    "title": "PAT",
-    "subtitle": "(₹ in Crores)",
-    "value": "875",
-    "icon": "./img/investor/growth.svg"
-  },
-  {
-    "title": "Dividend per share",
-    "subtitle": "(In ₹)",
-    "value": "8.5",
-    "icon": "./img/investor/growth.svg"
-  }
+    {
+        "title": "Sales Volume",
+        "subtitle": "(In MT)",
+        "value": "5,50,092",
+        "icon": "./img/investor/growth.svg"
+    },
+    {
+        "title": "Order Book",
+        "subtitle": "(₹ in Crores)",
+        "value": "5,129",
+        "icon": "./img/investor/growth.svg"
+    },
+    {
+        "title": "Market Capitalisation",
+        "subtitle": "(₹ in Crores)",
+        "value": "79,509",
+        "icon": "./img/investor/growth.svg"
+    },
+    {
+        "title": "EBITDA",
+        "subtitle": "(₹ in Crores)",
+        "value": "1,414",
+        "icon": "./img/investor/growth.svg"
+    },
+    {
+        "title": "PAT",
+        "subtitle": "(₹ in Crores)",
+        "value": "875",
+        "icon": "./img/investor/growth.svg"
+    },
+    {
+        "title": "Dividend per share",
+        "subtitle": "(In ₹)",
+        "value": "8.5",
+        "icon": "./img/investor/growth.svg"
+    }
 ]

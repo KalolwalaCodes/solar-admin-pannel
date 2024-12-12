@@ -509,14 +509,14 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813514669_SuperPower80-NS.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733829719504_SuperPower80-WS.png",
     "id": 2,
     "description": "Superpower 80 packaged emulsion explosive is a \r\nrobust, high strength, detonator sensitive explosive."
   },
   {
     "category": "non-permitted",
     "title": "Solargel",
-    "url": "TDS/TDS-SolarGel.pdf",
+    "url": "products/pdfs/TDS-SolarGel copy.pdf",
     "calloutValues": [
       {
         "number": "1.20 ± 0.05",
@@ -726,13 +726,14 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813650630_Solargel-NS.png",
-    "id": 3
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733829732841_Solargel-WS.png",
+    "id": 3,
+    "description": "Solar Gel is a high strength booster sensitive packaged \r\nemulsion explosives suitable for use in most types of \r\nblasting applications using small, medium and large \r\ndiameter holes and represent the latest development in \r\nslurry explosives technology"
   },
   {
     "category": "non-permitted",
     "title": "Solargel-E",
-    "url": "TDS/TDS-SolarGel-E.pdf",
+    "url": "products/pdfs/TDS-SolarGel copy.pdf",
     "calloutValues": [
       {
         "number": "1.20 ± 0.05",
@@ -942,8 +943,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733813695485_Solargel-E-NS.png",
-    "id": 4
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733829703875_Solargel-E-WS.png",
+    "id": 4,
+    "description": "Solar Gel-E is a high strength booster sensitive \r\npackaged explosives suitable for use in most types of \r\nblasting applications using small, medium and large \r\ndiameter holes and represent the latest development in \r\nslurry explosives technology."
   },
   {
     "category": "non-permitted",
@@ -1158,8 +1160,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime-NS.png",
-    "id": 5
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733900620979_Solarprime-WS.png",
+    "id": 5,
+    "description": "Solarprime is a high strength cap sensitive packaged \r\nslurry explosives suitable for use in most \r\ntypes of blasting applications using small, medium \r\nand large diameter holes and represent the latest \r\ndevelopment in slurry explosives technology"
   },
   {
     "category": "non-permitted",
@@ -1338,8 +1341,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime-E-NS.png",
-    "id": 6
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733829824902_SolarPrime-E-WS.png",
+    "id": 6,
+    "description": "Solar Prime-E is a high strength cap sensitive packaged \r\nslurry explosives suitable for use in most types of \r\nblasting applications using small, medium and \r\nlarge diameter holes and represent the latest \r\ndevelopment in slurry explosives technology"
   },
   {
     "category": "non-permitted",
@@ -1363,11 +1367,8 @@
         "property": "Minimum Velocity of Detonation  (Km / Sec) "
       }
     ],
-    "description": [
-      "Superpower Gold packaged emulsion explosive is a robust, high strength, detonator sensitive explosive. The explosive is having a firm putty-like consistency. Products are sensitized through chemical gassing / micro-spheres / combination of both. It is a water resistant packaged explosive.",
-      "Superpower Gold is designed for priming applications and as a column explosive in surface and underground mining and general blasting. The high detonation velocity and the robust nature of Superpower Gold make it an ideal primer for the initiation of column charge."
-    ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrimeGold-NS.png",
+    "description": "Solarprime Gold is a high strength cap sensitive \r\npackaged slurry explosives suitable for use in most \r\ntypes of blasting applications using small, medium \r\nand large diameter holes and represent the latest \r\ndevelopment in slurry explosives technology.",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733830338727_SolarPrimeGold-WS.png",
     "id": 7
   },
   {
@@ -1547,7 +1548,7 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/SolarPrime MaxX-NS.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733830415196_SolarPrime MaxX-WS.png",
     "id": 8,
     "url": "products/pdfs/testing.pdf",
     "description": ""
@@ -1556,22 +1557,16 @@
     "category": "non-permitted",
     "title": "EcoPower",
     "url": "TDS/TDS - Eco-Power.pdf",
-    "description": [
-      "Ecopower is a detonator sensitive packaged emulsion explosive. The Director General of Mines safety (DGMS) has approved Supercoal 5 as a P5 type permitted explosive for use in Degree I, II and III gassy coal mines /seams.",
-      "The emulsion has firm putty like consistency. It is plastic wrapped with steel wire end clips. Cartridges are identified individually as P5 Permitted explosive with product name, cartridge dimensions and name of manufacturer printed on each cartridge."
-    ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/EcoPower-NS.png",
+    "description": "Eco Power packaged emulsion explosive is a robust, \r\nhigh strength, detonator sensitive explosive.",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733830568548_EcoPower-WS.png",
     "id": 9
   },
   {
     "category": "non-permitted",
     "title": "EcoPrime",
     "url": "TDS/TDS - Eco-Prime.pdf",
-    "description": [
-      "Ecopower is a detonator sensitive packaged emulsion explosive. The Director General of Mines safety (DGMS) has approved Supercoal 5 as a P5 type permitted explosive for use in Degree I, II and III gassy coal mines /seams.",
-      "The emulsion has firm putty like consistency. It is plastic wrapped with steel wire end clips. Cartridges are identified individually as P5 Permitted explosive with product name, cartridge dimensions and name of manufacturer printed on each cartridge."
-    ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/EcoPrime-NS.png",
+    "description": "Eco Prime is a high strength cap sensitive packaged \r\nslurry explosives suitable for use in most types of \r\nblasting applications using small, medium \r\nand large diameter holes and represent the latest \r\ndevelopment in slurry explosives technology.",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733830707083_EcoPrime-WS.png",
     "id": 10
   },
   {
@@ -1794,8 +1789,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/Super Coal 1 -NS.png",
-    "id": 11
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733830763780_Super Coal 1 -WS.png",
+    "id": 11,
+    "description": "Supercoal 1 is a detonator sensitive packaged emulsion \r\nexplosive. The Director General of Mines safety (DGMS) \r\nhas approved Supercoal 1 as a P1 type permitted \r\nexplosive for use in Degree I gassy coal mines/seams."
   },
   {
     "category": "permitted",
@@ -2011,8 +2007,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/Super Coal 3 -NS.png",
-    "id": 12
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733900650734_Super Coal 3 -WS.png",
+    "id": 12,
+    "description": ""
   },
   {
     "category": "permitted",
@@ -2232,8 +2229,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/NEW CARTRIDGES/Super Coal 5(185) -NS.png",
-    "id": 13
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733830905554_Super Coal 5(185) -WS.png",
+    "id": 13,
+    "description": "Supercoal 5 is a detonator sensitive packaged \r\nemulsion explosive. The Director General of Mines \r\nsafety (DGMS) has approved Supercoal 5 as a P5 type \r\npermitted explosive for use in Degree I, II and III gassy \r\ncoal mines /seams."
   },
   {
     "category": "seismic",
@@ -2475,8 +2473,9 @@
         "text": "The disposal of explosives material is dangerous and require special training. Methods used for safe disposal may vary from case to case and will depend upon conditions under which the operations take place. For further information please contact Solar representative in your area"
       }
     ],
-    "imageUrl": "solar-products/industrial-explosives/packaged-explosives/seismic-explosives/seismic1.jpg",
-    "id": 14
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733900673671_SEISMIC.jpg",
+    "id": 14,
+    "description": ""
   },
   {
     "category": "bulk",
@@ -2595,8 +2594,9 @@
         ]
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/bulk-explosives/Bulk trck.png",
-    "id": 15
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733831257128_Bulk trck.png",
+    "id": 15,
+    "description": "Suitable for large Opencast\r\nMines Operations. Charging is\r\ndone in Shovel & Dragline holes\r\nfrom bottom to ensure \r\nWater displacement."
   },
   {
     "category": "bulk",
@@ -2715,8 +2715,9 @@
         ]
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/bulk-explosives/Bulk trck.png",
-    "id": 16
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733831274684_Bulk trck.png",
+    "id": 16,
+    "description": "Suitable for large Opencast\r\nMines Operations. Charging is\r\ndone in Shovel & Dragline holes\r\nfrom bottom to ensure \r\nWater displacement."
   },
   {
     "category": "bulk",
@@ -2878,8 +2879,9 @@
         ]
       }
     ],
-    "imageUrl": "./solar-products/industrial-explosives/bulk-explosives/Bulk.png",
-    "id": 17
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733900700182_Bulk.png",
+    "id": 17,
+    "description": ""
   },
   {
     "category": "electronic",
@@ -2978,8 +2980,9 @@
         ]
       }
     ],
-    "imageUrl": "solar-products/industrial-explosives/initiating-systems/electronic-detonator/micro_det_electronic_detonator1.png",
-    "id": 18
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733832078309_Microdet Web.jpg",
+    "id": 18,
+    "description": ""
   },
   {
     "category": "non-electric",
@@ -3884,46 +3887,29 @@
   {
     "category": "cast-booster",
     "title": "Solarcast-P 25g",
-    "description": [
-      "Booster is made of a high explosive composition cast into a cardboard/plastic shell. Two longitudinal tunnels in the booster accommodate either a signal tube detonator or detonating cord. One tunnel has straight walls while the other is blocked at the top of the booster to provide a stop for the detonator. Detonating cord or signal tube are protected from damage by a recessed well at the base of the booster.",
-      "Cast Boosters have a high density and a high velocity of detonation (VOD) to maximize performance.",
-      "Cast boosters are reliably initiated by detonators or by detonating cords containing at least 5.0 g/m PETN. These boosters have been specifically designed to provide reliable initiation of pumped, augered and packaged explosives. The main intended application for Cast boosters is for use with ANFO and Bulk explosives."
-    ],
-    "imageUrl": "solar-products/industrial-explosives/3D Cartridges/solarcast-p-25g.png",
+    "description": "Solarcast-P Booster is made of a high explosive \r\ncomposition cast into a cardboard/plastic shell. Two \r\nlongitudinal tunnels in the booster accommodate \r\neither a detonator or detonating cord.",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733900937487_Booster25.png",
     "id": 37
   },
   {
     "category": "cast-booster",
     "title": "Solarcast-P 250g",
-    "description": [
-      "Booster is made of a high explosive composition cast into a cardboard/plastic shell. Two longitudinal tunnels in the booster accommodate either a signal tube detonator or detonating cord. One tunnel has straight walls while the other is blocked at the top of the booster to provide a stop for the detonator. Detonating cord or signal tube are protected from damage by a recessed well at the base of the booster.",
-      "Cast Boosters have a high density and a high velocity of detonation (VOD) to maximize performance.",
-      "Cast boosters are reliably initiated by detonators or by detonating cords containing at least 5.0 g/m PETN. These boosters have been specifically designed to provide reliable initiation of pumped, augered and packaged explosives. The main intended application for Cast boosters is for use with ANFO and Bulk explosives."
-    ],
-    "imageUrl": "solar-products/industrial-explosives/3D Cartridges/solarcast-p-250g.png",
+    "description": "Solarcast-P Booster is made of a high explosive \r\ncomposition cast into a cardboard/plastic shell. Two \r\nlongitudinal tunnels in the booster accommodate \r\neither a detonator or detonating cord.",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733901116601_Booster250.png",
     "id": 38
   },
   {
     "category": "cast-booster",
     "title": "Solarcast-P 400g",
-    "description": [
-      "Booster is made of a high explosive composition cast into a cardboard/plastic shell. Two longitudinal tunnels in the booster accommodate either a signal tube detonator or detonating cord. One tunnel has straight walls while the other is blocked at the top of the booster to provide a stop for the detonator. Detonating cord or signal tube are protected from damage by a recessed well at the base of the booster.",
-      "Cast Boosters have a high density and a high velocity of detonation (VOD) to maximize performance.",
-      "Cast boosters are reliably initiated by detonators or by detonating cords containing at least 5.0 g/m PETN. These boosters have been specifically designed to provide reliable initiation of pumped, augered and packaged explosives. The main intended application for Cast boosters is for use with ANFO and Bulk explosives."
-    ],
-    "imageUrl": "solar-products/industrial-explosives/3D Cartridges/solarcast-p-400g.png",
+    "description": "Solarcast-P Booster is made of a high explosive \r\ncomposition cast into a cardboard/plastic shell. Two \r\nlongitudinal tunnels in the booster accommodate \r\neither a detonator or detonating cord.",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733901140032_Booster400.png",
     "id": 39
   },
   {
     "category": "detonating-cords",
     "title": "Solar Cords",
-    "description": [
-      "Solar Cord comprises an explosive core of PETN encapsulated in a tape winded with a natural or synthetic fibres and finally coated with plastic which makes the product strong, flexible and waterproof. It provides quick, safe and convenient means of simultaneously initiating any number of independent or inter-related charges.",
-      "Solar Cord is available with a variety of PETN charge weights designed for different applications.",
-      "Solar Cord can be initiated by a No. 6 or No. 8 plain detonator, electric or nonelectric detonator.",
-      "Solar Cord with PETN core loads of 10 g/m is most frequently used as downlines in blast-holes either for directly initiating charges or detonator sensitive NG explosives, watergels and emulsions or indirectly initiating columns and decks of detonator insensitive ANFO and non-cap sensitive watergels and emulsions by means of special primers or boosters."
-    ],
-    "imageUrl": "solar-products/industrial-explosives/initiating-systems/Detonating Cords/Detonating-Cords1.png",
+    "description": "Solar Cord comprises an explosive core of PETN encapsulated in a tape winded with a natural or synthetic fibres and finally coated with plastic which makes the product strong, flexible and waterproof.",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1733832250911_SolarCord for web.png",
     "id": 40
   },
   {

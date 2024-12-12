@@ -2,7 +2,7 @@
   "news": [
     {
       "id": 1,
-      "thumbnail": "./img/news/1.jpg",
+      "thumbnail": "https://solargroup.com/api/download-file?file=news-thumbnails/1734005240098_img02-news.jpg",
       "headline": "Know everything about India's one of the most powerful and lethal explosives",
       "shortNews": "This achievement has been significantly propelled by the Ministry of Defence's push towards Atmanirbharta, or self-reliance, in the defence sector. Additionally, the Directorate General of Naval Armament Inspection of the Indian Navy has provided crucial guidance and support throughout the process.",
       "date": "2024-07-02",

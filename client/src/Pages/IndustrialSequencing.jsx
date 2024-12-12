@@ -219,7 +219,7 @@ const ReorderListInvestorData = () => {
                         <AccordionDetails
                           key={detailIndex}
                           className={`cursor-pointer ${
-                            mode !== "dark"
+                            mode === "dark"
                               ? "hover:bg-slate-700"
                               : "hover:bg-slate-50"
                           }`}
