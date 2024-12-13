@@ -3,7 +3,7 @@ const sustainabilityRouter = express.Router();
 const fs = require('fs');
 const multer = require('multer');
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
-
+const {readSustainabilityData}=require('./helper01');
 
 const path = require('path');
 const { Upload } = require('@aws-sdk/lib-storage');
@@ -22,6 +22,7 @@ try {
 }
 
 sustainabilityRouter.get('/', async (req, res) => {
+    data=await readSustainabilityData();
   if (!data) {
     console.log("no data present in sustainability");
     return res.status(500).json({ msg: "Error loading data" });
@@ -177,11 +178,11 @@ sustainabilityRouter.get('/', async (req, res) => {
                 return res.status(500).send('Error updating data');
             }
             // console.log('Updated data:', JSON.stringify(data, null, 2));
-
+             
             console.log("File uploaded and JSON updated successfully.");
             res.status(200).send('File uploaded and JSON updated successfully');
         });
-
+        
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('An error occurred while uploading the file.');
@@ -259,6 +260,6 @@ sustainabilityRouter.get('/', async (req, res) => {
   }
 });
 
-  
+
 
 module.exports = sustainabilityRouter;
