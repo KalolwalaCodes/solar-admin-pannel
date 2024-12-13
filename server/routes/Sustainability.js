@@ -22,7 +22,8 @@ try {
 }
 
 sustainabilityRouter.get('/', async (req, res) => {
-    data=await readSustainabilityData();
+    const jsonString = await readSustainabilityData(); // Read the file asynchronously
+    data = JSON.parse(jsonString); // Parse the JSON data
   if (!data) {
     console.log("no data present in sustainability");
     return res.status(500).json({ msg: "Error loading data" });

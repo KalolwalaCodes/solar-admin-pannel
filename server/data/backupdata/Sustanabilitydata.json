@@ -112,7 +112,6 @@
               "type": "pdf",
               "url": "Sustainability/Environmental Compliance/Environmental Monitoring Report.pdf"
             },
-           
             {
               "title": "Six-monthly-EC-Compliance-Report-April-Sep-2023",
               "type": "pdf",
@@ -129,6 +128,11 @@
       "items": [
         {
           "details": [
+            {
+              "title": "ESG Databook",
+              "url": "Investors-Relation/Environmental Statement/Environmental Statement/ESG Databook.pdf",
+              "type": "application/pdf"
+            },
             {
               "title": "EC Compliance April-Sept 19- Solar industries India Limited",
               "type": "pdf",
@@ -185,7 +189,6 @@
               "type": "pdf",
               "url": "Sustainability/ESG Reports/ESG Focus 2021-22.pdf"
             }
-           
           ]
         }
       ]
