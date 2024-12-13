@@ -2,7 +2,7 @@ const fs = require('node:fs/promises');
 const path = require('path');
 const dataPath = path.join(__dirname, '../data/Investordata.json');
 const dataPath1 = path.join(__dirname, '../data/news.json');
-const dataPath2 = path.join(__dirname, '../data/Sustainability.js');
+const dataPath2 = path.join(__dirname, '../data/Sustanabilitydata.json');
 async function readInvestorData() {
     try {
       const data = await fs.readFile(dataPath, { encoding: 'utf8' });
