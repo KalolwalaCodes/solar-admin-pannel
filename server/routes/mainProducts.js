@@ -340,7 +340,7 @@ router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }])
       title,
       url,
       imageUrl,
-      description
+      description:[description]
     };
 
     data.push(newProduct);
@@ -357,7 +357,8 @@ router.put(
   "/defense-data",
   upload.fields([{ name: "image" }, { name: "pdf" }]),
   async (req, res) => {
-    const { category, title, id } = req.body;
+    const { category, title, id,description } = req.body;
+    console.log(category, title, id,description,"the data is ");
     const files = req.files;
 
     try {
@@ -418,12 +419,12 @@ router.put(
         title,
         url,
         imageUrl,
-        description
+        description:[description]
       };
 
       await writeData(data, dataPathOfDefense);
-
-      res.json(data[productIndex]);
+      const newData = JSON.parse(await readData(dataPathOfDefense));
+      res.json(newData);
     } catch (error) {
       console.error("Error updating product:", error);
       res.status(500).json({ error: "Failed to update product." });

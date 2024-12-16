@@ -59,7 +59,7 @@ const DefenseProducts = () => {
         `/admin-panel/product-category/defense-data?id=${encodeURIComponent(productId)}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      setData(data.filter((item) => item.title !== productTitle));
+      setData(data.filter((item) => item.title !== productId));
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -217,7 +217,7 @@ const DefenseProducts = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        {filteredData.map((item) => (
+        {filteredData?.map((item) => (
           <div key={item.id} className="bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
             <img
               src={item.imageUrl || "https://via.placeholder.com/345x160"}
