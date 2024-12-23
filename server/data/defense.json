@@ -5,7 +5,7 @@
     "description": [
       "Hand launched Loiter Munition (LM-0) that can carry a 1.5 kg explosive warhead to a range of 15 This is an ideal choice for the Tactical Battle Area and it can establish firepower supremacy of our troops in contact."
     ],
-    "imageUrl": "./solar-products/defence/For Website/nagastra-1.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734410430525_nagastra-1.png",
     "url": "products/pdfs/testing.pdf",
     "id": 1
   },
@@ -13,9 +13,9 @@
     "category": "uas&drones",
     "title": "Nagastra 2 (Loiter Munition 2)",
     "description": [
-      ""
+      "testing"
     ],
-    "imageUrl": "./solar-products/defence/For Website/nagastra 2.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734410477764_nagastra 2.png",
     "id": 2
   },
   {
@@ -24,7 +24,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/hexacopter.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414283185_hexacopter.png",
     "id": 3
   },
   {
@@ -33,28 +33,25 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/Bhargavastra.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414309048_Bhargavastra.png",
     "id": 4
   },
   {
     "category": "uas&drones",
     "title": "Payloads for Weaponization of Drones",
     "description": [
-      "developing fragmentation cum blast warheads weighing 01- 10 kg that can be dropped from individual Drones or Swarms of Drones. These warheads can neutralise enemy or anti national personnel in open and also neutralise hostile soft skinned targets within a lethal radius of 8-30 m.",
-      "The said warheads are being developed with electronic fuzes to ensure effective air burst or detonation on impact. EEL is also developing hexa-copter drones with single or multiple explosive payloads that can be dropped from a height of 300-500 m with an accuracy of 3-5 m at the target end. EEL has developed the competency to develop other variants of warheads to neutralise armoured vehicles, civil or field fortifications employed against us or any other target specified by the users. ",
-      "EEL developed warheads can be integrated with drones manufactured by other manufacturers also. Thus we can look at weaponizing drones already held in the inventory or those already in the supply pipeline, of course based on the platform suitability and legal provisions of upgrading the equipment."
+      "Developing fragmentation cum blast warheads weighing 01- 10 kg that can be dropped from individual Drones or Swarms of Drones. These warheads can neutralise enemy or anti national personnel in open and also neutralise hostile soft skinned targets within a lethal radius of 8-30 m."
     ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Payloads_Warheads.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414337670_Payloads_Warheads.jpg",
     "id": 5
   },
   {
     "category": "ammunitions",
     "title": "Multi Mode Hand Grenades",
     "description": [
-      "Economic Explosives Limited, a subsidiary of Solar Industries India Ltd., Nagpur, has successfully established production of Multi Mode Hand Grenade as per TOT obtained from TBRL (DRDO).",
-      "Multi Mode Hand Grenade as a replacement of the vintage Hand Grenade M 36, offers numerous advantages to the Soldier in terms of Safety, Dual Mode capability and Lethality."
+      "Economic Explosives Limited, a subsidiary of Solar Industries India Ltd., Nagpur, has successfully established production of Multi Mode Hand Grenade as per TOT obtained from TBRL (DRDO)."
     ],
-    "imageUrl": "./solar-products/defence/For Website/MMHG.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414355431_MMHG.png",
     "id": 6
   },
   {
@@ -63,7 +60,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/30mm.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414362742_30mm.png",
     "id": 7
   },
   {
@@ -72,7 +69,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/80mm.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414368164_80mm.png",
     "id": 8
   },
   {
@@ -81,38 +78,34 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/BBD.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414377474_BBD.png",
     "id": 9
   },
   {
     "category": "military-exp",
     "title": "HMX",
     "description": [
-      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar has facilities to produce HMX and HMX Compounds with high purity and fineness.",
-      "Solar also produces HMX compounds coated with high melting waxes and synthetic polymers such as Viton for pressing applications providing an enhanced phlegmatization effect resulting in less sensitivity.",
-      "The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
+      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar has facilities to produce HMX and HMX Compounds with high purity and fineness. Solar also produces HMX compounds coated with high melting waxes and synthetic polymers such as Viton for pressing applications providing an enhanced phlegmatization effect resulting in less sensitivity."
     ],
-    "imageUrl": "./solar-products/defence/Military Explosives/hmx1.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414398477_hmx1.png",
     "id": 10
   },
   {
     "category": "military-exp",
     "title": "TNT",
     "description": [
-      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar produces flaked TNT, Type I required for Ammunition and Warhead production.",
-      "The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
+      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar produces flaked TNT, Type I required for Ammunition and Warhead production. The modern production facility has well defined and documented Quality Management System."
     ],
-    "imageUrl": "./solar-products/defence/Military Explosives/tnt1.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414407693_tnt1.png",
     "id": 11
   },
   {
     "category": "military-exp",
     "title": "RDX",
     "description": [
-      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar also produces latest insensitive RDX which offers significant advantage by reducing shock sensitivity level of RDX based compositions.",
-      "Solar also manufactures RDX coated with high melting waxes and synthetic polymers such as Viton for pressing applications providing an enhanced phlegmatization effect resulting in less sensitivity. The modern production facility has well defined and documented Quality Management System. Laboratory having latest comprehensive testing facilities with NABL accreditation ISO/IEC-17025-2017."
+      "Solar provides a complete range of High Performance Explosives and its compositions from its “State-of-TheArt” manufacturing plants. Solar also produces latest insensitive RDX which offers significant advantage by reducing shock sensitivity level of RDX based compositions."
     ],
-    "imageUrl": "./solar-products/defence/Military Explosives/rdx1.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414418009_rdx1.png",
     "id": 12
   },
   {
@@ -121,7 +114,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/AirBomb.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414456494_AirBomb.png",
     "id": 13
   },
   {
@@ -130,7 +123,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/airbom2.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414462989_airbom2.png",
     "id": 14
   },
   {
@@ -139,7 +132,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/konkur.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414473652_konkur.png",
     "id": 15
   },
   {
@@ -148,7 +141,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "solar-products/defence/Bombs & Warheads/Torpedos-new1.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414484067_Torpedos-new1.jpg",
     "id": 16
   },
   {
@@ -157,7 +150,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/For Website/Inwar.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734414495439_Inwar.png",
     "id": 17
   },
   {
@@ -166,7 +159,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka-MK1 for web.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734415833588_Pinaka-MK1 for web.png",
     "id": 18
   },
   {
@@ -175,7 +168,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka Enhanced for web.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734415842722_Pinaka Enhanced for web.png",
     "id": 19
   },
   {
@@ -184,7 +177,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Pinaka guided for web.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734415849356_Pinaka guided for web.png",
     "id": 20
   },
   {
@@ -193,7 +186,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Brahmos Psom motor for web.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734415856629_Brahmos Psom motor for web.png",
     "id": 21
   },
   {
@@ -202,7 +195,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Space_Motors.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734416770869_Space_Motors.jpg",
     "id": 22
   },
   {
@@ -211,7 +204,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/UAS & Drones/Skyroot image for web.png",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734416831686_Skyroot image for web.png",
     "id": 23
   },
   {
@@ -220,7 +213,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/R&D Centre/R&D.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734417054248_R&D.jpg",
     "id": 24
   },
   {
@@ -229,7 +222,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "./solar-products/defence/Initiating Systems and Pyros/Chaff_Flares.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734416852493_Chaff_Flares.jpg",
     "id": 25
   },
   {
@@ -238,7 +231,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Fuzes1.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734416873205_Fuzes1.jpg",
     "id": 26
   },
   {
@@ -247,7 +240,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Detonators1.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734416880802_Detonators1.jpg",
     "id": 27
   },
   {
@@ -256,7 +249,7 @@
     "description": [
       ""
     ],
-    "imageUrl": "solar-products/defence/Initiating Systems and Pyros/Igniters1-1.jpg",
+    "imageUrl": "https://solargroup.com/api/download-file?file=products/images/1734417028050_Igniters1-1.jpg",
     "id": 28
   }
 ]

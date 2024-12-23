@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require('fs');
 const path = require('path');
+const {authenticateJWT} =require('../Controllers/auth.js')
 
 // Path to the JSON file
 const dataPath = path.join(__dirname, '../data/Chartdata.json');
@@ -29,7 +30,7 @@ router.get('/', (req, res) => {
 });
 
 // POST request to update data
-router.post('/update', (req, res) => {
+router.post('/update',authenticateJWT, (req, res) => {
   const newData = req.body; // Assume newData is the complete updated data
 
   // Write new data to the file
@@ -45,7 +46,7 @@ router.post('/update', (req, res) => {
 });
 
 
-router.put('/edit/:datasetIndex/:entryIndex', (req, res) => {
+router.put('/edit/:datasetIndex/:entryIndex',authenticateJWT, (req, res) => {
   const { datasetIndex, entryIndex } = req.params;
   const { name, value, color } = req.body;
 
@@ -61,7 +62,7 @@ router.put('/edit/:datasetIndex/:entryIndex', (req, res) => {
 });
 
 // DELETE request to remove an entry
-router.delete('/delete/:datasetIndex/:entryIndex', (req, res) => {
+router.delete('/delete/:datasetIndex/:entryIndex',authenticateJWT, (req, res) => {
   const { datasetIndex, entryIndex } = req.params;
 
   if (!data || !data.datasets[datasetIndex]) {

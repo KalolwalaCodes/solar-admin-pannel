@@ -34,21 +34,29 @@ const RevenueExpenseManager = () => {
     setNewEntry((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleEdit = async (index) => {
-    const editedEntry = data.datasets[selectedDataset][index];
+  const handleEdit = (index, isConsolidated) => {
+    let datasetIndex;
+      if(selectedDataset==0){
+      datasetIndex = isConsolidated ? 1 : 0;
+      }
+      else if(selectedDataset==2){
+        datasetIndex = isConsolidated ? 3 : 2;
+      }
+    const editedEntry = data.datasets[datasetIndex][index];
     setNewEntry(editedEntry);
-    setEditIndex(index);
+    setEditIndex({ index, datasetIndex });
     setActiveView(1);
   };
   
   const handleAddOrUpdate = async () => {
     try {
+      const { datasetIndex, index } = editIndex || {}; // Safely extract dataset and index
       const url = editIndex !== null
-        ? `/admin-panel/RevenueExpenseManager/edit/${selectedDataset}/${editIndex}`
+        ? `/admin-panel/RevenueExpenseManager/edit/${datasetIndex}/${index}`
         : `/admin-panel/RevenueExpenseManager/add/${selectedDataset}`;
-  
+    
       const method = editIndex !== null ? 'PUT' : 'POST';
-  
+    
       const response = await fetch(url, {
         method,
         headers: {
@@ -57,7 +65,7 @@ const RevenueExpenseManager = () => {
         },
         body: JSON.stringify(newEntry),
       });
-  
+    
       if (!response.ok) throw new Error('Failed to save changes');
       const updatedData = await response.json();
       setData(updatedData.data); // Update state with the latest data
@@ -69,6 +77,7 @@ const RevenueExpenseManager = () => {
       setActiveView(0);
     }
   };
+  
   
 
   const handleDelete = async (index) => {
@@ -145,7 +154,7 @@ const RevenueExpenseManager = () => {
                 </div>
                 <div>
                   <button 
-                    onClick={() => handleEdit(index)} 
+                    onClick={() => handleEdit(index,false)} 
                     className="px-2 py-1 text-sm bg-yellow-500 text-white rounded hover:bg-yellow-600 mr-2"
                   >
                     Edit
@@ -171,7 +180,7 @@ const RevenueExpenseManager = () => {
                 </div>
                 <div>
                   <button 
-                    onClick={() => handleEdit(index)} 
+                    onClick={() => handleEdit(index,true)} 
                     className="px-2 py-1 text-sm bg-yellow-500 text-white rounded hover:bg-yellow-600 mr-2"
                   >
                     Edit

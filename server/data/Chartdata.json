@@ -3,33 +3,33 @@
     [
       {
         "name": "Others",
-        "value": "5",
-        "color": "#4765ad"
+        "value": "1",
+        "color": "#7167ae"
       },
       {
         "name": "CIL",
         "value": 15,
-        "color": "#74c9f1"
+        "color": "#7c869f"
       },
       {
         "name": "Exports and Overseas",
         "value": 40,
-        "color": "#6fa3ad"
+        "color": "#4765ad"
       },
       {
         "name": "Non-CIL & Institutional",
         "value": 17,
-        "color": "#418bbf"
+        "color": "#74c9f1"
       },
       {
         "name": "Defence",
         "value": 9,
-        "color": "#7167ae"
+        "color": "#6fa3ad"
       },
       {
         "name": "Housing and Infrastructure",
         "value": 18,
-        "color": "#bbb5da"
+        "color": "#418bbf"
       }
     ],
     [
@@ -71,39 +71,39 @@
     ],
     [
       {
-        "name": "Category n",
+        "name": "Depriciation",
         "value": 2,
+        "color": "#7c869f"
+      },
+      {
+        "name": "Material consumed",
+        "value": 53,
         "color": "#4765ad"
       },
       {
-        "name": "Category o",
-        "value": 53,
+        "name": "Interest and Finance Cost",
+        "value": 2,
         "color": "#74c9f1"
       },
       {
-        "name": "Category p",
-        "value": 2,
+        "name": "Employee Cost",
+        "value": 7,
         "color": "#6fa3ad"
       },
       {
-        "name": "Category q",
-        "value": 7,
+        "name": "Tax",
+        "value": 5,
         "color": "#418bbf"
       },
       {
-        "name": "Category r",
-        "value": 5,
+        "name": "PAT",
+        "value": 14,
         "color": "#7167ae"
       },
       {
-        "name": "Category s",
-        "value": 14,
-        "color": "#bbb5da"
-      },
-      {
-        "name": "Category t",
+        "name": "Other Expenses",
         "value": 17,
-        "color": "#7c869f"
+        "color": "#bbb5da"
       }
     ],
     [
