@@ -6,7 +6,7 @@ const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/clie
 const { Upload } = require('@aws-sdk/lib-storage');
 const { DeleteObjectCommand } = require('@aws-sdk/client-s3');
 const path = require('path');
-
+const {authenticateJWT}=require("../Controllers/auth")
 // S3 configuration
 const s3 = new S3Client({ region: 'ap-south-1' });
 const storage = multer.memoryStorage();
@@ -76,7 +76,7 @@ router.get('/industrial-data', async(req, res) => {
 
 
 // POST: Add new industrial product (handling both image and PDF)
-router.post('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
+router.post('/industrial-data',authenticateJWT, upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
   const { category, title,description } = req.body;
   const imageFile = req.files['image'] ? req.files['image'][0] : null;
   const pdfFile = req.files['pdf'] ? req.files['pdf'][0] : null;
@@ -145,7 +145,7 @@ router.post('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, {
 });
 
 // PUT: Update industrial product (handling both image and PDF)
-router.put('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
+router.put('/industrial-data',authenticateJWT, upload.fields([{ name: "image", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), async (req, res) => {
   const { category, title ,id,description} = req.body;
   console.log("here is the data--------",category, title);
   const imageFile = req.files['image'] ? req.files['image'][0] : null;
@@ -220,7 +220,7 @@ router.put('/industrial-data', upload.fields([{ name: "image", maxCount: 1 }, { 
 });
 
 // DELETE: Delete a product by title (handling both image and PDF)
-router.delete('/industrial-data', async (req, res) => {
+router.delete('/industrial-data',authenticateJWT, async (req, res) => {
   const { id } = req.query; // Assume title is passed as a query parameter
 
   try {
@@ -285,7 +285,7 @@ router.get('/defense-data', async(req, res) => {
 });
 
 
-router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }]), async (req, res) => {
+router.post("/defense-data", authenticateJWT, upload.fields([{ name: "image" }, { name: "pdf" }]), async (req, res) => {
   const { category, title,description } = req.body;
   const files = req.files;
 
@@ -355,6 +355,7 @@ router.post("/defense-data", upload.fields([{ name: "image" }, { name: "pdf" }])
 
 router.put(
   "/defense-data",
+  authenticateJWT,
   upload.fields([{ name: "image" }, { name: "pdf" }]),
   async (req, res) => {
     const { category, title, id,description } = req.body;
@@ -433,7 +434,7 @@ router.put(
 );
 
 
-router.delete("/defense-data", async (req, res) => {
+router.delete("/defense-data",authenticateJWT, async (req, res) => {
   const { id } = req.query;
   console.log(id,"the id is");
   try {
@@ -488,7 +489,7 @@ router.delete("/defense-data", async (req, res) => {
 });
 
 
-router.get('/pdf/:fileKey', async (req, res) => {
+router.get('/pdf/:fileKey',authenticateJWT, async (req, res) => {
   const fileKey = req.params.fileKey;
 
   const fetchFileFromS3 = async (bucketName, fileKey) => {
