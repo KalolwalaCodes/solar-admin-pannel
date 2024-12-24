@@ -299,7 +299,7 @@ const BoardOfDirectors = () => {
             <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
               {directors.map((director) => (
                 <div key={director.id} className="p-6 bg-white shadow-lg rounded-lg">
-                  <img src={director.imgUrl} alt={director.name} className="w-full h-40 object-cover rounded-t-lg" />
+                  <img src={director.img} alt={director.name} className="w-full h-40 object-cover rounded-t-lg" />
                   <h2 className="text-xl font-semibold mt-4">{director.name}</h2>
                   <p className="text-gray-600">{director.position}</p>
                   <p className="text-gray-500 mt-2">{director.desc}</p>
