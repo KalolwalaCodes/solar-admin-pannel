@@ -9,9 +9,9 @@ import Typography from '@mui/joy/Typography';
 import Check from '@mui/icons-material/Check';
 import Close from '@mui/icons-material/Close';
 
-export default function AlertInvertedColors({ msg }) {
+export default function AlertInvertedColors({ msg ,color }) {
   const [open, setOpen] = useState(false); // state to control visibility
-  console.log(msg);
+  console.log(msg,color);
   
   useEffect(() => {
     if(msg.split(',')&&msg.split(',')[0].length>3)
@@ -41,7 +41,7 @@ export default function AlertInvertedColors({ msg }) {
     >
       <Alert
         size="lg"
-        color="success"
+        color={color?color:"danger"}
         variant="solid"
         invertedColors
         startDecorator={
@@ -79,7 +79,7 @@ export default function AlertInvertedColors({ msg }) {
         }}
       >
         <div>
-          <Typography level="title-lg">Success</Typography>
+          <Typography level="title-lg">{color==="danger"?"error":"success"}</Typography>
           <Typography level="body-sm">{msg.split(',')[0].length&&msg.split(',')[0]}</Typography>
         </div>
         <LinearProgress

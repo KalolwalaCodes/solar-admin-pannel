@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AlertInvertedColors from '../components/ui/Alerts';
 
 const DefenseProducts = () => {
   const [data, setData] = useState([]);
@@ -11,7 +12,8 @@ const DefenseProducts = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const [pdfFile, setPdfFile] = useState(null);
-
+  const [alertMessage,setAlertMessage]=useState();
+  const [alertColor,setAlertColor]=useState();
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
@@ -27,6 +29,10 @@ const DefenseProducts = () => {
         const uniqueCategories = ["All", ...new Set(response.data.map((item) => item.category))];
         setCategories(uniqueCategories);
         setLoading(false);
+        setAlertMessage(
+          `Product data fetched successfully ,${Math.floor(Date.now() / 1000)}`
+        );
+        setAlertColor("success") 
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
@@ -60,6 +66,10 @@ const DefenseProducts = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setData(data.filter((item) => item.title !== productId));
+      setAlertMessage(
+        `Product data deleted successfully ,${Math.floor(Date.now() / 1000)}`
+      );
+      setAlertColor("success") 
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -103,9 +113,16 @@ const DefenseProducts = () => {
         );
         setData([...data, response.data]);
       }
-
+      setAlertMessage(
+        `Product data edited successfully ,${Math.floor(Date.now() / 1000)}`
+      );
+      setAlertColor("success") 
       setShowModal(false);
     } catch (error) {
+      setAlertMessage(
+        `${error.message},${Math.floor(Date.now() / 1000)}`
+      );
+      setAlertColor("danger") 
       console.error("Error saving product:", error);
     }
   };
@@ -116,14 +133,20 @@ const DefenseProducts = () => {
     // Validate file key
     if (!fileKey) {
       console.error("File key is undefined.");
-      alert("Cannot open file: Missing file key.");
+      setAlertMessage(
+        `Cannot open file: Missing file key.,${Math.floor(Date.now() / 1000)}`
+      );
+      setAlertColor("danger") 
       return;
     }
   
     // Validate token
     if (!token) {
       console.error("Auth token is missing.");
-      alert("Cannot open file: Missing authentication token.");
+      setAlertMessage(
+        `Cannot open file: Missing authentication token.,${Math.floor(Date.now() / 1000)}`
+      );
+      setAlertColor("danger") 
       return;
     }
   
@@ -142,7 +165,10 @@ const DefenseProducts = () => {
       // Check if the request was successful
       if (!response.ok) {
         console.error("Failed to fetch file:", response.statusText);
-        alert("Failed to open file. Please try again.");
+        setAlertMessage(
+          `Failed to open file. Please try again.,${Math.floor(Date.now() / 1000)}`
+        );
+        setAlertColor("danger") 
         return;
       }
   
@@ -161,7 +187,11 @@ const DefenseProducts = () => {
       }, 1000);
     } catch (error) {
       console.error("Error during file fetch:", error);
-      alert("An error occurred while opening the file. Please try again.");
+      setAlertMessage(
+        `An error occurred while opening the file. Please try again.,${Math.floor(Date.now() / 1000)}`
+      );
+      setAlertColor("danger") 
+  
     }
   }
 
@@ -171,13 +201,20 @@ const DefenseProducts = () => {
       if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
         setImageFile(file);
       } else {
-        alert("Please select a valid .jpg or .png file");
+        setAlertMessage(
+          `Please select a valid .jpg or .png file,${Math.floor(Date.now() / 1000)}`
+        );
+        setAlertColor("danger") 
+   
       }
     } else if (type === "pdf") {
       if (file && file.type === "application/pdf") {
         setPdfFile(file);
       } else {
-        alert("Please select a valid PDF file");
+        setAlertMessage(
+          `Please select a valid PDF file ,${Math.floor(Date.now() / 1000)}`
+        );
+        setAlertColor("danger") 
       }
     }
   };
@@ -208,6 +245,8 @@ const DefenseProducts = () => {
       </div>
 
       <div className="flex justify-end px-6 py-4">
+              <AlertInvertedColors msg={alertMessage} color={alertColor} />
+        
         <button
           onClick={handleAddProduct}
           className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition"

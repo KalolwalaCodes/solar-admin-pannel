@@ -36,27 +36,27 @@
       {
         "name": "Others",
         "value": 1,
-        "color": "#4765ad"
+        "color": "#7c869f"
       },
       {
         "name": "CIL",
         "value": 25,
-        "color": "#74c9f1"
+        "color": "#4765ad"
       },
       {
         "name": "Non-CIL & Institutional",
         "value": 20,
-        "color": "#6fa3ad"
+        "color": "#74c9f1"
       },
       {
         "name": "Housing and Infrastructure",
         "value": 24,
-        "color": "#418bbf"
+        "color": "#6fa3ad"
       },
       {
         "name": "Subsidiary",
         "value": 15,
-        "color": "#7c869f"
+        "color": "#418bbf"
       },
       {
         "name": "Exports",
@@ -108,38 +108,38 @@
     ],
     [
       {
-        "name": "Category u",
-        "value": 1,
+        "name": "Material Consumed",
+        "value": "62",
         "color": "#4765ad"
       },
       {
-        "name": "Category v",
-        "value": 62,
+        "name": "Interest and Finance Cost",
+        "value": "1",
         "color": "#74c9f1"
       },
       {
-        "name": "Category w",
-        "value": 1,
+        "name": "Employee Cost",
+        "value": "5",
         "color": "#6fa3ad"
       },
       {
-        "name": "Category x",
+        "name": "Tax",
         "value": 5,
         "color": "#418bbf"
       },
       {
-        "name": "Category y",
-        "value": 5,
+        "name": "PAT",
+        "value": "16",
         "color": "#7167ae"
       },
       {
-        "name": "Category z",
-        "value": 16,
+        "name": "Other Expenses",
+        "value": "10",
         "color": "#bbb5da"
       },
       {
-        "name": "Category za",
-        "value": 10,
+        "name": "Depreciation",
+        "value": "1",
         "color": "#7c869f"
       }
     ]

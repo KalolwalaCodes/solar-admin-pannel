@@ -120,6 +120,7 @@ router.put("/:id", upload.single("img"), async (req, res) => {
   const file = req.file;
 
   try {
+    // Read and parse existing data
     let data = JSON.parse(await readData());
     const director = data.find(d => d.id === directorId);
 
@@ -127,11 +128,23 @@ router.put("/:id", upload.single("img"), async (req, res) => {
       return res.status(404).json({ error: "Director not found." });
     }
 
+    // Handle file upload
     if (file) {
-      if (director.img&&director.img.includes("https")) {
-        console.log("finding existing image");
+      if (director.img && director.img.includes("https")) {
+        console.log("Deleting existing image from S3");
         const oldFileName = director.img.split("/").pop();
-        await s3.send(new DeleteObjectCommand({ Bucket: "your-s3-bucket-name", Key: `directors/${oldFileName}` }));
+
+        try {
+          await s3.send(
+            new DeleteObjectCommand({
+              Bucket: "solarwebsite-documents",
+              Key: `directors/${oldFileName}`,
+            })
+          );
+        } catch (deleteError) {
+          console.error("Failed to delete old image:", deleteError);
+          return res.status(500).json({ error: "Failed to delete old image." });
+        }
       }
 
       const uploadParams = {
@@ -141,25 +154,35 @@ router.put("/:id", upload.single("img"), async (req, res) => {
         ContentType: file.mimetype,
       };
 
-      const parallelUpload = new Upload({
-        client: s3,
-        params: uploadParams,
-      });
+      try {
+        const parallelUpload = new Upload({
+          client: s3,
+          params: uploadParams,
+        });
 
-      const s3UploadResult = await parallelUpload.done();
-      director.img = `https://solarwebsite-documents/${uploadParams.Key}`;
+        const s3UploadResult = await parallelUpload.done();
+        const fileName = uploadParams.Key.split('/').pop();
+        director.img = `https://solargroup.com/api/download-file?file=directors/${fileName}`;
+      } catch (uploadError) {
+        console.error("Failed to upload new image:", uploadError);
+        return res.status(500).json({ error: "Failed to upload new image." });
+      }
     }
 
+    // Update director details
     director.name = name || director.name;
     director.position = position || director.position;
     director.desc = desc || director.desc;
 
+    // Save updated data
     await writeData(data);
+
     res.status(200).json({ message: "Director updated successfully.", data: director });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ error: "Failed to update director." });
   }
 });
+
 
 module.exports = router;

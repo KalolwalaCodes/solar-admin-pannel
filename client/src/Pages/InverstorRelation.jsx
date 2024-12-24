@@ -28,7 +28,7 @@ const InvestorsRelation = () => {
   const [filesIs, setFiles] = useState();
   const [folderIs, SetFolderIs] = useState();
   const [alertMessage, setAlertMessage] = useState("");
-
+   const [alertColor,setAlertColor]=useState();
   const [editedFolderName, setEditedFolderName] = useState("");
   const [showEditToggler, setShowEditToggler] = useState(false);
   const [elementToSend, setElementToSend] = useState();
@@ -161,11 +161,13 @@ const InvestorsRelation = () => {
         setAlertMessage(
           `Failed to update file name ,${Math.floor(Date.now() / 1000)}`
         ); // Unique error with timestamp
+        setAlertColor("danger") 
         console.log("Failed to update file name");
       }
     } catch (error) {
       console.error("Error:", error);
       setAlertMessage(`${error.message},${Math.floor(Date.now() / 1000)}`);
+      setAlertColor("danger") 
     }
   };
 
@@ -199,6 +201,7 @@ const InvestorsRelation = () => {
         setAlertMessage(
           `File deleted successfully,${Math.floor(Date.now() / 1000)}`
         );
+        setAlertColor("success") 
         // Update investorData state
         setInvestorData((prevData) => {
           // Make a deep copy of the previous state
@@ -243,11 +246,12 @@ const InvestorsRelation = () => {
         setAlertMessage(
           `Failed to delete file , ${Math.floor(Date.now() / 1000)}`
         );
+        setAlertColor("danger") 
         console.log("Failed to delete file");
       }
     } catch (error) {
       setAlertMessage(`${error.message}, ${Math.floor(Date.now() / 1000)}`);
-      console.error("Error:", error);
+      setAlertColor("danger") 
     }
   };
 
@@ -314,7 +318,7 @@ const InvestorsRelation = () => {
         setAlertMessage(
           `Item deleted successfully, ${Math.floor(Date.now() / 1000)}`
         );
-
+        setAlertColor("success") 
         // Update the investorData state
         setInvestorData((prevData) => {
           const updatedData = { ...prevData };
@@ -385,7 +389,7 @@ const InvestorsRelation = () => {
         setAlertMessage(
           `Folder renamed successfully ,${Math.floor(Date.now() / 1000)}`
         );
-
+        setAlertColor("success") 
         // Update the investorData state to reflect the folder name change
         setInvestorData((prevData) => {
           const updatedData = { ...prevData };
@@ -458,7 +462,7 @@ const InvestorsRelation = () => {
         setAlertMessage(
           `File uploaded successfully ,${Math.floor(Date.now() / 1000)}`
         );
-
+        setAlertColor("success") 
         // Update the investorData state
         setInvestorData((prevData) => {
           const updatedData = { ...prevData };
@@ -503,10 +507,12 @@ const InvestorsRelation = () => {
         setAlertMessage(
           `Failed to upload file ,${Math.floor(Date.now() / 1000)}`
         );
+        setAlertColor("danger") 
       }
     } catch (error) {
       console.error("Error:", error);
       setAlertMessage(`${error.message},${Math.floor(Date.now() / 1000)}`);
+      setAlertColor("danger") 
     }
     setActiveUploader(!activeUploader);
   };
@@ -569,7 +575,9 @@ const InvestorsRelation = () => {
           `Error creating folder: ${errorMessage} ,${Math.floor(
             Date.now() / 1000
           )}`
+          
         ); // Optional: display error to user
+        setAlertColor("danger") 
         return;
       }
 
@@ -586,7 +594,7 @@ const InvestorsRelation = () => {
       setAlertMessage(
         `Folder created successfully!,${Math.floor(Date.now() / 1000)}`
       );
-
+      setAlertColor("success") 
       // Automatically update `InvestorData`
       setInvestorData((prevData) => {
         const updatedData = { ...prevData };
@@ -629,6 +637,7 @@ const InvestorsRelation = () => {
           Date.now() / 1000
         )}`
       );
+      setAlertColor("danger") 
     }
   };
   return (
@@ -787,7 +796,7 @@ const InvestorsRelation = () => {
 
       <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
         {/* <Alert severity="success">{alertMessage || "Success"}</Alert> */}
-        <AlertInvertedColors msg={alertMessage} />
+        <AlertInvertedColors msg={alertMessage} color={alertColor} />
         {Object.keys(investorData).map((key, index) => (
           <Button
             key={index}

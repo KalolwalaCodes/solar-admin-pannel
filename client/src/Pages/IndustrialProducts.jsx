@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import AlertInvertedColors from '../components/ui/Alerts';
 const IndustrialProducts = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [buttonLoading, setButtonLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -11,7 +12,8 @@ const IndustrialProducts = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const [pdfFile, setPdfFile] = useState(null);
-
+  const [alertMessage,setAlertMessage]=useState();
+  const [alertColor,setAlertColor]=useState();
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
@@ -27,6 +29,10 @@ const IndustrialProducts = () => {
         const uniqueCategories = ["All", ...new Set(response.data.map((item) => item.category))];
         setCategories(uniqueCategories);
         setLoading(false);
+        setAlertMessage(
+          `Product data fetched successfully ,${Math.floor(Date.now() / 1000)}`
+        );
+        setAlertColor("success") 
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
@@ -42,6 +48,7 @@ const IndustrialProducts = () => {
     setImageFile(null);
     setPdfFile(null);
     setShowModal(true);
+    
   };
 
   const handleEdit = (product) => {
@@ -63,12 +70,17 @@ const IndustrialProducts = () => {
         }
       );
       setData(data.filter((item) => item.id !== productId));
+      setAlertMessage(
+        ` product data deleted successfully ,${Math.floor(Date.now() / 1000)}`
+      ); 
+      setAlertColor("success") 
     } catch (error) {
       console.error("Error deleting product:", error);
     }
   };
 
   const handleSave = async () => {
+    setButtonLoading(true);
     const token = localStorage.getItem("authToken");
 
     try {
@@ -92,6 +104,7 @@ const IndustrialProducts = () => {
           }
         );
         setData(res.data);
+        
       } else {
         const response = await axios.post(
           "/admin-panel/product-category/industrial-data",
@@ -105,11 +118,19 @@ const IndustrialProducts = () => {
         );
         setData([...data, response.data]);
       }
-
+      setAlertMessage(
+        ` product data saved successfully ,${Math.floor(Date.now() / 1000)}`
+      ); 
+      setAlertColor("success") 
       setShowModal(false);
     } catch (error) {
       console.error("Error saving product:", error);
+      setAlertMessage(
+        ` ${error.message} ,${Math.floor(Date.now() / 1000)}`
+      ); 
+      setAlertColor("danger") 
     }
+    setButtonLoading(false);
   };
 
 
@@ -119,14 +140,20 @@ const IndustrialProducts = () => {
     // Validate file key
     if (!fileKey) {
       console.error("File key is undefined.");
-      alert("Cannot open file: Missing file key.");
+      setAlertMessage(
+        `Cannot open file: Missing file key.,${Math.floor(Date.now() / 1000)}`
+      ); 
+      setAlertColor("danger") 
       return;
     }
   
     // Validate token
     if (!token) {
       console.error("Auth token is missing.");
-      alert("Cannot open file: Missing authentication token.");
+      setAlertMessage(
+        `Cannot open file: Missing authentication token.,${Math.floor(Date.now() / 1000)}`
+      ); 
+      setAlertColor("danger") 
       return;
     }
   
@@ -145,7 +172,10 @@ const IndustrialProducts = () => {
       // Check if the request was successful
       if (!response.ok) {
         console.error("Failed to fetch file:", response);
-        alert("Failed to open file. Please try again.");
+        setAlertMessage(
+          `Failed to open file. Please try again.,${Math.floor(Date.now() / 1000)}`
+        ); 
+        setAlertColor("danger") 
         return;
       }
   
@@ -164,7 +194,10 @@ const IndustrialProducts = () => {
       }, 1000);
     } catch (error) {
       console.error("Error during file fetch:", error);
-      alert("An error occurred while opening the file. Please try again.");
+      setAlertMessage(
+        `An error occurred while opening the file. Please try again. ,${Math.floor(Date.now() / 1000)}`
+      );
+      setAlertColor("danger") 
     }
   }
   
@@ -176,13 +209,19 @@ const IndustrialProducts = () => {
       if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
         setImageFile(file);
       } else {
-        alert("Please select a valid .jpg or .png file.");
+        setAlertMessage(
+          `Please select a valid .jpg or .png file. ,${Math.floor(Date.now() / 1000)}`
+        );
+        setAlertColor("danger") 
       }
     } else if (type === "pdf") {
       if (file && file.type === "application/pdf") {
         setPdfFile(file);
       } else {
-        alert("Please select a valid .pdf file.");
+        setAlertMessage(
+          `Please select a valid .pdf file. ,${Math.floor(Date.now() / 1000)}`
+        );
+        setAlertColor("danger") 
       }
     }
   };
@@ -198,6 +237,7 @@ const IndustrialProducts = () => {
 
   return (
     <div className=" ">
+     
       <div className="flex flex-wrap justify-evenly mt-4">
         {categories.map((category, index) => (
           <button
@@ -213,6 +253,7 @@ const IndustrialProducts = () => {
       </div>
 
       <div className="flex justify-end px-6 py-4">
+      <AlertInvertedColors msg={alertMessage} color={alertColor} />
         <button
           onClick={handleAddProduct}
           className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition"
@@ -309,12 +350,15 @@ const IndustrialProducts = () => {
               <input type="file" onChange={(e) => handleFileChange(e, "pdf")} className="w-full" />
             </div>
             <div className="mt-6">
-              <button
-                onClick={handleSave}
-                className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition"
-              >
-                Save
-              </button>
+            <button
+      onClick={handleSave}
+      className={`bg-blue-600 text-white px-4 py-2 rounded shadow transition ${
+        buttonLoading ? "cursor-not-allowed bg-gray-500" : "hover:bg-blue-700"
+      }`}
+      disabled={buttonLoading} // Disable button when loading
+    >
+      {buttonLoading ? "Saving..." : "Save"}
+    </button>
               <button
                 onClick={() => setShowModal(false)}
                 className="bg-gray-300 text-gray-700 px-4 py-2 rounded shadow ml-2 hover:bg-gray-400 transition"
