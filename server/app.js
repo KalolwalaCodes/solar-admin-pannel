@@ -37,7 +37,7 @@ app.use("/admin-panel/directors",authenticateJWT,bodRouter);
 app.use("/admin-panel/RevenueExpenseManager",RevenueExpenseManager);
 app.use("/admin-panel/submit-form",formDataRouter);
 app.use("/admin-panel/product-category",solarProductRouter);
-app.use("/admin-panel/shareholder-value",authenticateJWT,shareHolderRouter);
+app.use("/admin-panel/shareholder-value",shareHolderRouter);
 app.use("/admin-panel/sequencing",sequencingRouter);
 
 app.listen("8000",()=>{

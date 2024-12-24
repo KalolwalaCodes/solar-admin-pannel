@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-const path = require("path");
+const path = require("path")
+const {authenticateJWT}=require("../Controllers/auth")
 
 // Path to the JSON file
 const dataPath = path.join(__dirname, "../data/shareholderdata.json");
@@ -34,7 +35,7 @@ router.get("/", (req, res) => {
 });
 
 // POST: Add a new item
-router.post("/", (req, res) => {
+router.post("/",authenticateJWT, (req, res) => {
   const newItem = req.body;
   console.log(newItem,"here i am");
   if (!newItem.title || !newItem.subtitle || !newItem.value || !newItem.icon) {
@@ -46,7 +47,7 @@ router.post("/", (req, res) => {
 });
 
 // PUT: Update an item by index
-router.put("/:index", (req, res) => {
+router.put("/:index",authenticateJWT, (req, res) => {
   const index = parseInt(req.params.index, 10);
   if (index < 0 || index >= data.length) {
     return res.status(404).json({ msg: "Item not found" });
@@ -57,7 +58,7 @@ router.put("/:index", (req, res) => {
 });
 
 // DELETE: Remove an item by index
-router.delete("/:index", (req, res) => {
+router.delete("/:index",authenticateJWT, (req, res) => {
   const index = parseInt(req.params.index, 10);
   if (index < 0 || index >= data.length) {
     return res.status(404).json({ msg: "Item not found" });
